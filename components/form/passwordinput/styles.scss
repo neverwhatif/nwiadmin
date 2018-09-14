@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    position: relative;
+}
+
+.control {
+    @include empty-button;
+    @include posabs((top: -2.3rem, right: 0));
+}

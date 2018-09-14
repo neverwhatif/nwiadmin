@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    margin-bottom: 2rem;
+
+    &Title {
+        font-weight: $bold-fontweight;
+    }
+
+    &Subtle {
+        color: $clr-grey-dark;
+        font-style: italic;
+    }
+}

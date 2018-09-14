@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedTable should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConnectedTableComponent
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+    remote="lorem"
+    transformer={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "location": Object {
+        "pathname": "/lorem",
+        "search": "",
+      },
+      "remote": "lorem",
+      "renderList": [Function],
+      "transformer": [Function],
+    },
+    "ref": null,
+    "rendered": null,
+    "type": "ConnectedListComponent",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "location": Object {
+          "pathname": "/lorem",
+          "search": "",
+        },
+        "remote": "lorem",
+        "renderList": [Function],
+        "transformer": [Function],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": "ConnectedListComponent",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

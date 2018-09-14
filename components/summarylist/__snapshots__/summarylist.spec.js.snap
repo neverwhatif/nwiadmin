@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SummaryList should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SummaryList
+    data={
+      Object {
+        "Ipsum": "Ipsum",
+        "Lorem": "Lorem",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <SummaryListItem
+          def="Lorem"
+          term="Lorem"
+        />,
+        <SummaryListItem
+          def="Ipsum"
+          term="Ipsum"
+        />,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Lorem",
+        "nodeType": "host",
+        "props": Object {
+          "def": "Lorem",
+          "term": "Lorem",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "SummaryListItem",
+      },
+      Object {
+        "instance": null,
+        "key": "Ipsum",
+        "nodeType": "host",
+        "props": Object {
+          "def": "Ipsum",
+          "term": "Ipsum",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "SummaryListItem",
+      },
+    ],
+    "type": "dl",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <SummaryListItem
+            def="Lorem"
+            term="Lorem"
+          />,
+          <SummaryListItem
+            def="Ipsum"
+            term="Ipsum"
+          />,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Lorem",
+          "nodeType": "host",
+          "props": Object {
+            "def": "Lorem",
+            "term": "Lorem",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "SummaryListItem",
+        },
+        Object {
+          "instance": null,
+          "key": "Ipsum",
+          "nodeType": "host",
+          "props": Object {
+            "def": "Ipsum",
+            "term": "Ipsum",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "SummaryListItem",
+        },
+      ],
+      "type": "dl",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

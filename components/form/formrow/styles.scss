@@ -1,0 +1,14 @@
+.root {
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    max-width: 90rem;
+
+    & > * {
+        width: calc(50% - 1rem);
+    }
+
+    &3 > * {
+        width: calc(33.333% - 1rem);
+    }
+}

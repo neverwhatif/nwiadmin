@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsComponent should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TabsComponent
+    basePath="lorem"
+    data={
+      Array [
+        Object {
+          "key": 0,
+          "label": "Lorem",
+          "path": "lorem",
+        },
+        Object {
+          "key": 1,
+          "label": "Ipsum",
+          "path": "ipsum",
+        },
+      ]
+    }
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <li
+          className="item"
+        >
+          <TabItem
+            basePath="lorem"
+            isActive={false}
+            label="Lorem"
+            path="/lorem/lorem"
+          />
+        </li>,
+        <li
+          className="item"
+        >
+          <TabItem
+            basePath="lorem"
+            isActive={false}
+            label="Ipsum"
+            path="/lorem/ipsum"
+          />
+        </li>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "host",
+        "props": Object {
+          "children": <TabItem
+            basePath="lorem"
+            isActive={false}
+            label="Lorem"
+            path="/lorem/lorem"
+          />,
+          "className": "item",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "basePath": "lorem",
+            "isActive": false,
+            "label": "Lorem",
+            "path": "/lorem/lorem",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "TabItem",
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": <TabItem
+            basePath="lorem"
+            isActive={false}
+            label="Ipsum"
+            path="/lorem/ipsum"
+          />,
+          "className": "item",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "basePath": "lorem",
+            "isActive": false,
+            "label": "Ipsum",
+            "path": "/lorem/ipsum",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "TabItem",
+        },
+        "type": "li",
+      },
+    ],
+    "type": "ul",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <li
+            className="item"
+          >
+            <TabItem
+              basePath="lorem"
+              isActive={false}
+              label="Lorem"
+              path="/lorem/lorem"
+            />
+          </li>,
+          <li
+            className="item"
+          >
+            <TabItem
+              basePath="lorem"
+              isActive={false}
+              label="Ipsum"
+              path="/lorem/ipsum"
+            />
+          </li>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": <TabItem
+              basePath="lorem"
+              isActive={false}
+              label="Lorem"
+              path="/lorem/lorem"
+            />,
+            "className": "item",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "host",
+            "props": Object {
+              "basePath": "lorem",
+              "isActive": false,
+              "label": "Lorem",
+              "path": "/lorem/lorem",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "TabItem",
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": <TabItem
+              basePath="lorem"
+              isActive={false}
+              label="Ipsum"
+              path="/lorem/ipsum"
+            />,
+            "className": "item",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "host",
+            "props": Object {
+              "basePath": "lorem",
+              "isActive": false,
+              "label": "Ipsum",
+              "path": "/lorem/ipsum",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "TabItem",
+          },
+          "type": "li",
+        },
+      ],
+      "type": "ul",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

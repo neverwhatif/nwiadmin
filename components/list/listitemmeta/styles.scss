@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    display: flex;
+}
+
+.item {
+    &:not(:last-child) {
+        margin-right: 1rem;
+        padding-right: 1rem;
+        position: relative;
+
+        &::before {
+            @include border-radius;
+            @include posabs((top: .6em, right: -2px));
+            background-color: $clr-grey;
+            content: '';
+            height: .4rem;
+            width: .4rem;
+        }
+    }
+}

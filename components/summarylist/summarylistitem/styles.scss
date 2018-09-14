@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    padding-left: 3rem;
+    width: 25%;
+}
+
+.inner {
+    background-color: $clr-white;
+    border: border();
+    padding: 1rem 1.5rem;
+}
+
+.term {
+    color: $clr-grey-dark;
+    padding-bottom: .2rem;
+}
+
+.def {
+    &IsDisabled {
+        color: $clr-grey-light;
+    }
+}

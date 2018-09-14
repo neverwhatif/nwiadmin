@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    background-color: $clr-grey-xlight;
+
+    &Odd {
+        background-color: $clr-white;
+    }
+
+    &Selectable {
+        cursor: pointer;
+    }
+
+    &Selected {
+        background-color: rgba($clr-primary, .1);
+    }
+}

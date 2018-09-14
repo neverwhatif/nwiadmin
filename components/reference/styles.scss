@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    align-items: center;
+    display: inline-flex;
+}
+
+.reference {
+    @include font-size(xsml);
+    @include border-radius;
+    background-color: $clr-grey-light;
+    color: $clr-text;
+    font-weight: $bold-fontweight;
+    letter-spacing: .05em;
+    margin-left: .8rem;
+    padding: .2rem .5rem;
+}

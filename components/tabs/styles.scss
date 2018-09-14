@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    background-color: $clr-white;
+    display: flex;
+
+    &::before {
+        @include posabs((left: 3rem, right: 3rem, top: 0));
+        border-top: border();
+        content: '';
+    }
+}
+
+.item {
+    margin-left: 2rem;
+}

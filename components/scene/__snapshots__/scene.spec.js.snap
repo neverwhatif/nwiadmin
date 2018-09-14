@@ -1,0 +1,899 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scene should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Scene
+    basePath=""
+    subtitle={null}
+    tabs={null}
+    title="Lorem"
+  >
+    Ipsum
+  </Scene>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <main
+        className="root"
+      >
+        <header
+          className="header"
+        >
+          <h1
+            className="title"
+          >
+            Lorem
+          </h1>
+        </header>
+        <section
+          className="content"
+        >
+          Ipsum
+        </section>
+      </main>,
+      "isScene": true,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <header
+            className="header"
+          >
+            <h1
+              className="title"
+            >
+              Lorem
+            </h1>
+          </header>,
+          null,
+          <section
+            className="content"
+          >
+            Ipsum
+          </section>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="title"
+              >
+                Lorem
+              </h1>,
+              null,
+            ],
+            "className": "header",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lorem",
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": "Lorem",
+              "type": "h1",
+            },
+            null,
+          ],
+          "type": "header",
+        },
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Ipsum",
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": "Ipsum",
+          "type": "section",
+        },
+      ],
+      "type": "main",
+    },
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <main
+          className="root"
+        >
+          <header
+            className="header"
+          >
+            <h1
+              className="title"
+            >
+              Lorem
+            </h1>
+          </header>
+          <section
+            className="content"
+          >
+            Ipsum
+          </section>
+        </main>,
+        "isScene": true,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <header
+              className="header"
+            >
+              <h1
+                className="title"
+              >
+                Lorem
+              </h1>
+            </header>,
+            null,
+            <section
+              className="content"
+            >
+              Ipsum
+            </section>,
+          ],
+          "className": "root",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1
+                  className="title"
+                >
+                  Lorem
+                </h1>,
+                null,
+              ],
+              "className": "header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Lorem",
+                  "className": "title",
+                },
+                "ref": null,
+                "rendered": "Lorem",
+                "type": "h1",
+              },
+              null,
+            ],
+            "type": "header",
+          },
+          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Ipsum",
+              "className": "content",
+            },
+            "ref": null,
+            "rendered": "Ipsum",
+            "type": "section",
+          },
+        ],
+        "type": "main",
+      },
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Scene should render 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Scene
+    basePath=""
+    subtitle="Ipsum"
+    tabs={null}
+    title="Lorem"
+  >
+    Ipsum
+  </Scene>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <main
+        className="root"
+      >
+        <header
+          className="header"
+        >
+          <h1
+            className="title"
+          >
+            Lorem
+          </h1>
+          <p
+            className="subtitle"
+          >
+            Ipsum
+          </p>
+        </header>
+        <section
+          className="content"
+        >
+          Ipsum
+        </section>
+      </main>,
+      "isScene": true,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <header
+            className="header"
+          >
+            <h1
+              className="title"
+            >
+              Lorem
+            </h1>
+            <p
+              className="subtitle"
+            >
+              Ipsum
+            </p>
+          </header>,
+          null,
+          <section
+            className="content"
+          >
+            Ipsum
+          </section>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="title"
+              >
+                Lorem
+              </h1>,
+              <p
+                className="subtitle"
+              >
+                Ipsum
+              </p>,
+            ],
+            "className": "header",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lorem",
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": "Lorem",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Ipsum",
+                "className": "subtitle",
+              },
+              "ref": null,
+              "rendered": "Ipsum",
+              "type": "p",
+            },
+          ],
+          "type": "header",
+        },
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Ipsum",
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": "Ipsum",
+          "type": "section",
+        },
+      ],
+      "type": "main",
+    },
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <main
+          className="root"
+        >
+          <header
+            className="header"
+          >
+            <h1
+              className="title"
+            >
+              Lorem
+            </h1>
+            <p
+              className="subtitle"
+            >
+              Ipsum
+            </p>
+          </header>
+          <section
+            className="content"
+          >
+            Ipsum
+          </section>
+        </main>,
+        "isScene": true,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <header
+              className="header"
+            >
+              <h1
+                className="title"
+              >
+                Lorem
+              </h1>
+              <p
+                className="subtitle"
+              >
+                Ipsum
+              </p>
+            </header>,
+            null,
+            <section
+              className="content"
+            >
+              Ipsum
+            </section>,
+          ],
+          "className": "root",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1
+                  className="title"
+                >
+                  Lorem
+                </h1>,
+                <p
+                  className="subtitle"
+                >
+                  Ipsum
+                </p>,
+              ],
+              "className": "header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Lorem",
+                  "className": "title",
+                },
+                "ref": null,
+                "rendered": "Lorem",
+                "type": "h1",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Ipsum",
+                  "className": "subtitle",
+                },
+                "ref": null,
+                "rendered": "Ipsum",
+                "type": "p",
+              },
+            ],
+            "type": "header",
+          },
+          null,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Ipsum",
+              "className": "content",
+            },
+            "ref": null,
+            "rendered": "Ipsum",
+            "type": "section",
+          },
+        ],
+        "type": "main",
+      },
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Scene should render 3`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Scene
+    basePath=""
+    subtitle={null}
+    tabs={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "label": "Lorem",
+              "path": "lorem",
+            },
+            Object {
+              "label": "Ipsum",
+              "path": "ipsum",
+            },
+          ],
+        },
+      ]
+    }
+    title="Lorem"
+  >
+    Ipsum
+  </Scene>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <main
+        className="root"
+      >
+        <header
+          className="header"
+        >
+          <h1
+            className="title"
+          >
+            Lorem
+          </h1>
+        </header>
+        <Tabs
+          basePath=""
+          data={
+            Array [
+              Object {
+                "data": Array [
+                  Object {
+                    "label": "Lorem",
+                    "path": "lorem",
+                  },
+                  Object {
+                    "label": "Ipsum",
+                    "path": "ipsum",
+                  },
+                ],
+              },
+            ]
+          }
+        />
+        <section
+          className="content"
+        >
+          Ipsum
+        </section>
+      </main>,
+      "isScene": true,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <header
+            className="header"
+          >
+            <h1
+              className="title"
+            >
+              Lorem
+            </h1>
+          </header>,
+          <Tabs
+            basePath=""
+            data={
+              Array [
+                Object {
+                  "data": Array [
+                    Object {
+                      "label": "Lorem",
+                      "path": "lorem",
+                    },
+                    Object {
+                      "label": "Ipsum",
+                      "path": "ipsum",
+                    },
+                  ],
+                },
+              ]
+            }
+          />,
+          <section
+            className="content"
+          >
+            Ipsum
+          </section>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="title"
+              >
+                Lorem
+              </h1>,
+              null,
+            ],
+            "className": "header",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lorem",
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": "Lorem",
+              "type": "h1",
+            },
+            null,
+          ],
+          "type": "header",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "basePath": "",
+            "data": Array [
+              Object {
+                "data": Array [
+                  Object {
+                    "label": "Lorem",
+                    "path": "lorem",
+                  },
+                  Object {
+                    "label": "Ipsum",
+                    "path": "ipsum",
+                  },
+                ],
+              },
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "Tabs",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Ipsum",
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": "Ipsum",
+          "type": "section",
+        },
+      ],
+      "type": "main",
+    },
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <main
+          className="root"
+        >
+          <header
+            className="header"
+          >
+            <h1
+              className="title"
+            >
+              Lorem
+            </h1>
+          </header>
+          <Tabs
+            basePath=""
+            data={
+              Array [
+                Object {
+                  "data": Array [
+                    Object {
+                      "label": "Lorem",
+                      "path": "lorem",
+                    },
+                    Object {
+                      "label": "Ipsum",
+                      "path": "ipsum",
+                    },
+                  ],
+                },
+              ]
+            }
+          />
+          <section
+            className="content"
+          >
+            Ipsum
+          </section>
+        </main>,
+        "isScene": true,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <header
+              className="header"
+            >
+              <h1
+                className="title"
+              >
+                Lorem
+              </h1>
+            </header>,
+            <Tabs
+              basePath=""
+              data={
+                Array [
+                  Object {
+                    "data": Array [
+                      Object {
+                        "label": "Lorem",
+                        "path": "lorem",
+                      },
+                      Object {
+                        "label": "Ipsum",
+                        "path": "ipsum",
+                      },
+                    ],
+                  },
+                ]
+              }
+            />,
+            <section
+              className="content"
+            >
+              Ipsum
+            </section>,
+          ],
+          "className": "root",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h1
+                  className="title"
+                >
+                  Lorem
+                </h1>,
+                null,
+              ],
+              "className": "header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Lorem",
+                  "className": "title",
+                },
+                "ref": null,
+                "rendered": "Lorem",
+                "type": "h1",
+              },
+              null,
+            ],
+            "type": "header",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "basePath": "",
+              "data": Array [
+                Object {
+                  "data": Array [
+                    Object {
+                      "label": "Lorem",
+                      "path": "lorem",
+                    },
+                    Object {
+                      "label": "Ipsum",
+                      "path": "ipsum",
+                    },
+                  ],
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "Tabs",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Ipsum",
+              "className": "content",
+            },
+            "ref": null,
+            "rendered": "Ipsum",
+            "type": "section",
+          },
+        ],
+        "type": "main",
+      },
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

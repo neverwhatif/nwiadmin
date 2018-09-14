@@ -1,0 +1,61 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    align-items: center;
+    display: flex;
+}
+
+.readonly {
+    pointer-events: none;
+}
+
+.control {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.icon {
+    background-color: $clr-white;
+    border: border($clr-grey);
+    cursor: pointer;
+    height: 2rem;
+    position: relative;
+    transition: border-color .1s;
+    width: 2rem;
+
+    &IsDisabled {
+        opacity: .5;
+    }
+
+    &::before {
+        @include posabs((left: 6px, top: 1px));
+        border: $clr-primary solid;
+        border-width: 0 .2rem .2rem 0;
+        content: '';
+        height: 1.3rem;
+        opacity: 0;
+        transform: rotate(45deg) scale(.8);
+        transition: opacity .1s $easing, transform .1s $easing;
+        width: .6rem;
+    }
+
+    .control:checked ~ & {
+        border-color: $clr-primary;
+
+        &::before {
+            opacity: 1;
+            transform: rotate(45deg) scale(1);
+        }
+    }
+}
+
+.label {
+    cursor: pointer;
+    margin-left: .8rem;
+
+    &IsDisabled {
+        opacity: .5;
+    }
+}

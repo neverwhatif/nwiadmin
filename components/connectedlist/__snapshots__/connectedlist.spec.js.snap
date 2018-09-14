@@ -1,0 +1,1039 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectedListComponent should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConnectedListComponent
+    cta={null}
+    filterMap={Object {}}
+    filters={null}
+    hasSearch={true}
+    itemName={null}
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+    remote="lorem"
+    renderList={[Function]}
+    shouldOnlyUpdateWithFilters={false}
+    transformer={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        null,
+        <Loading />,
+        false,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "Loading",
+      },
+      false,
+    ],
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          null,
+          <Loading />,
+          false,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "Loading",
+        },
+        false,
+      ],
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ConnectedListComponent should render 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConnectedListComponent
+    cta={null}
+    filterMap={Object {}}
+    filters={[Function]}
+    hasSearch={true}
+    itemName={null}
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+    remote="lorem"
+    renderList={[Function]}
+    shouldOnlyUpdateWithFilters={false}
+    transformer={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <React.Fragment>
+          <FilterBar
+            cta={null}
+            filters={[Function]}
+            hasSearch={true}
+            isVisible={false}
+            itemName={null}
+            location={
+              Object {
+                "pathname": "/lorem",
+                "search": "",
+              }
+            }
+            setVisibility={[Function]}
+          />
+          <FilterSummary
+            filterMap={Object {}}
+            location={
+              Object {
+                "pathname": "/lorem",
+                "search": "",
+              }
+            }
+            resetFilters={[Function]}
+          />
+        </React.Fragment>,
+        <List
+          columns={Array []}
+          data={
+            Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+            ]
+          }
+          functions={
+            Object {
+              "reloadData": [Function],
+              "updateData": [Function],
+              "updateRow": [Function],
+            }
+          }
+          isDisabled={false}
+          shouldInitPreload={true}
+          transformer={[Function]}
+        />,
+        <Pagination
+          data={
+            Array [
+              Object {
+                "total": 1,
+              },
+            ]
+          }
+          location={
+            Object {
+              "pathname": "/lorem",
+              "search": "",
+            }
+          }
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <FilterBar
+              cta={null}
+              filters={[Function]}
+              hasSearch={true}
+              isVisible={false}
+              itemName={null}
+              location={
+                Object {
+                  "pathname": "/lorem",
+                  "search": "",
+                }
+              }
+              setVisibility={[Function]}
+            />,
+            <FilterSummary
+              filterMap={Object {}}
+              location={
+                Object {
+                  "pathname": "/lorem",
+                  "search": "",
+                }
+              }
+              resetFilters={[Function]}
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "cta": null,
+              "filters": [Function],
+              "hasSearch": true,
+              "history": undefined,
+              "isVisible": false,
+              "itemName": null,
+              "location": Object {
+                "pathname": "/lorem",
+                "search": "",
+              },
+              "setVisibility": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "FilterBar",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "filterMap": Object {},
+              "location": Object {
+                "pathname": "/lorem",
+                "search": "",
+              },
+              "resetFilters": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": Symbol(react.fragment),
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "columns": Array [],
+          "data": Array [
+            Object {
+              "id": 1,
+              "name": "Lorem",
+            },
+          ],
+          "functions": Object {
+            "reloadData": [Function],
+            "updateData": [Function],
+            "updateRow": [Function],
+          },
+          "isDisabled": false,
+          "shouldInitPreload": true,
+          "transformer": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "List",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "data": Array [
+            Object {
+              "total": 1,
+            },
+          ],
+          "location": Object {
+            "pathname": "/lorem",
+            "search": "",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "Pagination",
+      },
+    ],
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <React.Fragment>
+            <FilterBar
+              cta={null}
+              filters={[Function]}
+              hasSearch={true}
+              isVisible={false}
+              itemName={null}
+              location={
+                Object {
+                  "pathname": "/lorem",
+                  "search": "",
+                }
+              }
+              setVisibility={[Function]}
+            />
+            <FilterSummary
+              filterMap={Object {}}
+              location={
+                Object {
+                  "pathname": "/lorem",
+                  "search": "",
+                }
+              }
+              resetFilters={[Function]}
+            />
+          </React.Fragment>,
+          <List
+            columns={Array []}
+            data={
+              Array [
+                Object {
+                  "id": 1,
+                  "name": "Lorem",
+                },
+              ]
+            }
+            functions={
+              Object {
+                "reloadData": [Function],
+                "updateData": [Function],
+                "updateRow": [Function],
+              }
+            }
+            isDisabled={false}
+            shouldInitPreload={true}
+            transformer={[Function]}
+          />,
+          <Pagination
+            data={
+              Array [
+                Object {
+                  "total": 1,
+                },
+              ]
+            }
+            location={
+              Object {
+                "pathname": "/lorem",
+                "search": "",
+              }
+            }
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <FilterBar
+                cta={null}
+                filters={[Function]}
+                hasSearch={true}
+                isVisible={false}
+                itemName={null}
+                location={
+                  Object {
+                    "pathname": "/lorem",
+                    "search": "",
+                  }
+                }
+                setVisibility={[Function]}
+              />,
+              <FilterSummary
+                filterMap={Object {}}
+                location={
+                  Object {
+                    "pathname": "/lorem",
+                    "search": "",
+                  }
+                }
+                resetFilters={[Function]}
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "cta": null,
+                "filters": [Function],
+                "hasSearch": true,
+                "history": undefined,
+                "isVisible": false,
+                "itemName": null,
+                "location": Object {
+                  "pathname": "/lorem",
+                  "search": "",
+                },
+                "setVisibility": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "FilterBar",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "filterMap": Object {},
+                "location": Object {
+                  "pathname": "/lorem",
+                  "search": "",
+                },
+                "resetFilters": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": Symbol(react.fragment),
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "columns": Array [],
+            "data": Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+            ],
+            "functions": Object {
+              "reloadData": [Function],
+              "updateData": [Function],
+              "updateRow": [Function],
+            },
+            "isDisabled": false,
+            "shouldInitPreload": true,
+            "transformer": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "List",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "data": Array [
+              Object {
+                "total": 1,
+              },
+            ],
+            "location": Object {
+              "pathname": "/lorem",
+              "search": "",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "Pagination",
+        },
+      ],
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ConnectedListComponent should render 3`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConnectedListComponent
+    cta={null}
+    filterMap={Object {}}
+    filters={null}
+    hasSearch={true}
+    itemName={null}
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+    remote="lorem"
+    renderList={[Function]}
+    shouldOnlyUpdateWithFilters={false}
+    transformer={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        null,
+        <List
+          columns={Array []}
+          data={
+            Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+            ]
+          }
+          functions={
+            Object {
+              "reloadData": [Function],
+              "updateData": [Function],
+              "updateRow": [Function],
+            }
+          }
+          isDisabled={false}
+          shouldInitPreload={true}
+          transformer={[Function]}
+        />,
+        <Pagination
+          data={
+            Array [
+              Object {
+                "total": 1,
+              },
+            ]
+          }
+          location={
+            Object {
+              "pathname": "/lorem",
+              "search": "",
+            }
+          }
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "columns": Array [],
+          "data": Array [
+            Object {
+              "id": 1,
+              "name": "Lorem",
+            },
+          ],
+          "functions": Object {
+            "reloadData": [Function],
+            "updateData": [Function],
+            "updateRow": [Function],
+          },
+          "isDisabled": false,
+          "shouldInitPreload": true,
+          "transformer": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "List",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "data": Array [
+            Object {
+              "total": 1,
+            },
+          ],
+          "location": Object {
+            "pathname": "/lorem",
+            "search": "",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "Pagination",
+      },
+    ],
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          null,
+          <List
+            columns={Array []}
+            data={
+              Array [
+                Object {
+                  "id": 1,
+                  "name": "Lorem",
+                },
+              ]
+            }
+            functions={
+              Object {
+                "reloadData": [Function],
+                "updateData": [Function],
+                "updateRow": [Function],
+              }
+            }
+            isDisabled={false}
+            shouldInitPreload={true}
+            transformer={[Function]}
+          />,
+          <Pagination
+            data={
+              Array [
+                Object {
+                  "total": 1,
+                },
+              ]
+            }
+            location={
+              Object {
+                "pathname": "/lorem",
+                "search": "",
+              }
+            }
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "columns": Array [],
+            "data": Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+            ],
+            "functions": Object {
+              "reloadData": [Function],
+              "updateData": [Function],
+              "updateRow": [Function],
+            },
+            "isDisabled": false,
+            "shouldInitPreload": true,
+            "transformer": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "List",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "data": Array [
+              Object {
+                "total": 1,
+              },
+            ],
+            "location": Object {
+              "pathname": "/lorem",
+              "search": "",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "Pagination",
+        },
+      ],
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ConnectedListComponent should render 4`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConnectedListComponent
+    cta={null}
+    filterMap={Object {}}
+    filters={null}
+    hasSearch={true}
+    itemName={null}
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+    remote="lorem"
+    renderList={[Function]}
+    shouldOnlyUpdateWithFilters={false}
+    transformer={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        null,
+        <Loading />,
+        false,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "Loading",
+      },
+      false,
+    ],
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          null,
+          <Loading />,
+          false,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "Loading",
+        },
+        false,
+      ],
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ConnectedListComponent should render 5`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConnectedListComponent
+    cta={null}
+    filterMap={Object {}}
+    filters={null}
+    hasSearch={true}
+    itemName={null}
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+    remote="lorem"
+    renderList={[Function]}
+    shouldOnlyUpdateWithFilters={false}
+    transformer={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        null,
+        <EmptyList />,
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "description": undefined,
+          "title": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "EmptyList",
+      },
+      null,
+    ],
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          null,
+          <EmptyList />,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "description": undefined,
+            "title": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "EmptyList",
+        },
+        null,
+      ],
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ConnectedListComponent should render 6`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConnectedListComponent
+    cta={null}
+    filterMap={Object {}}
+    filters={null}
+    hasSearch={true}
+    itemName={null}
+    location={
+      Object {
+        "pathname": "/lorem",
+        "search": "",
+      }
+    }
+    remote="lorem"
+    renderList={[Function]}
+    shouldOnlyUpdateWithFilters={false}
+    transformer={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        null,
+        <Loading />,
+        false,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "Loading",
+      },
+      false,
+    ],
+    "type": "ErrorBoundary",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          null,
+          <Loading />,
+          false,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "Loading",
+        },
+        false,
+      ],
+      "type": "ErrorBoundary",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

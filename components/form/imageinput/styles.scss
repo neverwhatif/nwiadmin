@@ -1,0 +1,38 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    max-width: 90rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.inner {
+}
+
+.image {
+    background-color: $clr-grey-light;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    display: block;
+    padding-top: 60%;
+    width: 100%;
+}
+
+.empty {
+    @include font-size(lrg);
+    background-color: $clr-grey-light;
+    color: $clr-grey-dark;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.control {
+    @include posabs((top: -2rem, left: -2rem));
+    cursor: pointer;
+    height: 90rem;
+    opacity: 0;
+    width: 100rem;
+}

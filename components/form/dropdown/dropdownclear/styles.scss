@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include hide-text;
+    @include posabs((top: calc(50% - 15px), right: 4rem));
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::before,
+    &::after {
+        @include posabs((top: calc(50% - .1rem), left: calc(50% - .8rem)));
+        background-color: $clr-primary;
+        content: '';
+        height: .2rem;
+        transform: rotate(45deg);
+        width: 1.6rem;
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+}

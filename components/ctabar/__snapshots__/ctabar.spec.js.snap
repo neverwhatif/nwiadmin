@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CTABar should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CTABar
+    data={
+      Array [
+        Object {
+          "action": [MockFunction],
+          "label": "Lorem",
+        },
+        Object {
+          "action": [MockFunction],
+          "label": "Ipsum",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Button
+          onClick={[MockFunction]}
+        >
+          Lorem
+        </Button>,
+        <Button
+          onClick={[MockFunction]}
+        >
+          Ipsum
+        </Button>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "Lorem",
+        "nodeType": "host",
+        "props": Object {
+          "buttonStyle": undefined,
+          "children": "Lorem",
+          "onClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": "Lorem",
+        "type": "Button",
+      },
+      Object {
+        "instance": null,
+        "key": "Ipsum",
+        "nodeType": "host",
+        "props": Object {
+          "buttonStyle": undefined,
+          "children": "Ipsum",
+          "onClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": "Ipsum",
+        "type": "Button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Button
+            onClick={[MockFunction]}
+          >
+            Lorem
+          </Button>,
+          <Button
+            onClick={[MockFunction]}
+          >
+            Ipsum
+          </Button>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "Lorem",
+          "nodeType": "host",
+          "props": Object {
+            "buttonStyle": undefined,
+            "children": "Lorem",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": "Lorem",
+          "type": "Button",
+        },
+        Object {
+          "instance": null,
+          "key": "Ipsum",
+          "nodeType": "host",
+          "props": Object {
+            "buttonStyle": undefined,
+            "children": "Ipsum",
+            "onClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": "Ipsum",
+          "type": "Button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

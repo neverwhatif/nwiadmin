@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    border-bottom: border();
+    border-top: border();
+    padding: 2rem 0;
+
+    @include break(tablet) {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+
+    @include break(tablet) {
+        justify-content: flex-end;
+    }
+}
+
+.item {
+    margin-left: .5rem;
+    margin-right: .5rem;
+    position: relative;
+
+    @include break(tablet) {
+        margin-left: 1rem;
+        margin-right: 0;
+    }
+
+    &::after {
+        @include posabs((top: 50%, right: 100%, left: -1rem));
+        border-top: border();
+        content: '';
+    }
+
+    &:first-child {
+        &::after {
+            content: none;
+        }
+    }
+}

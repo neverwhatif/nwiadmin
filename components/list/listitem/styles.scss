@@ -1,0 +1,87 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    background-color: $clr-white;
+    border: border();
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+
+    @include break(tablet) {
+        margin-bottom: 2rem;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    @include font-size(lrg);
+    margin-top: -.15em;
+
+    @include break(tablet) {
+        @include font-size(xlrg);
+
+        &IsSmall {
+            @include font-size(lrg);
+            font-weight: $body-fontweight;
+        }
+    }
+
+    &Link {
+        color: $clr-primary;
+        cursor: pointer;
+    }
+}
+
+.subtitle {
+    margin-top: .5rem;
+}
+
+.meta {
+    @include font-size(sml);
+    border-top: border();
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+
+    @include break(tablet) {
+        @include font-size(med);
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+}
+
+.footer {
+    border-top: border();
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    text-align: right;
+
+    > * {
+        margin-left: 1rem;
+        padding-left: 1.4rem;
+        position: relative;
+
+        &::before {
+            @include posabs((left: 0, top: .55em));
+            background-color: $clr-grey;
+            border-radius: 50%;
+            content: '';
+            height: .4rem;
+            width: .4rem;
+        }
+
+        &:first-child {
+            margin-left: 0;
+            padding-left: 0;
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+}

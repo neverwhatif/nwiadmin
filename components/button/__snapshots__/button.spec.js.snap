@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Button
+    buttonStyle={null}
+    isDisabled={false}
+    onClick={[Function]}
+    style={null}
+    to={null}
+  >
+    Lorem
+  </Button>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "Lorem",
+      "className": "root",
+      "disabled": false,
+      "onClick": [Function],
+      "style": null,
+      "type": "button",
+    },
+    "ref": null,
+    "rendered": "Lorem",
+    "type": "button",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Lorem",
+        "className": "root",
+        "disabled": false,
+        "onClick": [Function],
+        "style": null,
+        "type": "button",
+      },
+      "ref": null,
+      "rendered": "Lorem",
+      "type": "button",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Button should render 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Button
+    buttonStyle="lorem"
+    isDisabled={false}
+    onClick={[Function]}
+    style={null}
+    to={null}
+  >
+    Lorem
+  </Button>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "Lorem",
+      "className": "root rootLorem",
+      "disabled": false,
+      "onClick": [Function],
+      "style": null,
+      "type": "button",
+    },
+    "ref": null,
+    "rendered": "Lorem",
+    "type": "button",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Lorem",
+        "className": "root rootLorem",
+        "disabled": false,
+        "onClick": [Function],
+        "style": null,
+        "type": "button",
+      },
+      "ref": null,
+      "rendered": "Lorem",
+      "type": "button",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Button should render 3`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Button
+    buttonStyle={null}
+    isDisabled={true}
+    onClick={[Function]}
+    style={null}
+    to={null}
+  >
+    Lorem
+  </Button>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "Lorem",
+      "className": "root rootDisabled",
+      "disabled": true,
+      "onClick": [Function],
+      "style": null,
+      "type": "button",
+    },
+    "ref": null,
+    "rendered": "Lorem",
+    "type": "button",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Lorem",
+        "className": "root rootDisabled",
+        "disabled": true,
+        "onClick": [Function],
+        "style": null,
+        "type": "button",
+      },
+      "ref": null,
+      "rendered": "Lorem",
+      "type": "button",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Button should render 4`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Button
+    buttonStyle={null}
+    isDisabled={false}
+    onClick={[Function]}
+    style={null}
+    to="lorem"
+  >
+    Lorem
+  </Button>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "Lorem",
+      "className": "root",
+      "to": "lorem",
+    },
+    "ref": null,
+    "rendered": "Lorem",
+    "type": "Link",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Lorem",
+        "className": "root",
+        "to": "lorem",
+      },
+      "ref": null,
+      "rendered": "Lorem",
+      "type": "Link",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Button should render 5`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Button
+    buttonStyle={null}
+    isDisabled={false}
+    onClick={[Function]}
+    style={null}
+    to={null}
+  >
+    Lorem
+  </Button>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": "Lorem",
+      "className": "root",
+      "disabled": false,
+      "onClick": [Function],
+      "style": null,
+      "type": "button",
+    },
+    "ref": null,
+    "rendered": "Lorem",
+    "type": "button",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": "Lorem",
+        "className": "root",
+        "disabled": false,
+        "onClick": [Function],
+        "style": null,
+        "type": "button",
+      },
+      "ref": null,
+      "rendered": "Lorem",
+      "type": "button",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`PrimaryButton should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PrimaryButton>
+    Lorem
+  </PrimaryButton>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "buttonStyle": "primary",
+      "children": "Lorem",
+      "isDisabled": false,
+      "onClick": [Function],
+      "style": null,
+      "to": null,
+    },
+    "ref": null,
+    "rendered": "Lorem",
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "buttonStyle": "primary",
+        "children": "Lorem",
+        "isDisabled": false,
+        "onClick": [Function],
+        "style": null,
+        "to": null,
+      },
+      "ref": null,
+      "rendered": "Lorem",
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

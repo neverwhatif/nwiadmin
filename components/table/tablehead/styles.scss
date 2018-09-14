@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    color: $clr-dark;
+
+    &Success {
+        background-color: $clr-success;
+    }
+
+    &Error {
+        background-color: $clr-error;
+    }
+}
+
+.cell {
+    border-bottom: border($clr-dark, .2rem);
+    font-weight: $bold-fontweight;
+    padding: 0 1rem 1rem;
+    text-align: left;
+}

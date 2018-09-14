@@ -1,0 +1,30 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    align-items: center;
+    background-color: $clr-white;
+    border: border();
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+
+    &Notify {
+        background-color: $clr-secondary;
+        border-color: $clr-secondary;
+        color: $clr-white;
+    }
+
+    &Success {
+        background-color: $clr-success;
+        border-color: $clr-success;
+        color: $clr-white;
+    }
+
+    &Error {
+        background-color: $clr-error;
+        border-color: $clr-error;
+        color: $clr-white;
+    }
+}

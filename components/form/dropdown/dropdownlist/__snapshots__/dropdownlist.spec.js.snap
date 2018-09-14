@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownList should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DropdownList
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "name": "Lorem",
+        },
+        Object {
+          "id": 2,
+          "name": "Ipsum",
+        },
+      ]
+    }
+    isOpen={false}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <li
+          className="item"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Lorem
+        </li>,
+        <li
+          className="item"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Ipsum
+        </li>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": "Lorem",
+          "className": "item",
+          "onClick": [Function],
+          "onKeyDown": [Function],
+        },
+        "ref": null,
+        "rendered": "Lorem",
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": "Ipsum",
+          "className": "item",
+          "onClick": [Function],
+          "onKeyDown": [Function],
+        },
+        "ref": null,
+        "rendered": "Ipsum",
+        "type": "li",
+      },
+    ],
+    "type": "ul",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <li
+            className="item"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Lorem
+          </li>,
+          <li
+            className="item"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Ipsum
+          </li>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": "Lorem",
+            "className": "item",
+            "onClick": [Function],
+            "onKeyDown": [Function],
+          },
+          "ref": null,
+          "rendered": "Lorem",
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": "Ipsum",
+            "className": "item",
+            "onClick": [Function],
+            "onKeyDown": [Function],
+          },
+          "ref": null,
+          "rendered": "Ipsum",
+          "type": "li",
+        },
+      ],
+      "type": "ul",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`DropdownList should render 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DropdownList
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "name": "Lorem",
+        },
+        Object {
+          "id": 2,
+          "name": "Ipsum",
+        },
+      ]
+    }
+    isOpen={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <li
+          className="item"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Lorem
+        </li>,
+        <li
+          className="item"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+        >
+          Ipsum
+        </li>,
+      ],
+      "className": "root rootIsOpen",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": "Lorem",
+          "className": "item",
+          "onClick": [Function],
+          "onKeyDown": [Function],
+        },
+        "ref": null,
+        "rendered": "Lorem",
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": "Ipsum",
+          "className": "item",
+          "onClick": [Function],
+          "onKeyDown": [Function],
+        },
+        "ref": null,
+        "rendered": "Ipsum",
+        "type": "li",
+      },
+    ],
+    "type": "ul",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <li
+            className="item"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Lorem
+          </li>,
+          <li
+            className="item"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            Ipsum
+          </li>,
+        ],
+        "className": "root rootIsOpen",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": "Lorem",
+            "className": "item",
+            "onClick": [Function],
+            "onKeyDown": [Function],
+          },
+          "ref": null,
+          "rendered": "Lorem",
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": "Ipsum",
+            "className": "item",
+            "onClick": [Function],
+            "onKeyDown": [Function],
+          },
+          "ref": null,
+          "rendered": "Ipsum",
+          "type": "li",
+        },
+      ],
+      "type": "ul",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,879 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessage should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ErrorMessage
+    description="Sorry, something appears to have gone wrong. Please contact the site administrator."
+    details={null}
+    title="Error"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="title"
+        >
+          Error
+        </h1>,
+        <p
+          className="description"
+        >
+          Sorry, something appears to have gone wrong. Please contact the site administrator.
+        </p>,
+        null,
+        <p
+          className="cta"
+        >
+          <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>
+        </p>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Error",
+          "className": "title",
+        },
+        "ref": null,
+        "rendered": "Error",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+          "className": "description",
+        },
+        "ref": null,
+        "rendered": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+        "type": "p",
+      },
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>,
+          "className": "cta",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Reload",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Reload",
+          "type": [Function],
+        },
+        "type": "p",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="title"
+          >
+            Error
+          </h1>,
+          <p
+            className="description"
+          >
+            Sorry, something appears to have gone wrong. Please contact the site administrator.
+          </p>,
+          null,
+          <p
+            className="cta"
+          >
+            <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>
+          </p>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Error",
+            "className": "title",
+          },
+          "ref": null,
+          "rendered": "Error",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+            "className": "description",
+          },
+          "ref": null,
+          "rendered": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+          "type": "p",
+        },
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>,
+            "className": "cta",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Reload",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reload",
+            "type": [Function],
+          },
+          "type": "p",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ErrorMessage should render 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ErrorMessage
+    description="Sorry, something appears to have gone wrong. Please contact the site administrator."
+    details={null}
+    title="Lorem"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="title"
+        >
+          Lorem
+        </h1>,
+        <p
+          className="description"
+        >
+          Sorry, something appears to have gone wrong. Please contact the site administrator.
+        </p>,
+        null,
+        <p
+          className="cta"
+        >
+          <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>
+        </p>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Lorem",
+          "className": "title",
+        },
+        "ref": null,
+        "rendered": "Lorem",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+          "className": "description",
+        },
+        "ref": null,
+        "rendered": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+        "type": "p",
+      },
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>,
+          "className": "cta",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Reload",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Reload",
+          "type": [Function],
+        },
+        "type": "p",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="title"
+          >
+            Lorem
+          </h1>,
+          <p
+            className="description"
+          >
+            Sorry, something appears to have gone wrong. Please contact the site administrator.
+          </p>,
+          null,
+          <p
+            className="cta"
+          >
+            <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>
+          </p>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Lorem",
+            "className": "title",
+          },
+          "ref": null,
+          "rendered": "Lorem",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+            "className": "description",
+          },
+          "ref": null,
+          "rendered": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+          "type": "p",
+        },
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>,
+            "className": "cta",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Reload",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reload",
+            "type": [Function],
+          },
+          "type": "p",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ErrorMessage should render 3`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ErrorMessage
+    description="Lorem"
+    details={null}
+    title="Error"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="title"
+        >
+          Error
+        </h1>,
+        <p
+          className="description"
+        >
+          Lorem
+        </p>,
+        null,
+        <p
+          className="cta"
+        >
+          <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>
+        </p>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Error",
+          "className": "title",
+        },
+        "ref": null,
+        "rendered": "Error",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Lorem",
+          "className": "description",
+        },
+        "ref": null,
+        "rendered": "Lorem",
+        "type": "p",
+      },
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>,
+          "className": "cta",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Reload",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Reload",
+          "type": [Function],
+        },
+        "type": "p",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="title"
+          >
+            Error
+          </h1>,
+          <p
+            className="description"
+          >
+            Lorem
+          </p>,
+          null,
+          <p
+            className="cta"
+          >
+            <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>
+          </p>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Error",
+            "className": "title",
+          },
+          "ref": null,
+          "rendered": "Error",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Lorem",
+            "className": "description",
+          },
+          "ref": null,
+          "rendered": "Lorem",
+          "type": "p",
+        },
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>,
+            "className": "cta",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Reload",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reload",
+            "type": [Function],
+          },
+          "type": "p",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ErrorMessage should render 4`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ErrorMessage
+    description="Sorry, something appears to have gone wrong. Please contact the site administrator."
+    details="Lorem"
+    title="Error"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1
+          className="title"
+        >
+          Error
+        </h1>,
+        <p
+          className="description"
+        >
+          Sorry, something appears to have gone wrong. Please contact the site administrator.
+        </p>,
+        <small
+          className="details"
+        >
+          <strong>
+            Details:
+          </strong>
+           
+          Lorem
+        </small>,
+        <p
+          className="cta"
+        >
+          <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>
+        </p>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Error",
+          "className": "title",
+        },
+        "ref": null,
+        "rendered": "Error",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+          "className": "description",
+        },
+        "ref": null,
+        "rendered": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <strong>
+              Details:
+            </strong>,
+            " ",
+            "Lorem",
+          ],
+          "className": "details",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Details:",
+            },
+            "ref": null,
+            "rendered": "Details:",
+            "type": "strong",
+          },
+          " ",
+          "Lorem",
+        ],
+        "type": "small",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <PrimaryButton
+            onClick={[Function]}
+          >
+            Reload
+          </PrimaryButton>,
+          "className": "cta",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Reload",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Reload",
+          "type": [Function],
+        },
+        "type": "p",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="title"
+          >
+            Error
+          </h1>,
+          <p
+            className="description"
+          >
+            Sorry, something appears to have gone wrong. Please contact the site administrator.
+          </p>,
+          <small
+            className="details"
+          >
+            <strong>
+              Details:
+            </strong>
+             
+            Lorem
+          </small>,
+          <p
+            className="cta"
+          >
+            <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>
+          </p>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Error",
+            "className": "title",
+          },
+          "ref": null,
+          "rendered": "Error",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+            "className": "description",
+          },
+          "ref": null,
+          "rendered": "Sorry, something appears to have gone wrong. Please contact the site administrator.",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <strong>
+                Details:
+              </strong>,
+              " ",
+              "Lorem",
+            ],
+            "className": "details",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Details:",
+              },
+              "ref": null,
+              "rendered": "Details:",
+              "type": "strong",
+            },
+            " ",
+            "Lorem",
+          ],
+          "type": "small",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <PrimaryButton
+              onClick={[Function]}
+            >
+              Reload
+            </PrimaryButton>,
+            "className": "cta",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Reload",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Reload",
+            "type": [Function],
+          },
+          "type": "p",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

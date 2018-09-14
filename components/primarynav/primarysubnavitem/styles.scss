@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    color: $clr-primary;
+    display: block;
+    padding: 1.5rem;
+
+    &:hover {
+        color: $clr-primary-dark;
+    }
+
+    &Active {
+        background-color: rgba($clr-primary, .1);
+    }
+
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}

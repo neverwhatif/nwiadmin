@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include font-size(med);
+    display: block;
+    padding: 2rem 1rem;
+    position: relative;
+
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+
+    &Active {
+        &::before {
+            @include posabs((right: 1rem, bottom: 0, left: 1rem));
+            background-color: $clr-primary;
+            content: '';
+            height: .3rem;
+        }
+    }
+}

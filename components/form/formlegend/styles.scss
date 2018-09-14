@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    float: left; // Get it to be inside the fieldset properly
+    margin-bottom: 2rem;
+    padding: 0;
+    width: 100%;
+}

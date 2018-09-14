@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationSummary should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PaginationSummary
+    from={1}
+    to={10}
+    total={50}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <strong>
+          1
+        </strong>,
+        " - ",
+        <strong>
+          10
+        </strong>,
+        " of ",
+        <strong>
+          50
+        </strong>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": 1,
+        },
+        "ref": null,
+        "rendered": 1,
+        "type": "strong",
+      },
+      " - ",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": 10,
+        },
+        "ref": null,
+        "rendered": 10,
+        "type": "strong",
+      },
+      " of ",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": 50,
+        },
+        "ref": null,
+        "rendered": 50,
+        "type": "strong",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <strong>
+            1
+          </strong>,
+          " - ",
+          <strong>
+            10
+          </strong>,
+          " of ",
+          <strong>
+            50
+          </strong>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": 1,
+          },
+          "ref": null,
+          "rendered": 1,
+          "type": "strong",
+        },
+        " - ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": 10,
+          },
+          "ref": null,
+          "rendered": 10,
+          "type": "strong",
+        },
+        " of ",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": 50,
+          },
+          "ref": null,
+          "rendered": 50,
+          "type": "strong",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

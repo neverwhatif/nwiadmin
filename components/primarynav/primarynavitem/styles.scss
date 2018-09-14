@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    color: $clr-white;
+    cursor: pointer;
+    display: block;
+    padding: 1.5rem;
+    position: relative;
+    transition: background-color .2s;
+
+    &:hover {
+        background-color: rgba($clr-white, .01);
+        color: $clr-white;
+    }
+
+    &HasChildren {
+        &::after {
+            @include posabs((top: calc(50% - .3rem), right: 1.5rem));
+            border-right: border();
+            border-top: border();
+            content: '';
+            height: .6rem;
+            transform: rotate(45deg);
+            transition: transform .2s $easing;
+            width: .6rem;
+        }
+
+        &.rootOpen {
+            background-color: rgba($clr-white, .03);
+
+            &::after {
+                transform: translateX(.3rem) rotate(225deg);
+            }
+        }
+    }
+
+    &Active {
+        background-color: rgba($clr-white, .1);
+    }
+
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}

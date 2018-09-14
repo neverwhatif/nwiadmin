@@ -1,0 +1,39 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include font-size(lrg);
+    // @include posabs((top: 2rem, left: -1rem));
+    background-color: $clr-dark;
+    color: $clr-white;
+    display: inline-block;
+    font-weight: $light-fontweight;
+    line-height: 3.6rem;
+    margin-left: -3.1rem;
+    padding: 0 3rem .1rem;
+    position: relative;
+    white-space: nowrap;
+
+    &::before {
+        @include posabs((top: 100%, left: 0));
+        border-color: transparent darken($clr-dark, 20) transparent transparent;
+        border-style: solid;
+        border-width: 0 1rem 1rem 0;
+        content: '';
+        height: 0;
+        width: 0;
+    }
+
+    &::after {
+        @include posabs((top: 0, right: 0, bottom: 0));
+        background-color: $clr-dark;
+        content: '';
+        transform: skewX(-42deg);
+        transform-origin: 100% 100%;
+        width: 3.4rem;
+    }
+
+    &IsOffset {
+        margin-left: -4.1rem;
+    }
+}

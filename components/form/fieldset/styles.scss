@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    background-color: $clr-white;
+    border: border();
+    height: 100%;
+    margin: 0 0 3rem;
+    padding: 1rem 2rem 0;
+    position: relative;
+
+    &:last-of-type {
+        margin: 0;
+    }
+}

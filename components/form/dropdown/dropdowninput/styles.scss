@@ -1,0 +1,36 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    cursor: pointer;
+    display: flex;
+    min-width: 16rem;
+
+    &:focus {
+        border-color: $clr-grey-xlight;
+        outline: none;
+    }
+}
+
+.control {
+    background-color: $clr-primary;
+    cursor: pointer;
+    min-width: 4rem;
+    position: relative;
+    width: 4rem;
+
+    &::before,
+    &::after {
+        @include posabs((bottom: calc(50% - .5rem), left: calc(50% - 1rem)));
+        background-color: $clr-white;
+        content: '';
+        height: .2rem;
+        transform: rotate(45deg);
+        transform-origin: 100% 50%;
+        width: 1rem;
+    }
+
+    &::after {
+        transform: rotate(135deg);
+    }
+}

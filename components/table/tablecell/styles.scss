@@ -1,0 +1,31 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    padding: 1rem;
+
+    &Actions {
+        text-align: right;
+
+        > * {
+            margin-left: .5rem;
+        }
+    }
+
+    &Right {
+        text-align: right;
+    }
+
+    &Success {
+        color: $clr-success;
+    }
+
+    &Error {
+        color: $clr-error;
+    }
+}
+
+.extra {
+    @include font-size(sml);
+    color: $clr-grey-dark;
+}

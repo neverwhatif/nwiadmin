@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    height: 100%;
+    padding-bottom: 3rem;
+
+    &IsDisabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}
+
+.panel {
+    background-color: $clr-white;
+    border: border();
+    height: 100%;
+    padding: 1rem 2rem 0;
+}
+
+.title {
+    margin-bottom: 2rem;
+}

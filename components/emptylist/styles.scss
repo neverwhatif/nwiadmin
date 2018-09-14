@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    align-items: center;
+    color: $clr-grey-dark;
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    justify-content: center;
+}
+
+.title {
+    @include font-size(xlrg);
+    font-weight: $light-fontweight;
+    margin-bottom: 1rem;
+}
+
+.description {
+    margin-bottom: 3rem;
+}

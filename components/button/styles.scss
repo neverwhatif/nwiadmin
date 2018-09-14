@@ -1,0 +1,76 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include font-size(med);
+    -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    background-color: $clr-link;
+    border: border($clr-link);
+    color: $clr-white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $fontfamily;
+    height: 4rem;
+    line-height: 3.9rem;
+    padding: 0 2rem;
+    text-align: center;
+    transition: background-color .15s;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: $clr-link-hover;
+        color: $clr-white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &[disabled],
+    &Disabled {
+        background-color: $clr-grey-light;
+        border-color: $clr-grey-light;
+        color: $clr-grey;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    &Bordered {
+        background-color: $clr-white;
+        color: $clr-link;
+
+        &:hover {
+            background-color: $clr-white;
+            color: $clr-link;
+        }
+    }
+
+    &Block {
+        display: block;
+        width: 100%;
+    }
+
+    &Empty {
+        background: none;
+        border: 0;
+        color: $clr-primary;
+        cursor: pointer;
+        font: inherit;
+        height: auto;
+        padding: 0;
+
+        &:hover {
+            background: none;
+            color: $clr-primary-dark;
+        }
+
+        &:focus {
+            background: none;
+            outline: none;
+        }
+
+        &[disabled] {
+            background-color: transparent;
+        }
+    }
+}

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reference should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Reference
+    link={null}
+    reference="ipsum"
+    title="Lorem"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "Lorem",
+        <span
+          className="reference"
+        >
+          ipsum
+        </span>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      "Lorem",
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "ipsum",
+          "className": "reference",
+        },
+        "ref": null,
+        "rendered": "ipsum",
+        "type": "span",
+      },
+    ],
+    "type": "span",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "Lorem",
+          <span
+            className="reference"
+          >
+            ipsum
+          </span>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        "Lorem",
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "ipsum",
+            "className": "reference",
+          },
+          "ref": null,
+          "rendered": "ipsum",
+          "type": "span",
+        },
+      ],
+      "type": "span",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

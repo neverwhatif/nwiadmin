@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    background-color: $clr-white;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.head {
+    @include font-size(xsml);
+    padding-bottom: .5rem;
+}
+
+.cell {
+    border: border($clr-grey);
+    padding: 0;
+
+    &Active {
+        background-color: $clr-primary;
+        position: relative;
+
+        &::before {
+            @include stretch;
+            border: border($clr-white);
+            content: '';
+            pointer-events: none;
+        }
+    }
+}
+
+.control {
+    @include empty-button;
+    line-height: 3rem;
+    width: 100%;
+
+    .cellActive & {
+        color: $clr-white;
+    }
+}

@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    margin: 0 auto 2rem;
+    text-align: center;
+
+    @include break(tablet) {
+        margin-bottom: 0;
+        margin-right: 2rem;
+    }
+}

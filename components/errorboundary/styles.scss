@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 85%;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 60rem;
+}
+
+.title {
+    margin-bottom: 2rem;
+}
+
+.desc {
+    @include font-size(sml);
+    margin-bottom: 2rem;
+}
+
+.buttonrow {
+    margin-top: 3rem;
+}
+

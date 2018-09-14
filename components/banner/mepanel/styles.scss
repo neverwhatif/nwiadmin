@@ -1,0 +1,18 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include posfix((bottom: 0, left: 0));
+    color: rgba($clr-white, .2);
+    padding: 2rem;
+    width: 20rem;
+    z-index: 6;
+}
+
+.title {
+    @include font-size(med);
+    border-bottom: border(rgba($clr-white, .1));
+    color: $clr-white;
+    margin-bottom: .5rem;
+    padding-bottom: .8rem;
+}

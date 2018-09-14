@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    display: flex;
+    margin-bottom: 1.5rem;
+
+    & > :not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    @include break(tablet) {
+        margin-bottom: 3rem;
+    }
+}
+
+.cta {
+    display: flex;
+    justify-content: flex-end;
+
+    & > :not(:last-child) {
+        margin-right: 1rem;
+    }
+}
+
+.search {
+    display: flex;
+    width: 35rem;
+
+    & > :not(:last-child) {
+        margin-right: 1rem;
+    }
+}

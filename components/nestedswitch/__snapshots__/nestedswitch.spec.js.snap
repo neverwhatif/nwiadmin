@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NestedSwitch should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <NestedSwitch
+    basePath=""
+    routes={
+      Array [
+        Object {
+          "component": [MockFunction],
+          "path": "lorem",
+        },
+        Object {
+          "component": [MockFunction],
+          "path": "ipsum",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        Array [
+          <Route
+            exact={false}
+            path="/lorem"
+            render={[Function]}
+          />,
+          <Route
+            exact={false}
+            path="/ipsum"
+            render={[Function]}
+          />,
+        ],
+        <Route
+          component={[Function]}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "lorem",
+        "nodeType": "class",
+        "props": Object {
+          "exact": false,
+          "path": "/lorem",
+          "render": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "ipsum",
+        "nodeType": "class",
+        "props": Object {
+          "exact": false,
+          "path": "/ipsum",
+          "render": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          Array [
+            <Route
+              exact={false}
+              path="/lorem"
+              render={[Function]}
+            />,
+            <Route
+              exact={false}
+              path="/ipsum"
+              render={[Function]}
+            />,
+          ],
+          <Route
+            component={[Function]}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "lorem",
+          "nodeType": "class",
+          "props": Object {
+            "exact": false,
+            "path": "/lorem",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "ipsum",
+          "nodeType": "class",
+          "props": Object {
+            "exact": false,
+            "path": "/ipsum",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

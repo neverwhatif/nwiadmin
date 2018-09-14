@@ -1,0 +1,25 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    color: $clr-error;
+}
+
+.title {
+    @include font-size(xlrg);
+    margin-bottom: 2rem;
+}
+
+.description {
+    margin-bottom: 1rem;
+}
+
+.details {
+    @include font-size(sml);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.cta {
+    margin-top: 3rem;
+}

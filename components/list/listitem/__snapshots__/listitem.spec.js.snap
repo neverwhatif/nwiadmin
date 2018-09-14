@@ -1,0 +1,1776 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ListItem
+    $rootClassName=""
+    $titleClassName=""
+    cta={null}
+    meta={null}
+    secondary={null}
+    shouldInitPreload={false}
+    subtitle={null}
+    title="Lorem"
+    to={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="content"
+        >
+          <div
+            className="primary"
+          >
+            <ListItemTitle
+              $rootClassName=""
+              $titleClassName=""
+              className="title"
+              cta={null}
+              meta={null}
+              secondary={null}
+              shouldInitPreload={false}
+              subtitle={null}
+              title="Lorem"
+              to={null}
+            />
+          </div>
+        </div>,
+        null,
+        null,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={null}
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>,
+            null,
+          ],
+          "className": "content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={null}
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />,
+                null,
+              ],
+              "className": "primary",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "$rootClassName": "",
+                  "$titleClassName": "",
+                  "className": "title",
+                  "cta": null,
+                  "meta": null,
+                  "secondary": null,
+                  "shouldInitPreload": false,
+                  "subtitle": null,
+                  "title": "Lorem",
+                  "to": null,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "ListItemTitle",
+              },
+              null,
+            ],
+            "type": "div",
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      null,
+      null,
+    ],
+    "type": "article",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="content"
+          >
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={null}
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>
+          </div>,
+          null,
+          null,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="primary"
+              >
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={null}
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />
+              </div>,
+              null,
+            ],
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ListItemTitle
+                    $rootClassName=""
+                    $titleClassName=""
+                    className="title"
+                    cta={null}
+                    meta={null}
+                    secondary={null}
+                    shouldInitPreload={false}
+                    subtitle={null}
+                    title="Lorem"
+                    to={null}
+                  />,
+                  null,
+                ],
+                "className": "primary",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "$rootClassName": "",
+                    "$titleClassName": "",
+                    "className": "title",
+                    "cta": null,
+                    "meta": null,
+                    "secondary": null,
+                    "shouldInitPreload": false,
+                    "subtitle": null,
+                    "title": "Lorem",
+                    "to": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "ListItemTitle",
+                },
+                null,
+              ],
+              "type": "div",
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        null,
+        null,
+      ],
+      "type": "article",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ListItem should render 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ListItem
+    $rootClassName=""
+    $titleClassName=""
+    cta={null}
+    meta={null}
+    secondary={null}
+    shouldInitPreload={false}
+    subtitle="Lorem"
+    title="Lorem"
+    to={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="content"
+        >
+          <div
+            className="primary"
+          >
+            <ListItemTitle
+              $rootClassName=""
+              $titleClassName=""
+              className="title"
+              cta={null}
+              meta={null}
+              secondary={null}
+              shouldInitPreload={false}
+              subtitle="Lorem"
+              title="Lorem"
+              to={null}
+            />
+            <p
+              className="subtitle"
+            >
+              Lorem
+            </p>
+          </div>
+        </div>,
+        null,
+        null,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={null}
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle="Lorem"
+                title="Lorem"
+                to={null}
+              />
+              <p
+                className="subtitle"
+              >
+                Lorem
+              </p>
+            </div>,
+            null,
+          ],
+          "className": "content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={null}
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle="Lorem"
+                  title="Lorem"
+                  to={null}
+                />,
+                <p
+                  className="subtitle"
+                >
+                  Lorem
+                </p>,
+              ],
+              "className": "primary",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "$rootClassName": "",
+                  "$titleClassName": "",
+                  "className": "title",
+                  "cta": null,
+                  "meta": null,
+                  "secondary": null,
+                  "shouldInitPreload": false,
+                  "subtitle": "Lorem",
+                  "title": "Lorem",
+                  "to": null,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "ListItemTitle",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Lorem",
+                  "className": "subtitle",
+                },
+                "ref": null,
+                "rendered": "Lorem",
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      null,
+      null,
+    ],
+    "type": "article",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="content"
+          >
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={null}
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle="Lorem"
+                title="Lorem"
+                to={null}
+              />
+              <p
+                className="subtitle"
+              >
+                Lorem
+              </p>
+            </div>
+          </div>,
+          null,
+          null,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="primary"
+              >
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={null}
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle="Lorem"
+                  title="Lorem"
+                  to={null}
+                />
+                <p
+                  className="subtitle"
+                >
+                  Lorem
+                </p>
+              </div>,
+              null,
+            ],
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ListItemTitle
+                    $rootClassName=""
+                    $titleClassName=""
+                    className="title"
+                    cta={null}
+                    meta={null}
+                    secondary={null}
+                    shouldInitPreload={false}
+                    subtitle="Lorem"
+                    title="Lorem"
+                    to={null}
+                  />,
+                  <p
+                    className="subtitle"
+                  >
+                    Lorem
+                  </p>,
+                ],
+                "className": "primary",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "$rootClassName": "",
+                    "$titleClassName": "",
+                    "className": "title",
+                    "cta": null,
+                    "meta": null,
+                    "secondary": null,
+                    "shouldInitPreload": false,
+                    "subtitle": "Lorem",
+                    "title": "Lorem",
+                    "to": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "ListItemTitle",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Lorem",
+                    "className": "subtitle",
+                  },
+                  "ref": null,
+                  "rendered": "Lorem",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        null,
+        null,
+      ],
+      "type": "article",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ListItem should render 3`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ListItem
+    $rootClassName=""
+    $titleClassName=""
+    cta={null}
+    meta={null}
+    secondary={
+      Object {
+        "title": "Lorem",
+      }
+    }
+    shouldInitPreload={false}
+    subtitle={null}
+    title="Lorem"
+    to={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="content"
+        >
+          <div
+            className="primary"
+          >
+            <ListItemTitle
+              $rootClassName=""
+              $titleClassName=""
+              className="title"
+              cta={null}
+              meta={null}
+              secondary={
+                Object {
+                  "title": "Lorem",
+                }
+              }
+              shouldInitPreload={false}
+              subtitle={null}
+              title="Lorem"
+              to={null}
+            />
+          </div>
+          <div
+            className="secondary"
+          >
+            <p
+              className="title"
+            >
+              Lorem
+            </p>
+          </div>
+        </div>,
+        null,
+        null,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={null}
+                secondary={
+                  Object {
+                    "title": "Lorem",
+                  }
+                }
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>,
+            <div
+              className="secondary"
+            >
+              <p
+                className="title"
+              >
+                Lorem
+              </p>
+            </div>,
+          ],
+          "className": "content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={null}
+                  secondary={
+                    Object {
+                      "title": "Lorem",
+                    }
+                  }
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />,
+                null,
+              ],
+              "className": "primary",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "$rootClassName": "",
+                  "$titleClassName": "",
+                  "className": "title",
+                  "cta": null,
+                  "meta": null,
+                  "secondary": Object {
+                    "title": "Lorem",
+                  },
+                  "shouldInitPreload": false,
+                  "subtitle": null,
+                  "title": "Lorem",
+                  "to": null,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "ListItemTitle",
+              },
+              null,
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <p
+                className="title"
+              >
+                Lorem
+              </p>,
+              "className": "secondary",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lorem",
+                "className": "title",
+              },
+              "ref": null,
+              "rendered": "Lorem",
+              "type": "p",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      null,
+      null,
+    ],
+    "type": "article",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="content"
+          >
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={null}
+                secondary={
+                  Object {
+                    "title": "Lorem",
+                  }
+                }
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>
+            <div
+              className="secondary"
+            >
+              <p
+                className="title"
+              >
+                Lorem
+              </p>
+            </div>
+          </div>,
+          null,
+          null,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="primary"
+              >
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={null}
+                  secondary={
+                    Object {
+                      "title": "Lorem",
+                    }
+                  }
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />
+              </div>,
+              <div
+                className="secondary"
+              >
+                <p
+                  className="title"
+                >
+                  Lorem
+                </p>
+              </div>,
+            ],
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ListItemTitle
+                    $rootClassName=""
+                    $titleClassName=""
+                    className="title"
+                    cta={null}
+                    meta={null}
+                    secondary={
+                      Object {
+                        "title": "Lorem",
+                      }
+                    }
+                    shouldInitPreload={false}
+                    subtitle={null}
+                    title="Lorem"
+                    to={null}
+                  />,
+                  null,
+                ],
+                "className": "primary",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "$rootClassName": "",
+                    "$titleClassName": "",
+                    "className": "title",
+                    "cta": null,
+                    "meta": null,
+                    "secondary": Object {
+                      "title": "Lorem",
+                    },
+                    "shouldInitPreload": false,
+                    "subtitle": null,
+                    "title": "Lorem",
+                    "to": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "ListItemTitle",
+                },
+                null,
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <p
+                  className="title"
+                >
+                  Lorem
+                </p>,
+                "className": "secondary",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Lorem",
+                  "className": "title",
+                },
+                "ref": null,
+                "rendered": "Lorem",
+                "type": "p",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        null,
+        null,
+      ],
+      "type": "article",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ListItem should render 4`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ListItem
+    $rootClassName=""
+    $titleClassName=""
+    cta={null}
+    meta={
+      Array [
+        "Lorem",
+      ]
+    }
+    secondary={null}
+    shouldInitPreload={false}
+    subtitle={null}
+    title="Lorem"
+    to={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="content"
+        >
+          <div
+            className="primary"
+          >
+            <ListItemTitle
+              $rootClassName=""
+              $titleClassName=""
+              className="title"
+              cta={null}
+              meta={
+                Array [
+                  "Lorem",
+                ]
+              }
+              secondary={null}
+              shouldInitPreload={false}
+              subtitle={null}
+              title="Lorem"
+              to={null}
+            />
+          </div>
+        </div>,
+        <div
+          className="meta"
+        >
+          <ListItemMeta
+            data={
+              Array [
+                "Lorem",
+              ]
+            }
+          />
+        </div>,
+        null,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={
+                  Array [
+                    "Lorem",
+                  ]
+                }
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>,
+            null,
+          ],
+          "className": "content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={
+                    Array [
+                      "Lorem",
+                    ]
+                  }
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />,
+                null,
+              ],
+              "className": "primary",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "$rootClassName": "",
+                  "$titleClassName": "",
+                  "className": "title",
+                  "cta": null,
+                  "meta": Array [
+                    "Lorem",
+                  ],
+                  "secondary": null,
+                  "shouldInitPreload": false,
+                  "subtitle": null,
+                  "title": "Lorem",
+                  "to": null,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "ListItemTitle",
+              },
+              null,
+            ],
+            "type": "div",
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <ListItemMeta
+              data={
+                Array [
+                  "Lorem",
+                ]
+              }
+            />,
+            null,
+          ],
+          "className": "meta",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "data": Array [
+                "Lorem",
+              ],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "ListItemMeta",
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      null,
+    ],
+    "type": "article",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="content"
+          >
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={null}
+                meta={
+                  Array [
+                    "Lorem",
+                  ]
+                }
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>
+          </div>,
+          <div
+            className="meta"
+          >
+            <ListItemMeta
+              data={
+                Array [
+                  "Lorem",
+                ]
+              }
+            />
+          </div>,
+          null,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="primary"
+              >
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={null}
+                  meta={
+                    Array [
+                      "Lorem",
+                    ]
+                  }
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />
+              </div>,
+              null,
+            ],
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ListItemTitle
+                    $rootClassName=""
+                    $titleClassName=""
+                    className="title"
+                    cta={null}
+                    meta={
+                      Array [
+                        "Lorem",
+                      ]
+                    }
+                    secondary={null}
+                    shouldInitPreload={false}
+                    subtitle={null}
+                    title="Lorem"
+                    to={null}
+                  />,
+                  null,
+                ],
+                "className": "primary",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "$rootClassName": "",
+                    "$titleClassName": "",
+                    "className": "title",
+                    "cta": null,
+                    "meta": Array [
+                      "Lorem",
+                    ],
+                    "secondary": null,
+                    "shouldInitPreload": false,
+                    "subtitle": null,
+                    "title": "Lorem",
+                    "to": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "ListItemTitle",
+                },
+                null,
+              ],
+              "type": "div",
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <ListItemMeta
+                data={
+                  Array [
+                    "Lorem",
+                  ]
+                }
+              />,
+              null,
+            ],
+            "className": "meta",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "data": Array [
+                  "Lorem",
+                ],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "ListItemMeta",
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        null,
+      ],
+      "type": "article",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`ListItem should render 5`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ListItem
+    $rootClassName=""
+    $titleClassName=""
+    cta={
+      Array [
+        Object {
+          "action": [MockFunction],
+          "label": "Lorem",
+        },
+      ]
+    }
+    meta={null}
+    secondary={null}
+    shouldInitPreload={false}
+    subtitle={null}
+    title="Lorem"
+    to={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="content"
+        >
+          <div
+            className="primary"
+          >
+            <ListItemTitle
+              $rootClassName=""
+              $titleClassName=""
+              className="title"
+              cta={
+                Array [
+                  Object {
+                    "action": [MockFunction],
+                    "label": "Lorem",
+                  },
+                ]
+              }
+              meta={null}
+              secondary={null}
+              shouldInitPreload={false}
+              subtitle={null}
+              title="Lorem"
+              to={null}
+            />
+          </div>
+        </div>,
+        null,
+        <footer
+          className="footer"
+        >
+          <Button
+            onClick={[Function]}
+          >
+            Lorem
+          </Button>
+        </footer>,
+      ],
+      "className": "root",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={
+                  Array [
+                    Object {
+                      "action": [MockFunction],
+                      "label": "Lorem",
+                    },
+                  ]
+                }
+                meta={null}
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>,
+            null,
+          ],
+          "className": "content",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={
+                    Array [
+                      Object {
+                        "action": [MockFunction],
+                        "label": "Lorem",
+                      },
+                    ]
+                  }
+                  meta={null}
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />,
+                null,
+              ],
+              "className": "primary",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "$rootClassName": "",
+                  "$titleClassName": "",
+                  "className": "title",
+                  "cta": Array [
+                    Object {
+                      "action": [MockFunction],
+                      "label": "Lorem",
+                    },
+                  ],
+                  "meta": null,
+                  "secondary": null,
+                  "shouldInitPreload": false,
+                  "subtitle": null,
+                  "title": "Lorem",
+                  "to": null,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "ListItemTitle",
+              },
+              null,
+            ],
+            "type": "div",
+          },
+          null,
+        ],
+        "type": "div",
+      },
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Button
+              onClick={[Function]}
+            >
+              Lorem
+            </Button>,
+          ],
+          "className": "footer",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "Lorem",
+            "nodeType": "host",
+            "props": Object {
+              "children": "Lorem",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Lorem",
+            "type": "Button",
+          },
+        ],
+        "type": "footer",
+      },
+    ],
+    "type": "article",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="content"
+          >
+            <div
+              className="primary"
+            >
+              <ListItemTitle
+                $rootClassName=""
+                $titleClassName=""
+                className="title"
+                cta={
+                  Array [
+                    Object {
+                      "action": [MockFunction],
+                      "label": "Lorem",
+                    },
+                  ]
+                }
+                meta={null}
+                secondary={null}
+                shouldInitPreload={false}
+                subtitle={null}
+                title="Lorem"
+                to={null}
+              />
+            </div>
+          </div>,
+          null,
+          <footer
+            className="footer"
+          >
+            <Button
+              onClick={[Function]}
+            >
+              Lorem
+            </Button>
+          </footer>,
+        ],
+        "className": "root",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="primary"
+              >
+                <ListItemTitle
+                  $rootClassName=""
+                  $titleClassName=""
+                  className="title"
+                  cta={
+                    Array [
+                      Object {
+                        "action": [MockFunction],
+                        "label": "Lorem",
+                      },
+                    ]
+                  }
+                  meta={null}
+                  secondary={null}
+                  shouldInitPreload={false}
+                  subtitle={null}
+                  title="Lorem"
+                  to={null}
+                />
+              </div>,
+              null,
+            ],
+            "className": "content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <ListItemTitle
+                    $rootClassName=""
+                    $titleClassName=""
+                    className="title"
+                    cta={
+                      Array [
+                        Object {
+                          "action": [MockFunction],
+                          "label": "Lorem",
+                        },
+                      ]
+                    }
+                    meta={null}
+                    secondary={null}
+                    shouldInitPreload={false}
+                    subtitle={null}
+                    title="Lorem"
+                    to={null}
+                  />,
+                  null,
+                ],
+                "className": "primary",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "$rootClassName": "",
+                    "$titleClassName": "",
+                    "className": "title",
+                    "cta": Array [
+                      Object {
+                        "action": [MockFunction],
+                        "label": "Lorem",
+                      },
+                    ],
+                    "meta": null,
+                    "secondary": null,
+                    "shouldInitPreload": false,
+                    "subtitle": null,
+                    "title": "Lorem",
+                    "to": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "ListItemTitle",
+                },
+                null,
+              ],
+              "type": "div",
+            },
+            null,
+          ],
+          "type": "div",
+        },
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Button
+                onClick={[Function]}
+              >
+                Lorem
+              </Button>,
+            ],
+            "className": "footer",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "Lorem",
+              "nodeType": "host",
+              "props": Object {
+                "children": "Lorem",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Lorem",
+              "type": "Button",
+            },
+          ],
+          "type": "footer",
+        },
+      ],
+      "type": "article",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

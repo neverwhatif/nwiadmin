@@ -1,0 +1,7 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include posfix((right: 2rem, top: 2rem));
+    z-index: 2;
+}

@@ -1,0 +1,17 @@
+@import 'variables';
+
+.root {
+    color: $clr-dark;
+    display: block;
+    margin-bottom: .5rem;
+
+    &Reverse {
+        color: $clr-white;
+    }
+
+    &IsDesc {
+        color: $clr-grey-dark;
+        font-style: italic;
+        margin-top: -.5rem;
+    }
+}

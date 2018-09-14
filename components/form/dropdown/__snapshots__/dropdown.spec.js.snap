@@ -1,0 +1,592 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Dropdown
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "name": "Lorem",
+        },
+        Object {
+          "id": 2,
+          "name": "Ipsum",
+        },
+      ]
+    }
+    isDisabled={false}
+    isLoading={false}
+    label=""
+    name="lorem"
+    onChange={[Function]}
+    placeholder="Select..."
+    transformer={[Function]}
+    value={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <DropdownInput
+          isLoading={false}
+          onClick={[Function]}
+          text="Select..."
+        />,
+        <DropdownList
+          data={
+            Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+              Object {
+                "id": 2,
+                "name": "Ipsum",
+              },
+            ]
+          }
+          isOpen={false}
+          onItemClick={[Function]}
+        />,
+        false,
+      ],
+      "className": "root",
+    },
+    "ref": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "isLoading": false,
+          "onClick": [Function],
+          "text": "Select...",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "DropdownInput",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "data": Array [
+            Object {
+              "id": 1,
+              "name": "Lorem",
+            },
+            Object {
+              "id": 2,
+              "name": "Ipsum",
+            },
+          ],
+          "isOpen": false,
+          "onItemClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "DropdownList",
+      },
+      false,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <DropdownInput
+            isLoading={false}
+            onClick={[Function]}
+            text="Select..."
+          />,
+          <DropdownList
+            data={
+              Array [
+                Object {
+                  "id": 1,
+                  "name": "Lorem",
+                },
+                Object {
+                  "id": 2,
+                  "name": "Ipsum",
+                },
+              ]
+            }
+            isOpen={false}
+            onItemClick={[Function]}
+          />,
+          false,
+        ],
+        "className": "root",
+      },
+      "ref": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "isLoading": false,
+            "onClick": [Function],
+            "text": "Select...",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "DropdownInput",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "data": Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+              Object {
+                "id": 2,
+                "name": "Ipsum",
+              },
+            ],
+            "isOpen": false,
+            "onItemClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "DropdownList",
+        },
+        false,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Dropdown should render 2`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Dropdown
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "name": "Lorem",
+        },
+        Object {
+          "id": 2,
+          "name": "Ipsum",
+        },
+      ]
+    }
+    isDisabled={false}
+    isLoading={true}
+    label=""
+    name="lorem"
+    onChange={[Function]}
+    placeholder="Select..."
+    transformer={[Function]}
+    value={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <DropdownInput
+          isLoading={true}
+          onClick={[Function]}
+          text="Select..."
+        />,
+        <DropdownList
+          data={
+            Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+              Object {
+                "id": 2,
+                "name": "Ipsum",
+              },
+            ]
+          }
+          isOpen={false}
+          onItemClick={[Function]}
+        />,
+        false,
+      ],
+      "className": "root rootDisabled",
+    },
+    "ref": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "isLoading": true,
+          "onClick": [Function],
+          "text": "Select...",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "DropdownInput",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "data": Array [
+            Object {
+              "id": 1,
+              "name": "Lorem",
+            },
+            Object {
+              "id": 2,
+              "name": "Ipsum",
+            },
+          ],
+          "isOpen": false,
+          "onItemClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "DropdownList",
+      },
+      false,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <DropdownInput
+            isLoading={true}
+            onClick={[Function]}
+            text="Select..."
+          />,
+          <DropdownList
+            data={
+              Array [
+                Object {
+                  "id": 1,
+                  "name": "Lorem",
+                },
+                Object {
+                  "id": 2,
+                  "name": "Ipsum",
+                },
+              ]
+            }
+            isOpen={false}
+            onItemClick={[Function]}
+          />,
+          false,
+        ],
+        "className": "root rootDisabled",
+      },
+      "ref": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "isLoading": true,
+            "onClick": [Function],
+            "text": "Select...",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "DropdownInput",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "data": Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+              Object {
+                "id": 2,
+                "name": "Ipsum",
+              },
+            ],
+            "isOpen": false,
+            "onItemClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "DropdownList",
+        },
+        false,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`Dropdown should render 3`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Dropdown
+    data={
+      Array [
+        Object {
+          "id": 1,
+          "name": "Lorem",
+        },
+        Object {
+          "id": 2,
+          "name": "Ipsum",
+        },
+      ]
+    }
+    isDisabled={false}
+    isLoading={false}
+    label=""
+    name="lorem"
+    onChange={[Function]}
+    placeholder="Select..."
+    transformer={[Function]}
+    value="1"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <DropdownInput
+          isLoading={false}
+          onClick={[Function]}
+          text="Lorem"
+        />,
+        <DropdownList
+          data={
+            Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+              Object {
+                "id": 2,
+                "name": "Ipsum",
+              },
+            ]
+          }
+          isOpen={false}
+          onItemClick={[Function]}
+        />,
+        <DropdownClear
+          onClick={[Function]}
+        />,
+      ],
+      "className": "root",
+    },
+    "ref": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "isLoading": false,
+          "onClick": [Function],
+          "text": "Lorem",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "DropdownInput",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "data": Array [
+            Object {
+              "id": 1,
+              "name": "Lorem",
+            },
+            Object {
+              "id": 2,
+              "name": "Ipsum",
+            },
+          ],
+          "isOpen": false,
+          "onItemClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "DropdownList",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "DropdownClear",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <DropdownInput
+            isLoading={false}
+            onClick={[Function]}
+            text="Lorem"
+          />,
+          <DropdownList
+            data={
+              Array [
+                Object {
+                  "id": 1,
+                  "name": "Lorem",
+                },
+                Object {
+                  "id": 2,
+                  "name": "Ipsum",
+                },
+              ]
+            }
+            isOpen={false}
+            onItemClick={[Function]}
+          />,
+          <DropdownClear
+            onClick={[Function]}
+          />,
+        ],
+        "className": "root",
+      },
+      "ref": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "isLoading": false,
+            "onClick": [Function],
+            "text": "Lorem",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "DropdownInput",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "data": Array [
+              Object {
+                "id": 1,
+                "name": "Lorem",
+              },
+              Object {
+                "id": 2,
+                "name": "Ipsum",
+              },
+            ],
+            "isOpen": false,
+            "onItemClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "DropdownList",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "DropdownClear",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    //border: border();
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    width: 100%;
+
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}

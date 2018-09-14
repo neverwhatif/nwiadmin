@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    position: relative;
+}
+
+.list {
+    background-color: $clr-secondary;
+    color: $clr-white;
+    display: flex;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+
+.item {
+    margin-right: 1.6rem;
+    padding-right: 2rem;
+    position: relative;
+
+    &::before {
+        @include posabs((top: calc(50% - .2rem), right: 0));
+        background-color: $clr-white;
+        border-radius: 100%;
+        content: '';
+        height: .4rem;
+        width: .4rem;
+    }
+
+    &:last-child {
+        margin: 0;
+        padding: 0;
+
+        &::before {
+            content: none;
+        }
+    }
+}
+
+.clear {
+    @include hide-text;
+    @include posabs((top: calc(50% - 15px), right: 2rem));
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::before,
+    &::after {
+        @include posabs((top: calc(50% - .1rem), left: calc(50% - .8rem)));
+        background-color: $clr-white;
+        content: '';
+        height: .2rem;
+        transform: rotate(45deg);
+        width: 1.6rem;
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+}

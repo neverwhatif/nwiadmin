@@ -1,0 +1,16 @@
+@import 'variables';
+
+.root {
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}
+
+.loading {
+    background:
+    linear-gradient(to bottom, transparent, $clr-grey-xlight),
+    linear-gradient(to bottom, $clr-white, $clr-white 90%, transparent 90%, transparent);
+    background-size: 100% 100%, 10rem 10rem;
+    min-height: 40rem;
+}
