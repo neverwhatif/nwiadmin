@@ -14,3 +14,7 @@ export const months = [
 ];
 
 export const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
+
+export const currencies = {
+    'GBP': '£',
+};

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { months, quarters } from 'nwiadmin/utility/constants';
+import { months, quarters, currencies } from 'nwiadmin/utility/constants';
 
 export const formatBoolean = input => (input ? 'Yes' : '-');
 
@@ -9,7 +9,7 @@ export const formatPoints = input => (parseInt(input || 0, 10) / 100).toLocaleSt
     minimumFractionDigits: 2,
 });
 
-export const formatMoney = input => `£${formatPoints(input)}`;
+export const formatMoney = input => `${currencies[input.currency]}${formatPoints(input.amount)}`;
 
 export const formatDate = (input) => {
     if (!input) {
