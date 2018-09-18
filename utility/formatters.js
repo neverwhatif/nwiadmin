@@ -11,6 +11,8 @@ export const formatPoints = input => (parseInt(input || 0, 10) / 100).toLocaleSt
 
 export const formatMoney = input => `${currencies[input.currency]}${formatPoints(input.amount)}`;
 
+export const formatMoneyLegacy = input => `£${formatPoints(input)}`;
+
 export const formatDate = (input) => {
     if (!input) {
         return '';
@@ -28,7 +30,7 @@ export const formatQuarter = input => quarters[parseInt(input, 10) - 1];
 
 const formatMap = {
     boolean: input => formatBoolean(input),
-    currency: input => formatMoney(input),
+    currency: input => formatMoneyLegacy(input),
     date: input => formatDate(input),
     datetime: input => formatDatetime(input),
     month: input => formatMonth(input),
