@@ -25,6 +25,10 @@ const PrimarySubNav = props => (
                     : renderItem(item, props.data.path, props.setActiveSubNav)
             ))}
         </ul>
+        <i
+            className={classNames(styles.close, props.isOpen ? styles.closeIsOpen : null)}
+            onClick={() => props.setActiveSubNav(null)}
+        />
     </div>
 );
 
