@@ -22,6 +22,9 @@ import 'nwiadmin/utility/styles/elements.scss';
 import 'nwiadmin/utility/styles/layout.scss';
 
 const renderRoute = (route) => {
+    if(!route.path) {
+        return null;
+    }
     const path = route.path === '/' ? '/' : `/${route.path}`;
     return (<Route key={path} path={path} exact={route.isExact || false} component={route.component} />);
 };

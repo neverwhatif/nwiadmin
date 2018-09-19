@@ -13,7 +13,7 @@ export const checkPathIsActive = (path, locationPath, useFullLocationPath = true
 };
 
 const parseNavItem = (item, index, locationPath, useFullLocationPath = true) => {
-    const path = buildNestedPath(item.basePath, item.path);
+    const path = buildNestedPath(item.basePath, item.path || item.to);
     const isActive = checkPathIsActive(path, locationPath, useFullLocationPath);
 
     const children = item.children && item.children.length
