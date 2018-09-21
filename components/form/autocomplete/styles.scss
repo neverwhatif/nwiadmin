@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    position: relative;
+    transition: opacity .3s;
+
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}
