@@ -42,7 +42,7 @@ const renderers = {
     ),
     checkbox: value => (
         <Checkbox
-            readonly
+            readOnly
             name={`selected.${value.id}`}
             value={value.isSelected}
         />

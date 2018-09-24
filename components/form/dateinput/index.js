@@ -72,11 +72,12 @@ class DateInput extends Component {
 
     render() {
         const panelClass = classNames(styles.panel, this.state.isPanelOpen ? styles.panelIsOpen : null);
+        const { disabledFn, ...otherProps } = this.props;
 
         return (
             <div className={styles.root} ref={(node) => { this.node = node; }}>
                 <TextInput
-                    {...this.props}
+                    {...this.otherProps}
                     autoComplete="off"
                     onFocus={this.openPanel}
                     onChange={e => this.onChange(e)}
@@ -87,7 +88,7 @@ class DateInput extends Component {
                         initialValue={this.props.value ? this.props.value.split(' ')[0] : ''}
                         onSelectDate={date => this.onSelectDate(date)}
                         active={this.state.value}
-                        disabledFn={this.props.disabledFn}
+                        disabledFn={disabledFn}
                     />
                 </div>
             </div>
