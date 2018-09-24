@@ -35,10 +35,11 @@ const getWeeks = (month) => {
     return weeks.filter(week => JSON.stringify(week) !== '[0,0,0,0,0,0,0]');
 };
 
-const renderCell = (day, onSelectDate, active, index) => {
+const renderCell = (day, onSelectDate, active, disabledFn, index) => {
     const cellClass = classNames(
         styles.cell,
         active !== null && typeof active !== 'undefined' && day.date === active ? styles.cellActive : null,
+        disabledFn(moment(day.date, 'YYYY-MM-DD')) ? styles.cellDisabled : null,
     );
 
     return (
@@ -55,7 +56,7 @@ const renderCell = (day, onSelectDate, active, index) => {
     );
 };
 
-const DateInputCal = ({ month, onSelectDate, active }) => {
+const DateInputCal = ({ month, onSelectDate, active, disabledFn }) => {
     const weeks = getWeeks(month);
     const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -69,7 +70,7 @@ const DateInputCal = ({ month, onSelectDate, active }) => {
             <tbody>
                 {weeks.map(week => (
                     <tr key={week[0].num || 0} className={styles.row}>
-                        {week.map((day, index) => renderCell(day, onSelectDate, active, index))}
+                        {week.map((day, index) => renderCell(day, onSelectDate, active, disabledFn, index))}
                     </tr>
                 ))}
             </tbody>
@@ -81,6 +82,7 @@ DateInputCal.propTypes = {
     month: PropTypes.string.isRequired,
     onSelectDate: PropTypes.func,
     active: PropTypes.string,
+    disabledFn: PropTypes.func.isRequired,
 };
 
 DateInputCal.defaultProps = {

@@ -57,6 +57,7 @@ class DateInputPanel extends Component {
                     month={this.state.month}
                     onSelectDate={date => this.onSelectDate(date)}
                     active={this.state.active}
+                    disabledFn={this.props.disabledFn}
                 />
                 <div className={styles.actions}>
                     <button className={styles.button} onClick={() => this.previousMonth()}>← Previous</button>
@@ -72,6 +73,7 @@ DateInputPanel.propTypes = {
     onSelectDate: PropTypes.func,
     active: PropTypes.string,
     isVisible: PropTypes.bool,
+    disabledFn: PropTypes.func.isRequired,
 };
 
 DateInputPanel.defaultProps = {

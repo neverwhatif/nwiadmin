@@ -28,6 +28,11 @@
             pointer-events: none;
         }
     }
+
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
 }
 
 .control {

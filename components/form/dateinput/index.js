@@ -84,9 +84,10 @@ class DateInput extends Component {
                 />
                 <div className={panelClass}>
                     <DateInputPanel
-                        initialValue={this.props.value}
+                        initialValue={this.props.value ? this.props.value.split(' ')[0] : ''}
                         onSelectDate={date => this.onSelectDate(date)}
                         active={this.state.value}
+                        disabledFn={this.props.disabledFn}
                     />
                 </div>
             </div>
@@ -98,12 +99,14 @@ DateInput.propTypes = {
     name: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    disabledFn: PropTypes.func,
 };
 
 DateInput.defaultProps = {
     name: '',
     value: '',
     onChange: () => null,
+    disabledFn: () => false,
 };
 
 export default DateInput;
