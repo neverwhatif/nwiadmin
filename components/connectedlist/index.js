@@ -23,6 +23,7 @@ const defaultState = {
     // Some data (ie reports) comes down with columns information, which can be passed to the transformer
     columns: [],
     data: null,
+    totals: null,
     search: '',
     meta: null,
 };
@@ -89,6 +90,7 @@ export class ConnectedListComponent extends Component {
                 columns: response.columns,
                 data: response.data,
                 meta: response.meta,
+                totals: response.totals,
                 isDataLoading: false,
             }))
             .catch((dataError) => {
@@ -193,6 +195,7 @@ export class ConnectedListComponent extends Component {
         return this.props.renderList({
             data,
             columns: this.state.columns,
+            totals: this.state.totals,
             transformer: this.props.transformer,
             isDisabled: this.props.isDisabled || isDisabled,
             shouldInitPreload: true,

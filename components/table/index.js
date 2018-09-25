@@ -10,7 +10,7 @@ import TableRow from './tablerow';
 
 import styles from './styles.scss';
 
-const transformData = (transformer, data, columns, functions) => data.map((item, index) => {
+const transformDataItem = (transformer, item, index, columns, functions) => {
     // If there is an '$id' in the data, assume it has already been transformed, and don't transform again
     if (item.$id) {
         return item;
@@ -24,7 +24,26 @@ const transformData = (transformer, data, columns, functions) => data.map((item,
         acc.$functions = functions;
         return acc;
     }, item.$actions ? { $actions: item.$actions } : {});
-});
+}
+
+const transformData = (transformer, data, columns, totals, functions) => {
+    const transformed = data.map((item, index) => transformDataItem(transformer, item, index, columns, functions));
+
+    if(totals) {
+        transformed.push(columns.reduce((acc, cur, index) => {
+            const transformedItem = typeof totals[cur.key] !== 'undefined'
+                ? transformer({ [cur.key]: totals[cur.key] }, index, columns)
+                : {};
+
+            acc[cur.title] = index === 0
+                ? 'Totals'
+                : (transformedItem[cur.title] ? transformedItem[cur.title] : '');
+            return acc;
+        }, { $id: 9999 }));
+    }
+
+    return transformed;
+};
 
 class Table extends Component {
     constructor(props) {
@@ -50,10 +69,11 @@ class Table extends Component {
         const {
             data,
             columns,
+            totals,
             transformer,
             functions,
         } = this.props;
-        return transformData(transformer, data, columns, functions);
+        return transformData(transformer, data, columns, totals, functions);
     }
 
     isAllSelected() {

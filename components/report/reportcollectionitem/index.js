@@ -22,7 +22,7 @@ const CollectionItem = (props) => {
     } else if (props.type === 'basic') {
         return (
             <ReportCollectionPanel title={props.name} isDisabled={props.isDisabled}>
-                <Table data={data} columns={props.columns} transformer={transformer} />
+                <Table data={data} columns={props.columns} totals={props.totals} transformer={transformer} />
             </ReportCollectionPanel>
         );
     }
