@@ -9,7 +9,13 @@ export const formatPoints = input => (parseInt(input || 0, 10) / 100).toLocaleSt
     minimumFractionDigits: 2,
 });
 
-export const formatMoney = input => `${currencies[input.currency]}${formatPoints(input.amount)}`;
+export const formatMoney = (input) => {
+    if(typeof input !== 'object' || input === null) {
+        return '';
+    }
+
+    return `${currencies[input.currency]}${formatPoints(input.amount)}`;
+}
 
 export const formatMoneyLegacy = input => `£${formatPoints(input)}`;
 
