@@ -174,7 +174,16 @@ class FormScene extends Component {
         const method = this.setMethod(pendingData);
         const parsedRemote = parseRemote(remote);
 
-        const diffed = this.state.shouldDiffRequest ? diff(pendingData, this.state.data) : pendingData;
+        let diffed = this.state.shouldDiffRequest ? diff(pendingData, this.state.data) : pendingData;
+
+        if(Array.isArray(this.state.shouldDiffRequest)) {
+            const undiffed = this.state.shouldDiffRequest.reduce((acc, cur) => {
+                acc[cur] = pendingData[cur];
+                return acc;
+            }, {});
+
+            diffed = { ...diffed, ...undiffed };
+        }
 
         const transformed = this.transformRequest(diffed);
 
