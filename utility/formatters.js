@@ -11,7 +11,7 @@ export const formatPoints = input => (parseInt(input || 0, 10) / 100).toLocaleSt
 
 export const formatMoney = (input) => {
     if(typeof input !== 'object' || input === null) {
-        return '';
+        return null;
     }
 
     return `${currencies[input.currency]}${formatPoints(input.amount)}`;
