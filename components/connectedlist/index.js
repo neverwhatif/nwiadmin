@@ -223,7 +223,7 @@ export class ConnectedListComponent extends Component {
 
         return (
             <ErrorBoundary>
-                {(this.props.filters || this.props.cta) && (
+                {(this.props.filters || this.props.cta || this.props.hasSearch) && (
                     <Fragment>
                         <FilterBar
                             location={this.props.location}
@@ -276,7 +276,7 @@ ConnectedListComponent.defaultProps = {
     filterMap: {},
     itemName: null,
     renderList: data => <List {...data} />,
-    hasSearch: true,
+    hasSearch: false,
     cta: null,
     shouldOnlyUpdateWithFilters: false,
     setFunctions: () => null,
