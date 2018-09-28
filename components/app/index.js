@@ -20,6 +20,7 @@ import Error404Scene from 'nwiadmin/scenes/404';
 
 import 'nwiadmin/utility/styles/elements.scss';
 import 'nwiadmin/utility/styles/layout.scss';
+import 'app/config/classes.scss';
 
 const renderRoute = (route) => {
     if(!route.path) {
