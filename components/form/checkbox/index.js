@@ -48,7 +48,7 @@ const Checkbox = (props) => {
 
 Checkbox.propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
     hasError: PropTypes.bool,
     labelText: PropTypes.string,
     isDisabled: PropTypes.bool,
@@ -57,6 +57,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+    value: false,
     hasError: false,
     labelText: null,
     isDisabled: false,

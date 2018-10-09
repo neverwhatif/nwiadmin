@@ -7,7 +7,7 @@ export const getToken = () => (store.getItem(tokenName) || '').replace(/\n/, '')
 export const setToken = token => store.setItem(tokenName, token);
 export const removeToken = () => store.removeItem(tokenName);
 
-export const setTokenFromHeader = (headers) => {
+export const setTokenFromHeader = (headers = {}) => {
     const header = headers.authorization || headers.Authorization;
 
     if (header) {
@@ -39,6 +39,10 @@ const handleUnauth = (history) => {
 };
 
 const checkForUnauthResponse = (error) => {
+    if(!error.response) {
+        console.log(error);
+        return;
+    }
     if (error.response.status === 401) {
         return true;
     }

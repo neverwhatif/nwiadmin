@@ -4,6 +4,21 @@ import qs from 'qs';
 import config from 'app/config';
 import { getAuthedHeaders, setTokenFromHeader } from './auth';
 
+let responseTransformer = response => response;
+let isRegistered = false;
+
+export const registerAPI = (opts = {}) => {
+    if (isRegistered) {
+        console.error('API has already been registered');
+        return;
+    }
+
+    if (opts.transformResponse) {
+        responseTransformer = opts.transformResponse;
+    }
+    isRegistered = true;
+};
+
 const cancels = {};
 
 const defaultOptions = {
@@ -12,15 +27,17 @@ const defaultOptions = {
 };
 
 const responseSuccess = (response) => {
-    setTokenFromHeader(response.headers);
-    return response.data;
+    const transformed = responseTransformer(response);
+
+    setTokenFromHeader(transformed.headers);
+    return transformed.data;
 };
 
 const responseError = (error) => {
     if (axios.isCancel(error)) {
         return Promise.resolve(-1);
     }
-    setTokenFromHeader(error.response.headers);
+    setTokenFromHeader(error.response ? error.response.headers : {});
     return Promise.reject(error);
 };
 
