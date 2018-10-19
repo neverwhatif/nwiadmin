@@ -11,8 +11,27 @@
 
 .title {
     @include font-size(med);
-    border-bottom: border(rgba($clr-white, .1));
     color: $clr-white;
-    margin-bottom: .5rem;
-    padding-bottom: .8rem;
+    cursor: pointer;
+}
+
+.panel {
+    @include posabs((right: 1rem, bottom: 100%, left: 1rem));
+    background-color: $clr-white;
+    border: border();
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, 1rem, 0);
+    transition: transform .3s $easing, opacity .3s $easing;
+
+    &Open {
+        opacity: 1;
+        pointer-events: all;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &Item {
+        border-bottom: border();
+        padding: 10px;
+    }
 }
