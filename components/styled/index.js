@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 export const formatStyle = (input) => {
-    const match = input.match(/^\[([^]+)\]:(.+)/);
+    const match = `${input}`.match(/^\[([^]+)\]:(.+)/);
 
     if(!match) {
         return input;

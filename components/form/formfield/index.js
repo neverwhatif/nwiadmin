@@ -6,7 +6,7 @@ import FormLabel from 'nwiadmin/components/form/formlabel';
 import styles from './styles.scss';
 
 const cloneInput = (input, props) => {
-    if (!input || input.type.name === 'FormError') {
+    if (!input || (input.type && input.type.name === 'FormError')) {
         return input;
     }
 

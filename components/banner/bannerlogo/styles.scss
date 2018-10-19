@@ -10,21 +10,12 @@
 .link {
     display: flex;
     flex-direction: column;
+    height: 10rem;
     justify-content: center;
-    padding: 1.5rem;
-
-    @include break(tablet) {
-        height: 10rem;
-        padding: 0 4rem .5rem 2rem;
-    }
+    padding: 0 4rem .5rem 2rem;
 }
 
 .img {
-    height: 2rem;
-    width: auto;
-
-    @include break(tablet) {
-        height: auto;
-        width: 100%;
-    }
+    height: auto;
+    width: 100%;
 }

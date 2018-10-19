@@ -30,6 +30,7 @@ const ListItem = (props) => {
                         <p className={classNames(basicTitleClass)}>
                             {props.secondary.title}
                         </p>
+                        {props.secondary.subtitle && (<p className={styles.subtitle}>{props.secondary.subtitle}</p>)}
                     </div>
                 )}
             </div>

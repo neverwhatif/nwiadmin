@@ -2,11 +2,8 @@
 @import 'mixins';
 
 .root {
+    margin-left: 20rem;
     padding-bottom: 4rem;
-
-    @include break(tablet) {
-        margin-left: 20rem;
-    }
 }
 
 .header {
@@ -15,15 +12,10 @@
     box-shadow: 0 .5rem .5rem rgba($clr-black, .02);
     display: flex;
     flex-direction: column;
-    height: 6rem;
+    height: 10rem;
     justify-content: center;
-    padding: 0 1.5rem;
+    padding: 0 3rem;
     z-index: 2;
-
-    @include break(tablet) {
-        height: 10rem;
-        padding: 0 3rem;
-    }
 }
 
 .title {
@@ -32,9 +24,5 @@
 
 .content {
     border-top: border();
-    padding: 1.5rem;
-
-    @include break(tablet) {
-        padding: 3rem;
-    }
+    padding: 3rem;
 }

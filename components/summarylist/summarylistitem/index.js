@@ -34,7 +34,7 @@ const SummaryListItem = props => (
 
 SummaryListItem.propTypes = {
     term: PropTypes.string.isRequired,
-    def: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+    def: PropTypes.oneOfType([PropTypes.array, PropTypes.string, PropTypes.number]),
 };
 
 SummaryListItem.defaultProps = {
