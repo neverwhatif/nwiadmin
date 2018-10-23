@@ -21,16 +21,24 @@ const parseDef = (def) => {
     );
 };
 
-const SummaryListItem = props => (
-    <div className={styles.root}>
-        <div className={styles.inner}>
-            <dt className={styles.term}>{props.term}</dt>
-            <dd className={classNames(styles.def, props.def === null ? styles.defIsDisabled : null)}>
-                {parseDef(props.def)}
-            </dd>
+const SummaryListItem = props => {
+    const defClass = classNames(
+        styles.def,
+        props.isLarge ? styles.defIsLarge : null,
+        props.def === null ? styles.defIsDisabled : null
+    );
+
+    return (
+        <div className={styles.root}>
+            <div className={styles.inner}>
+                <dt className={styles.term}>{props.term}</dt>
+                <dd className={defClass}>
+                    {parseDef(props.def)}
+                </dd>
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 SummaryListItem.propTypes = {
     term: PropTypes.string.isRequired,

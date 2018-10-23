@@ -21,4 +21,9 @@
     &IsDisabled {
         color: $clr-grey-light;
     }
+    &IsLarge {
+        @include font-size(4xlrg);
+        font-weight: $light-fontweight;
+        line-height: 1;
+    }
 }

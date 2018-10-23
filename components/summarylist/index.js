@@ -7,7 +7,7 @@ import styles from './styles.scss';
 
 const SummaryList = props => (
     <dl className={styles.root}>
-        {Object.entries(props.data).map(item => <SummaryListItem key={item[0]} term={item[0]} def={item[1]} />)}
+        {Object.entries(props.data).map(item => <SummaryListItem key={item[0]} term={item[0]} def={item[1]} isLarge={props.isLarge} />)}
     </dl>
 );
 
