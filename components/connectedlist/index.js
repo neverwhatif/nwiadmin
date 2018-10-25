@@ -198,7 +198,7 @@ export class ConnectedListComponent extends Component {
             totals: this.state.totals,
             transformer: this.props.transformer,
             isDisabled: this.props.isDisabled || isDisabled,
-            shouldInitPreload: true,
+            shouldInitPreload: this.props.shouldInitPreload,
             functions: {
                 updateData: this.updateData,
                 updateRow: this.updateRow,
@@ -267,6 +267,7 @@ ConnectedListComponent.propTypes = {
         action: PropTypes.func.isRequired,
     })),
     shouldOnlyUpdateWithFilters: PropTypes.bool,
+    shouldInitPreload: PropTypes.bool,
     setFunctions: PropTypes.func,
 };
 
@@ -279,6 +280,7 @@ ConnectedListComponent.defaultProps = {
     hasSearch: false,
     cta: null,
     shouldOnlyUpdateWithFilters: false,
+    shouldInitPreload: true,
     setFunctions: () => null,
 };
 
