@@ -13,7 +13,7 @@ const transformData = (data, transformer) => (
 );
 
 const getValue = (props) => {
-    if (!props.value && props.value !== 0) {
+    if (props.value === false || props.value === null) {
         return null;
     }
 
