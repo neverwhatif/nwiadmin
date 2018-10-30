@@ -40,7 +40,7 @@ class ConnectedDropdown extends Component {
     }
 
     parseData(data) {
-        return this.props.allOption ? [{ id: 0, name: this.props.allOption }, ...data] : data;
+        return this.props.allOption ? [{ id: '', name: this.props.allOption }, ...data] : data;
     }
 
     render() {
