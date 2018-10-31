@@ -26,6 +26,13 @@ export const formatDate = (input) => {
     return moment(input, input.match(/:/) ? 'YYYY-MM-DD HH:mm:ss' : 'YYYY-MM-DD').format('DD/MM/YYYY');
 };
 
+export const unformatDate = (input) => {
+    if (!input) {
+        return '';
+    }
+    return moment(input, 'DD/MM/YYYY').format('YYYY-MM-DD');
+};
+
 export const formatDatetime = input => (
     moment(input, 'YYYY-MM-DD HH:mm:ss').format('DD/MM/YYYY [@] HH:mm')
 );
