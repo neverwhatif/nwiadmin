@@ -92,6 +92,7 @@ class Dropdown extends Component {
         const transformed = transformData(this.props.data, this.props.transformer);
         const rootClass = classNames(
             styles.root,
+            this.state.isListOpen ? styles.rootOpen : null,
             this.props.isLoading || this.props.isDisabled || !transformed.length ? styles.rootDisabled : null,
         );
 

@@ -2,8 +2,13 @@
 @import 'mixins';
 
 .root {
+    overflow: hidden;
     position: relative;
     transition: opacity .3s;
+
+    &Open {
+        overflow: visible;
+    }
 
     &Disabled {
         opacity: .3;
