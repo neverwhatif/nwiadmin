@@ -77,6 +77,13 @@ export class ConnectedListComponent extends Component {
         this.getData(search);
     }
 
+    getColumns(response) {
+        if (response.columns) {
+            return response.columns;
+        }
+        return this.props.columns || [];
+    }
+
     getData(search) {
         this.setState({
             search,
@@ -87,7 +94,7 @@ export class ConnectedListComponent extends Component {
 
         get(parsedRemote.alias, parsedRemote.params)
             .then(response => this.setState({
-                columns: response.columns,
+                columns: this.getColumns(response),
                 data: response.data,
                 meta: response.meta,
                 totals: response.totals,
