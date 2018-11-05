@@ -14,11 +14,13 @@ import Logo from 'app/components/logo';
 
 import styles from './styles.scss';
 
+const parseErrors = data => Object.values(data).map(item => item[0]);
+
 export class LoginComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isError: false,
+            errors: [],
             isLoading: false,
             data: {
                 email: '',
@@ -32,7 +34,7 @@ export class LoginComponent extends Component {
     }
     handleSubmit() {
         this.setState({
-            isError: false,
+            errors: [],
             isLoading: true,
         });
 
@@ -41,9 +43,9 @@ export class LoginComponent extends Component {
                 const { state } = this.props.location;
                 login(response.data.token, state ? state.redirect : '/');
             })
-            .catch(() => {
+            .catch((error) => {
                 this.setState({
-                    isError: true,
+                    errors: parseErrors(error.response.data.errors),
                     isLoading: false,
                 });
             });
@@ -58,10 +60,9 @@ export class LoginComponent extends Component {
                 <form className={styles.form}>
                     <Logo className={styles.logo} />
 
-                    { this.state.isError && (
+                    { Boolean(this.state.errors.length) && (
                         <div className={styles.error}>
-                            <strong>Could not log in.</strong><br />
-                            Please make sure your details are correct.
+                            {this.state.errors.map(item => <span key={item}>{item}<br /></span>)}
                         </div>
                     )}
 
