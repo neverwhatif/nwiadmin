@@ -25,6 +25,10 @@
     transition: border-color .1s;
     width: 2rem;
 
+    .control[readonly] ~ & {
+        pointer-events: none;
+    }
+
     &IsDisabled {
         opacity: .5;
     }
