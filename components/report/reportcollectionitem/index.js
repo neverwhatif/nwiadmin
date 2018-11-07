@@ -10,19 +10,31 @@ import reports from 'app/components/reports';
 import Table from 'nwiadmin/components/table';
 import ReportCollectionPanel from '../reportcollectionpanel';
 
+const CollectionItemEmpty = () => (
+    <p><em>No data found with these filters. Adjust the filters above to display data.</em></p>
+);
+
 const CollectionItem = (props) => {
     const data = props.type === 'landscape' ? convertDataToLandscape(props.data[0], props.columns) : props.data;
 
     if (props.type === 'landscape') {
         return (
             <ReportCollectionPanel title={props.name} isDisabled={props.isDisabled}>
-                <Table data={data} hasHead={false} />
+                {Boolean(data.length) ? (
+                    <Table data={data} hasHead={false} />
+                ) : (
+                    <CollectionItemEmpty />
+                )}
             </ReportCollectionPanel>
         );
     } else if (props.type === 'basic') {
         return (
             <ReportCollectionPanel title={props.name} isDisabled={props.isDisabled}>
-                <Table data={data} columns={props.columns} totals={props.totals} transformer={transformer} />
+                {Boolean(data.length) ? (
+                    <Table data={data} columns={props.columns} totals={props.totals} transformer={transformer} />
+                ) : (
+                    <CollectionItemEmpty />
+                )}
             </ReportCollectionPanel>
         );
     }
@@ -31,7 +43,11 @@ const CollectionItem = (props) => {
 
     return (
         <ReportCollectionPanel title={props.name} isDisabled={props.isDisabled}>
-            <ReportComponent data={data} columns={props.columns} />
+            {Boolean(data.length) ? (
+                <ReportComponent data={data} columns={props.columns} />
+            ) : (
+                <CollectionItemEmpty />
+            )}
         </ReportCollectionPanel>
     );
 };
