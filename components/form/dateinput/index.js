@@ -39,12 +39,12 @@ class DateInput extends Component {
     }
 
     onChange(e) {
-        const { target: { name, value } } = e;
+        const { target: { value } } = e;
 
         this.setState({ value });
 
         const parsedValue = parseDate(value);
-        const fakeEvent = { target: { name, value: parsedValue } };
+        const fakeEvent = { target: { name: this.props.name, value: parsedValue } };
 
         this.props.onChange(fakeEvent);
     }
