@@ -41,7 +41,7 @@ const Report = (props) => {
                 filters={FilterComponent ? f => <FilterComponent {...f} /> : null}
                 filterMap={filterMap}
                 hasSearch={hasSearch}
-                shouldOnlyUpdateWithFilters
+                shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
                 cta={[{
                     label: 'Download CSV',
                     action: (e, data) => downloadCSV(props.code, data),
@@ -57,7 +57,7 @@ const Report = (props) => {
                 filters={FilterComponent ? f => <FilterComponent {...f} /> : null}
                 filterMap={filterMap}
                 hasSearch={hasSearch}
-                shouldOnlyUpdateWithFilters
+                shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
             />
         );
     }
@@ -75,11 +75,13 @@ Report.propTypes = {
         PropTypes.shape({}),
         PropTypes.bool,
     ])),
+    shouldOnlyUpdateWithFilters: PropTypes.bool,
 };
 
 Report.defaultProps = {
     data: null,
     filters: [false],
+    shouldOnlyUpdateWithFilters: true,
 };
 
 export default Report;
