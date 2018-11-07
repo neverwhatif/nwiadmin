@@ -26,6 +26,7 @@ const passwordFields = [{
     component: PasswordInput,
 }, '-', {
     name: 'new_password',
+    desc: 'Minimum of eight characters, at least one uppercase letter, one lowercase letter, one number and one punctuation mark or symbol.',
     label: 'New Password',
     component: PasswordInput,
 }, {
