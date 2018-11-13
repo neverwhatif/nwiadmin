@@ -14,7 +14,7 @@ class Autocomplete extends Component {
         this.state = {
             data: [],
             isDataLoading: false,
-            value: ''
+            value: props.initialValue || ''
         };
 
         this.selectItem = this.selectItem.bind(this);
