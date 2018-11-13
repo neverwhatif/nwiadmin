@@ -51,6 +51,8 @@ export class ResetPasswordComponent extends Component {
                 <form className={styles.form}>
                     <Logo className={styles.logo} />
 
+                    <em>Minimum of eight characters, at least one uppercase letter, one lowercase letter, one number and one punctuation mark or symbol.<br /><br /></em>
+
                     { this.state.error && (
                         <div className={styles.error}>
                             <strong>Could not reset password.</strong><br />
