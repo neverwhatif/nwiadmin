@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { withRouter } from 'react-router';
-import { withHistory } from 'nwiadmin/utility/proptypes';
 
 import { get } from 'nwiadmin/services/api';
 import { checkAuthResponse } from 'nwiadmin/services/auth';
@@ -51,7 +49,7 @@ class App extends Component {
                 isError: true,
                 isLoading: false,
             });
-            checkAuthResponse(error, this.props.history);
+            checkAuthResponse(error);
         });
     }
     render() {
@@ -79,8 +77,4 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
-    ...withHistory,
-};
-
-export default withRouter(App);
+export default App;

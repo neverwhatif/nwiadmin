@@ -101,7 +101,7 @@ export class ConnectedListComponent extends Component {
                 isDataLoading: false,
             }))
             .catch((dataError) => {
-                checkAuthResponse(dataError, this.props.history, () => {
+                checkAuthResponse(dataError, () => {
                     this.setState({ dataError });
                 });
             });

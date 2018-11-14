@@ -4,6 +4,7 @@ import { Component } from 'react';
 import PubSub from 'pubsub-js';
 
 import { request } from 'nwiadmin/services/api';
+import { checkAuthResponse } from 'nwiadmin/services/auth';
 import { notifySuccess, notifyError, clearNotify } from 'nwiadmin/services/notify';
 import { getFieldValue, setUpdatedData } from 'nwiadmin/services/form';
 
@@ -138,17 +139,18 @@ class FormScene extends Component {
 
     responseError(error) {
         this.setState({ isLoading: false });
+        checkAuthResponse(error, () => {
+            const { response: { status, data } } = error;
 
-        const { response: { status, data } } = error;
-
-        if (status !== 422 || !data) {
-            notifyError('Sorry, something appears to have gone wrong. Please contact the site administrator.');
-            return;
-        }
-        if (this.state.shouldNotify) {
-            notifyError('Please double check the form and try again');
-        }
-        this.setState({ errors: data && data.errors ? this.transformErrors(data.errors) : {} });
+            if (status !== 422 || !data) {
+                notifyError('Sorry, something appears to have gone wrong. Please contact the site administrator.');
+                return;
+            }
+            if (this.state.shouldNotify) {
+                notifyError('Please double check the form and try again');
+            }
+            this.setState({ errors: data && data.errors ? this.transformErrors(data.errors) : {} });
+        });
     }
 
     submit() {

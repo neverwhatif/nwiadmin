@@ -2,10 +2,9 @@ import React, { Children, cloneElement, Component } from 'react';
 import PropTypes from 'prop-types';
 import PubSub from 'pubsub-js';
 
-import { withConnected, withHistory, defaultWithConnected } from 'nwiadmin/utility/proptypes';
+import { withConnected, defaultWithConnected } from 'nwiadmin/utility/proptypes';
 import store from 'nwiadmin/utility/store';
 
-import { withRouter } from 'react-router';
 import { checkAuthResponse } from 'nwiadmin/services/auth';
 
 import Scene from 'nwiadmin/components/scene';
@@ -68,7 +67,7 @@ class ConnectedScene extends Component {
                 PubSub.publish('@currentScene/SET_DATA', response.data);
             })
             .catch((error) => {
-                checkAuthResponse(error, this.props.history, () => {
+                checkAuthResponse(error, () => {
                     this.setState({ dataError: error.toString() });
                 });
             });
@@ -120,7 +119,6 @@ class ConnectedScene extends Component {
 
 ConnectedScene.propTypes = {
     ...withConnected,
-    ...withHistory,
     basePath: PropTypes.string,
     children: PropTypes.node.isRequired,
 };
@@ -130,4 +128,4 @@ ConnectedScene.defaultProps = {
     basePath: '',
 };
 
-export default withRouter(ConnectedScene);
+export default ConnectedScene;

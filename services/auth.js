@@ -27,7 +27,7 @@ export const getAuthedHeaders = (headers = {}) => ({
     ...getHeader(),
 });
 
-const handleUnauth = (history) => {
+const handleUnauth = () => {
     removeToken();
 
     if (window.location.pathname === `/${authRouteName}`) {
@@ -56,14 +56,14 @@ const checkForUnauthResponse = (error) => {
     return false;
 };
 
-export const checkAuthResponse = (error, history, elseFn) => {
+export const checkAuthResponse = (error, elseFn) => {
     // A bit hacky, probably should use some way of passing a 'isUnauth' parameter to the route or something
-    if (history.location.pathname.match(/^\/reset/)) {
+    if (window.location.pathname.match(/^\/reset/)) {
         return;
     }
 
     if (checkForUnauthResponse(error)) {
-        handleUnauth(history);
+        handleUnauth();
         return;
     }
 
