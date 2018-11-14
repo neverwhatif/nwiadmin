@@ -1,4 +1,5 @@
 import store from 'nwiadmin/utility/store';
+import history from 'nwiadmin/utility/history';
 
 const tokenName = 'token';
 const authRouteName = 'login';
