@@ -39,7 +39,7 @@ const transformData = (transformer, data, columns, totals, functions) => {
                 ? 'Totals'
                 : (transformedItem[cur.title] ? transformedItem[cur.title] : '');
             return acc;
-        }, { $id: 9999 }));
+        }, { $id: 0 }));
     }
 
     return transformed;
@@ -90,7 +90,7 @@ class Table extends Component {
         if (this.state.isSelectable) {
             PubSub.publish(
                 '@currentTable/SET_SELECTED',
-                transformed.filter(item => selected.indexOf(item.$id) > -1),
+                transformed.filter(item => selected.indexOf(item.$id) > -1 && item.$id > 0),
             );
         }
     }
@@ -104,7 +104,7 @@ class Table extends Component {
         if (this.state.isSelectable) {
             PubSub.publish(
                 '@currentTable/SET_SELECTED',
-                transformed.filter(item => selected.indexOf(item.$id) > -1),
+                transformed.filter(item => selected.indexOf(item.$id) > -1 && item.$id > 0),
             );
         }
     }
