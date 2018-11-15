@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
+import meable from 'nwiadmin/services/me/meable';
 import { clearNotify } from 'nwiadmin/services/notify';
 
 import { stringifyRemote } from 'nwiadmin/utility';
@@ -19,6 +21,11 @@ const PrimaryNavItem = (props) => {
     );
 
     const path = props.filters ? stringifyRemote([props.path, { filter: props.filters }]) : props.path;
+    const isUnauthed = props.children && props.children.filter(item => !item.permission || props.me.permissions.indexOf(item.permission) > -1).length === 0;
+
+    if(isUnauthed) {
+        return null;
+    }
 
     return props.children ? (
         <span className={rootClass} onClick={() => props.toggleActiveSubNav(props.path)}>{props.label}</span>
@@ -41,4 +48,4 @@ PrimaryNavItem.defaultProps = {
     filters: null,
 };
 
-export default PrimaryNavItem;
+export default meable(PrimaryNavItem);

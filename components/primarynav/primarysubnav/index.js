@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import meable from 'nwiadmin/services/me/meable';
+
 import Allow from 'nwiadmin/components/allow';
 import PrimarySubNavItem from '../primarysubnavitem';
 
@@ -12,24 +14,32 @@ const renderItem = (item, basePath, setActiveSubNav) => (
     </li>
 );
 
-const PrimarySubNav = props => (
-    <div className={classNames(styles.root, props.isOpen ? styles.rootIsOpen : null)}>
-        <ul className={styles.list}>
-            {props.data.children.map(item => (
-                item.permission
-                    ? (
-                        <Allow permission={item.permission} key={item.key}>
-                            {renderItem(item, props.data.path, props.setActiveSubNav)}
-                        </Allow>
-                    )
-                    : renderItem(item, props.data.path, props.setActiveSubNav)
-            ))}
-        </ul>
-        <i
-            className={classNames(styles.close, props.isOpen ? styles.closeIsOpen : null)}
-            onClick={() => props.setActiveSubNav(null)}
-        />
-    </div>
-);
+const PrimarySubNav = props => {
+    const children = props.data.children.filter(item => !item.permission || props.me.permissions.indexOf(item.permission) > -1);
 
-export default PrimarySubNav;
+    if(!children || !children.length) {
+        return null;
+    }
+
+    return (
+        <div className={classNames(styles.root, props.isOpen ? styles.rootIsOpen : null)}>
+            <ul className={styles.list}>
+                {props.data.children.map(item => (
+                    item.permission
+                        ? (
+                            <Allow permission={item.permission} key={item.key}>
+                                {renderItem(item, props.data.path, props.setActiveSubNav)}
+                            </Allow>
+                        )
+                        : renderItem(item, props.data.path, props.setActiveSubNav)
+                ))}
+            </ul>
+            <i
+                className={classNames(styles.close, props.isOpen ? styles.closeIsOpen : null)}
+                onClick={() => props.setActiveSubNav(null)}
+            />
+        </div>
+    );
+};
+
+export default meable(PrimarySubNav);
