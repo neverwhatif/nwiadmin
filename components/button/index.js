@@ -17,7 +17,13 @@ const Button = (props) => {
 
     if (props.to) {
         return (
-            <Link to={props.to} className={rootClass}>{props.children}</Link>
+            <Link
+                to={props.to}
+                className={rootClass}
+                onClick={e => props.onClick(e)}
+            >
+                {props.children}
+            </Link>
         );
     }
 
