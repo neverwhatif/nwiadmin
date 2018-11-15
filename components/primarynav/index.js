@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
+import classNames from 'classnames';
 import { withRouter } from 'react-router-dom';
 import { withLocation } from 'nwiadmin/utility/proptypes';
 import { getPrimaryNav } from 'nwiadmin/services/nav';
+import store from 'nwiadmin/utility/store';
 
 import Allow from 'nwiadmin/components/allow';
 import PrimaryNavItem from './primarynavitem';
@@ -42,10 +44,15 @@ export class PrimaryNavComponent extends Component {
 
     render() {
         const nav = getPrimaryNav(this.props.location.pathname);
+        const preferences = store.getObject('preferences');
+        const rootClass = classNames(
+            styles.root,
+            preferences && preferences.pink ? styles.rootPink : null,
+        );
 
         return (
             <Fragment>
-                <ul className={styles.root}>
+                <ul className={rootClass}>
                     {nav.map(item => (
                         item.permission
                             ? (

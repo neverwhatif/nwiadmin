@@ -27,7 +27,10 @@ class MePanel extends Component {
                 <h2 className={styles.title} onClick={this.toggleIsOpen}>{this.props.data.name}</h2>
                 <div className={classNames(styles.panel, this.state.isOpen ? styles.panelOpen : null)}>
                     <div className={styles.panelItem}>
-                        <Button buttonStyle="empty" to="/security">Security</Button>
+                        <Button buttonStyle="empty" to="/preferences" onClick={() => this.toggleIsOpen()}>Preferences</Button>
+                    </div>
+                    <div className={styles.panelItem}>
+                        <Button buttonStyle="empty" to="/security" onClick={() => this.toggleIsOpen()}>Security</Button>
                     </div>
                     <div className={styles.panelItem}>
                         <Button buttonStyle="empty" onClick={() => logout()}>Log out</Button>

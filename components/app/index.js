@@ -14,6 +14,7 @@ import Notify from 'nwiadmin/components/notify';
 import Login from 'nwiadmin/components/login';
 import ResetPassword from 'nwiadmin/components/login/resetpassword';
 import SecurityScene from 'nwiadmin/scenes/security';
+import PreferenceScene from 'nwiadmin/scenes/preferences';
 import Error404Scene from 'nwiadmin/scenes/404';
 
 import 'nwiadmin/utility/styles/elements.scss';
@@ -68,6 +69,7 @@ class App extends Component {
                         <Route path="/login" component={Login} />
                         <Route path="/reset/:token" component={ResetPassword} />
                         <Route path="/security" component={SecurityScene} />
+                        <Route path="/preferences" component={PreferenceScene} />
                         <Route component={Error404Scene} />
                     </Switch>
                     <Notify />

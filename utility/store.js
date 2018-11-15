@@ -49,12 +49,16 @@ const getItem = (key) => {
     return getCookie(key);
 };
 
+const getObject = key => JSON.parse(getItem(key));
+
 const setItem = (key, value) => {
     if (useLocal && window) {
         return window.localStorage.setItem(key, value);
     }
     return setCookie(key, value);
 };
+
+const setObject = (key, object) => setItem(key, JSON.stringify(object));
 
 const removeItem = (key) => {
     if (useLocal && window) {
@@ -65,6 +69,8 @@ const removeItem = (key) => {
 
 export default {
     getItem,
+    getObject,
     setItem,
+    setObject,
     removeItem,
 };
