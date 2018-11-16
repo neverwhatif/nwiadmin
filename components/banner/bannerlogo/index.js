@@ -7,7 +7,7 @@ import config from 'app/config';
 
 import styles from './styles.scss';
 
-const isDev = !!config.isProduction;
+const isDev = !config.isProduction;
 const devString = 'You are on a development version of the site. Any changes you make will not have an affect on live accounts.';
 
 const BannerLogo = () => (
