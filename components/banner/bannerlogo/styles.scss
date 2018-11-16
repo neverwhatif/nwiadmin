@@ -5,6 +5,10 @@
     @include posfix((left: 0, top: 0));
     width: 20rem;
     z-index: 5;
+
+    &Dev {
+        background-color: $clr-error;
+    }
 }
 
 .link {
