@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import { Checkbox } from 'nwiadmin/components/form';
-import { addPrefixToClassNames } from 'nwiadmin/utility';
+import { addPrefixToClassNames, ucwords } from 'nwiadmin/utility';
 
 import styles from './styles.scss';
 
@@ -18,12 +18,24 @@ class TableHead extends Component {
         );
     }
 
-    renderCell(item) {
-        if (item[0] === '$' && item !== '$checkbox') {
+    renderCell(item, firstRow) {
+        if(item === '$checkbox') {
+            return (
+                <th key={item} className={styles.cell}>{this.renderCheckbox(item)}</th>
+            );
+        }
+
+        if (item[0] === '$') {
             return null;
         }
+
+        const cellClass = classNames(
+            styles.cell,
+            firstRow && firstRow.type ? styles[`cell${ucwords(firstRow.type)}`] : null,
+        );
+
         return (
-            <th key={item} className={styles.cell}>{ item === '$checkbox' ? this.renderCheckbox(item) : item}</th>
+            <th key={item} className={cellClass}>{item}</th>
         );
     }
 
@@ -32,7 +44,7 @@ class TableHead extends Component {
 
         return (
             <tr className={rootClass}>
-                {Object.keys(this.props.data).map(item => this.renderCell(item))}
+                {Object.entries(this.props.data).map(([item, firstRow]) => this.renderCell(item, firstRow))}
                 {this.props.data.$actions && this.renderCell('')}
             </tr>
         );

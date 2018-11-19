@@ -28,6 +28,7 @@ const renderAction = (item, row, functions) => {
 
 const renderers = {
     default: value => (typeof value === 'object' && value !== null ? JSON.stringify(value) : value),
+    right: value => value.value,
     link: value => (
         <Link to={value.path} isExternal={value.isExternal}>{value.title}</Link>
     ),

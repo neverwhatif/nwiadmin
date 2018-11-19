@@ -18,4 +18,8 @@
     font-weight: $bold-fontweight;
     padding: 0 1rem 1rem;
     text-align: left;
+
+    &Right {
+        text-align: right;
+    }
 }
