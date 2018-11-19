@@ -20,6 +20,16 @@ export const formatDetails = (title, details) => ({
     type: 'details',
 });
 
+export const formatNumberCell = (value) => ({
+    type: 'right',
+    value,
+});
+
+export const formatMoneyCell = (value) => ({
+    type: 'right',
+    value: formatMoney(value),
+});
+
 export const convertDataToLandscape = (data, columns) => (data ? Object.entries(data).map((item, index) => ({
     $id: index,
     metric: columns.filter(col => col.key === item[0])[0].title,
