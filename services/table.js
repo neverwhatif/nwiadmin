@@ -1,4 +1,4 @@
-import { format } from 'nwiadmin/utility/formatters';
+import { format, formatMoney } from 'nwiadmin/utility/formatters';
 
 export const formatReference = (title, reference, link) => ({
     title,
