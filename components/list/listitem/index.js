@@ -46,7 +46,7 @@ const ListItem = (props) => {
 
             {actions && (
                 <footer className={styles.footer}>
-                    {actions.map(item => (
+                    {actions.filter(item => item !== null).map(item => (
                         <Button
                             buttonStyle="empty"
                             key={item.label}
