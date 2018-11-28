@@ -37,7 +37,7 @@ class ConnectedScene extends Component {
     }
 
     componentWillMount() {
-        this.subscription = PubSub.subscribe('@currentScene/SET_DATA', (key, data) => {
+        this.subscription = PubSub.subscribe('@currentScene/SET_DATA', (_key, data) => {
             const transformed = this.props.transformer(data);
 
             this.setState({
@@ -101,8 +101,12 @@ class ConnectedScene extends Component {
             );
         }
 
-        const childrenWithData = Children.map(this.props.children, child =>
-            cloneElement(child, { data: this.state.data }));
+        const childrenWithData = Children.map(this.props.children, (child) => {
+            if(!child) {
+                return null;
+            }
+            return cloneElement(child, { data: this.state.data });
+        });
 
         return (
             <Scene
