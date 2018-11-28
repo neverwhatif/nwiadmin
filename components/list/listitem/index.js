@@ -7,6 +7,7 @@ import { addPrefixToClassNames } from 'nwiadmin/utility';
 import Button from 'nwiadmin/components/button';
 import ListItemTitle from '../listitemtitle';
 import ListItemMeta from '../listitemmeta';
+import Styled from 'nwiadmin/components/styled';
 
 import styles from './styles.scss';
 
@@ -22,7 +23,11 @@ const ListItem = (props) => {
             <div className={styles.content}>
                 <div className={styles.primary}>
                     <ListItemTitle {...props} className={titleClass} shouldInitPreload={props.shouldInitPreload} />
-                    {props.subtitle && (<p className={styles.subtitle}>{props.subtitle}</p>)}
+                    {props.subtitle && (
+                        <p className={styles.subtitle}>
+                            <Styled data={props.subtitle} />
+                        </p>
+                    )}
                 </div>
 
                 {props.secondary && props.secondary.title && (
@@ -30,7 +35,11 @@ const ListItem = (props) => {
                         <p className={classNames(basicTitleClass)}>
                             {props.secondary.title}
                         </p>
-                        {props.secondary.subtitle && (<p className={styles.subtitle}>{props.secondary.subtitle}</p>)}
+                        {props.secondary.subtitle && (
+                            <p className={styles.subtitle}>
+                                <Styled data={props.secondary.subtitle} />
+                            </p>
+                        )}
                     </div>
                 )}
             </div>
