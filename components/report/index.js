@@ -58,6 +58,10 @@ const Report = (props) => {
                 filterMap={filterMap}
                 hasSearch={hasSearch}
                 shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
+                cta={[{
+                    label: 'Download CSV',
+                    action: (e, data) => downloadCSV(props.code, data),
+                }]}
             />
         );
     }
