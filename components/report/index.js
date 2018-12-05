@@ -27,7 +27,8 @@ const downloadCSV = (code, data) => {
 
 const Report = (props) => {
     const report = getReportFromData(props.data, props.code);
-    const [FilterComponent, filterMap, hasSearch] = props.filters;
+    const {filters, footer} = props;
+    const [FilterComponent, filterMap, hasSearch] = filters;
 
     if (!report || !report.code) {
         return (<ErrorMessage title={false} description="Report could not be found" />);
@@ -46,7 +47,9 @@ const Report = (props) => {
                     label: 'Download CSV',
                     action: (e, data) => downloadCSV(props.code, data),
                 }]}
-            />);
+                footer={footer}
+            />
+        );
     } else if (report.type === 'collection') {
         return (
             <ConnectedList

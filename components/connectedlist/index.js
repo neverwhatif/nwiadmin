@@ -159,9 +159,6 @@ export class ConnectedListComponent extends Component {
     }
 
     renderList() {
-        // If there is no data, display an empty message. It's up to the emptylist function to decide
-        // what message to display
-
         // (Report collections have data as an object of 'data's, so it's important to check both)
 
         const data = this.state.data && this.props.actions ? this.state.data.map(item => ({
@@ -186,20 +183,23 @@ export class ConnectedListComponent extends Component {
             if (hasData) {
                 isDisabled = true;
             } else {
-                return (<Loading />);
+                return [<Loading />, data, hasData];
             }
         }
 
+        // If there is no data, display an empty message. It's up to the emptylist function to decide
+        // what message to display
+
         if (!hasData) {
             const [emptyTitle, emptyDescription] = this.getEmptyList();
-            return (
-                <EmptyList title={emptyTitle} description={emptyDescription} />
-            );
+            return [
+                <EmptyList title={emptyTitle} description={emptyDescription} />, data, hasData
+            ];
         }
 
         // We have data and our list isn't in a loading state. Display the list.
 
-        return this.props.renderList({
+        return [this.props.renderList({
             data,
             columns: this.state.columns,
             totals: this.state.totals,
@@ -211,7 +211,7 @@ export class ConnectedListComponent extends Component {
                 updateRow: this.updateRow,
                 reloadData: () => this.getData(this.state.search),
             },
-        });
+        }), data, hasData];
     }
 
     render() {
@@ -227,6 +227,8 @@ export class ConnectedListComponent extends Component {
             }
             return (<ErrorMessage />);
         }
+
+        const [list, data, hasData] = this.renderList();
 
         return (
             <ErrorBoundary>
@@ -250,11 +252,12 @@ export class ConnectedListComponent extends Component {
                     </Fragment>
                 )}
 
-                {this.renderList()}
+                {list}
 
                 {!this.state.isDataLoading && this.state.meta && (
                     <Pagination data={this.state.meta} location={this.props.location} />
                 )}
+                {Boolean(this.props.footer) && hasData && this.props.footer()}
             </ErrorBoundary>
         );
     }
