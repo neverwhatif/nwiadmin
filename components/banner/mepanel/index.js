@@ -22,9 +22,16 @@ class MePanel extends Component {
     }
 
     render() {
+        const { data } = this.props;
+
         return (
             <aside className={styles.root}>
-                <h2 className={styles.title} onClick={this.toggleIsOpen}>{this.props.data.name}</h2>
+                <h2
+                    className={styles.title}
+                    onClick={this.toggleIsOpen}
+                >
+                    {data.name ? data.name : `${data.first_name} ${data.last_name}`}
+                </h2>
                 <div className={classNames(styles.panel, this.state.isOpen ? styles.panelOpen : null)}>
                     <div className={styles.panelItem}>
                         <Button buttonStyle="empty" to="/preferences" onClick={() => this.toggleIsOpen()}>Preferences</Button>
@@ -43,7 +50,9 @@ class MePanel extends Component {
 
 MePanel.propTypes = {
     data: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        first_name: PropTypes.string,
+        last_name: PropTypes.string,
+        name: PropTypes.string,
     }).isRequired,
 };
 

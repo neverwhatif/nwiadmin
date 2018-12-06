@@ -28,7 +28,9 @@ export const BannerComponent = props => (
 
 BannerComponent.propTypes = {
     me: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        first_name: PropTypes.string,
+        last_name: PropTypes.string,
+        name: PropTypes.string,
     }),
     isError: PropTypes.bool,
 };
