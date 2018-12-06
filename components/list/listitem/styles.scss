@@ -21,8 +21,8 @@
     @include font-size(lrg);
     margin-top: -.15em;
 
-    @if mixin-exists(title) {
-        @include title;
+    @if mixin-exists(listtitle) {
+        @include listtitle;
     }
 
     @include break(tablet) {
