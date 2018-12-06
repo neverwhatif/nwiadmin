@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { withLocation } from 'nwiadmin/utility/proptypes';
 
 import { onAccessibleKeyDown } from 'nwiadmin/utility';
 import meable from 'nwiadmin/services/me/meable';
+import config from 'app/config';
 
 import { post } from 'nwiadmin/services/api';
 import { getToken, login } from 'nwiadmin/services/auth';
@@ -14,7 +15,7 @@ import Logo from 'app/components/logo';
 
 import styles from './styles.scss';
 
-const parseErrors = data => Object.values(data).map(item => item[0]);
+const parseErrors = data => (data ? Object.values(data).map(item => item[0]) : []);
 
 export class LoginComponent extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ export class LoginComponent extends Component {
             isLoading: true,
         });
 
-        post('tokens', {}, this.state.data)
+        post((config.app.authEndpoint || 'login'), {}, this.state.data)
             .then((response) => {
                 const { state } = this.props.location;
                 login(response.data.token, state ? state.redirect : '/');
@@ -60,15 +61,17 @@ export class LoginComponent extends Component {
                 <form className={styles.form}>
                     <Logo className={styles.logo} />
 
-                    { Boolean(this.state.errors.length) && (
+                    {Boolean(this.state.errors.length) && (
                         <div className={styles.error}>
                             {this.state.errors.map(item => <span key={item}>{item}<br /></span>)}
                         </div>
                     )}
 
-                    <FormField name="email" label="Email">
+                    <FormField
+                        name={config.app.authUsernameField || 'username'}
+                        label={config.app.authUsernameLabel || 'Username'}>
                         <TextInput
-                            value={this.state.data.email}
+                            value={this.state.data[config.app.authUsernameField || 'username']}
                             onChange={e => this.setInput(e)}
                             onKeyDown={e => onAccessibleKeyDown(e, () => this.handleSubmit())}
                         />
@@ -80,15 +83,23 @@ export class LoginComponent extends Component {
                             onKeyDown={e => onAccessibleKeyDown(e, () => this.handleSubmit())}
                         />
                     </FormField>
-                    <hr />
 
-                    <FormField name="twofactor_code" label="Google/Yubikey Code" desc="If you are logging in from outside the office">
-                        <TextInput
-                            value={this.state.data.twofactor_code}
-                            onChange={e => this.setInput(e)}
-                            onKeyDown={e => onAccessibleKeyDown(e, () => this.handleSubmit())}
-                        />
-                    </FormField>
+                    {config.app.authTwoFactor && (
+                        <Fragment>
+                            <hr />
+                            <FormField
+                                name="twofactor_code"
+                                label="Google/Yubikey Code"
+                                desc="If you are logging in from outside the office"
+                            >
+                                <TextInput
+                                    value={this.state.data.twofactor_code}
+                                    onChange={e => this.setInput(e)}
+                                    onKeyDown={e => onAccessibleKeyDown(e, () => this.handleSubmit())}
+                                />
+                            </FormField>
+                        </Fragment>
+                    )}
 
                     <div className={styles.actions}>
                         <FormSubmit
