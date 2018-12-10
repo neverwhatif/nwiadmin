@@ -11,9 +11,6 @@ import MePanel from './mepanel';
 
 import styles from './styles.scss';
 
-/*<header className={classNames(styles.root, store.getItem('pink') ? styles.rootPink : null)}>*/
-/*</header>*/
-
 export const BannerComponent = props => (
     <Fragment>
         {props.me && !props.isError && (

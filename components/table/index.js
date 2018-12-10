@@ -136,7 +136,7 @@ class Table extends Component {
                 <tbody>
                     {transformed.map((item, index) => (
                         <TableRow
-                            key={item.$id}
+                            key={index}
                             isOdd={index % 2 === 1}
                             data={item}
                             functions={this.props.functions}

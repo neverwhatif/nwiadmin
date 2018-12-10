@@ -10,11 +10,11 @@ import reports from 'app/components/reports';
 import Table from 'nwiadmin/components/table';
 import ReportCollectionPanel from '../reportcollectionpanel';
 
-const CollectionItemEmpty = () => (
-    <p><em>No data found with these filters. Adjust the filters above to display data.</em></p>
+const ReportCollectionItemEmpty = () => (
+    <p><em>No data found with these filters. Adjust the filters above to display data.<br /><br /></em></p>
 );
 
-const CollectionItem = (props) => {
+const ReportCollectionItem = (props) => {
     const data = props.type === 'landscape' ? convertDataToLandscape(props.data[0], props.columns) : props.data;
 
     if (props.type === 'landscape') {
@@ -23,7 +23,7 @@ const CollectionItem = (props) => {
                 {Boolean(data.length) ? (
                     <Table data={data} hasHead={false} />
                 ) : (
-                    <CollectionItemEmpty />
+                    <ReportCollectionItemEmpty />
                 )}
             </ReportCollectionPanel>
         );
@@ -33,7 +33,7 @@ const CollectionItem = (props) => {
                 {Boolean(data.length) ? (
                     <Table data={data} columns={props.columns} totals={props.totals} transformer={transformer} />
                 ) : (
-                    <CollectionItemEmpty />
+                    <ReportCollectionItemEmpty />
                 )}
             </ReportCollectionPanel>
         );
@@ -46,13 +46,13 @@ const CollectionItem = (props) => {
             {Boolean(data.length) ? (
                 <ReportComponent data={data} columns={props.columns} />
             ) : (
-                <CollectionItemEmpty />
+                <ReportCollectionItemEmpty />
             )}
         </ReportCollectionPanel>
     );
 };
 
-CollectionItem.propTypes = {
+ReportCollectionItem.propTypes = {
     columns: PropTypes.arrayOf(PropTypes.shape({
         key: PropTypes.string.isRequired,
     })).isRequired,
@@ -62,9 +62,9 @@ CollectionItem.propTypes = {
     isDisabled: PropTypes.bool,
 };
 
-CollectionItem.defaultProps = {
+ReportCollectionItem.defaultProps = {
     isDisabled: false,
     type: '',
 };
 
-export default CollectionItem;
+export default ReportCollectionItem;
