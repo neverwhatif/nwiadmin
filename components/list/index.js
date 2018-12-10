@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
+import { formatMoney } from 'nwiadmin/utility/formatters';
 
 import ListItem from './listitem';
 
@@ -22,6 +24,13 @@ const transformData = (transformer, data, columns, functions) => data.map((item,
     }, item.$actions ? { $actions: item.$actions } : {});
 });
 
+const parseTotal = (total) => {
+    if (total.currency) {
+        return formatMoney(total);
+    }
+    return total;
+};
+
 const List = (props) => {
     if (!props.data.length) {
         return null;
@@ -36,13 +45,21 @@ const List = (props) => {
     );
 
     return (
-        <ul className={rootClass}>
-            {transformed.map(item => (
-                <li key={item.id}>
-                    <ListItem {...item} shouldInitPreload={props.shouldInitPreload} />
-                </li>
-            ))}
-        </ul>
+        <Fragment>
+            <ul className={rootClass}>
+                {transformed.map(item => (
+                    <li key={item.id}>
+                        <ListItem {...item} shouldInitPreload={props.shouldInitPreload} />
+                    </li>
+                ))}
+            </ul>
+            {props.totals && (
+                <dl className={styles.totals}>
+                    <dt className={styles.totalKey}>Total</dt>
+                    <dd className={styles.totalValue}>{parseTotal(props.totals.total)}</dd>
+                </dl>
+            )}
+        </Fragment>
     );
 };
 
