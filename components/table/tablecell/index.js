@@ -14,12 +14,14 @@ import styles from './styles.scss';
 const renderAction = (item, row, functions) => {
     const label = typeof item.label === 'function' ? item.label(row) : item.label;
     const isDisabled = typeof item.isDisabled === 'function' ? item.isDisabled(row) : item.isDisabled;
+    const buttonStyle = typeof item.style === 'function' ? item.style(row) : item.style;
 
     return (
         <Button
             key={label}
             onClick={() => item.action({ row, ...functions })}
             isDisabled={isDisabled}
+            buttonStyle={buttonStyle}
         >
             {label}
         </Button>

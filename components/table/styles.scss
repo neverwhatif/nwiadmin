@@ -2,10 +2,14 @@
 @import 'mixins';
 
 .root {
-    //border: border();
+    border-top: border();
     border-collapse: collapse;
     margin-bottom: 2rem;
     width: 100%;
+
+    &HasHead {
+        border-top: 0;
+    }
 
     &Disabled {
         opacity: .3;

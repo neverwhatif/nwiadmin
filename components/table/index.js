@@ -116,6 +116,7 @@ class Table extends Component {
 
         const rootClass = classNames(
             styles.root,
+            this.props.hasHead ? styles.rootHasHead : null,
             this.props.isDisabled ? styles.rootDisabled : null,
         );
 
