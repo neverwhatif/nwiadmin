@@ -72,8 +72,6 @@ class FilterSummaryItem extends Component {
     render() {
         const { itemKey, filterMapItem } = this.props;
 
-        console.log(this.props.value);
-
         return (
             <div>
                 {getLabel(itemKey, filterMapItem)}:&nbsp;
