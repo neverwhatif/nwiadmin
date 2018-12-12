@@ -48,7 +48,7 @@ const List = (props) => {
         <Fragment>
             <ul className={rootClass}>
                 {transformed.map(item => (
-                    <li key={item.id}>
+                    <li key={item.id || item.$id}>
                         <ListItem {...item} shouldInitPreload={props.shouldInitPreload} />
                     </li>
                 ))}

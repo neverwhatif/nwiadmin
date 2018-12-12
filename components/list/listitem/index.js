@@ -11,12 +11,44 @@ import Styled from 'nwiadmin/components/styled';
 
 import styles from './styles.scss';
 
+const renderActions = (props) => {
+    const actions = typeof props.$actions === 'function' ? props.$actions(props) : props.$actions;
+
+    if (!Array.isArray(actions)) {
+        return null;
+    }
+
+    return (
+        <footer className={styles.footer}>
+            {actions.map(item => renderAction(item, props, props.$functions))}
+        </footer>
+    );
+};
+
+const renderAction = (item, row, functions) => {
+    const label = typeof item.label === 'function' ? item.label(row) : item.label;
+    const isDisabled = typeof item.isDisabled === 'function' ? item.isDisabled(row) : item.isDisabled;
+
+    return (
+        <Button
+            key={label}
+            onClick={() => item.action({ row, ...functions })}
+            isDisabled={isDisabled}
+            buttonStyle="empty"
+        >
+            {label}
+        </Button>
+    );
+};
+
 const ListItem = (props) => {
     const rootClass = classNames(addPrefixToClassNames(styles, 'root', props.$rootClassName));
     const basicTitleClass = addPrefixToClassNames(styles, 'title', props.$titleClassName);
     const titleClass = classNames(basicTitleClass, props.onClick ? styles.titleLink : null);
 
-    const actions = typeof props.$actions === 'function' ? props.$actions(props) : props.$actions;
+    //const actions = typeof props.$actions === 'function' ? props.$actions(props) : props.$actions;
+
+    const actions = renderActions(props);
 
     return (
         <article className={rootClass}>
@@ -53,23 +85,7 @@ const ListItem = (props) => {
                 </div>
             )}
 
-            {actions && (
-                <footer className={styles.footer}>
-                    {actions.filter(item => item !== null).map(item => (
-                        <Button
-                            buttonStyle="empty"
-                            key={item.label}
-                            onClick={() => item.action({ row: props, ...props.$functions })}
-                            isDisabled={typeof item.isDisabled === 'function'
-                                ? item.isDisabled(props)
-                                : item.isDisabled
-                            }
-                        >
-                            {item.label}
-                        </Button>
-                    ))}
-                </footer>
-            )}
+            {actions}
         </article>
     );
 };
