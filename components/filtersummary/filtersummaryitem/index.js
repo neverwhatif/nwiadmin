@@ -29,6 +29,13 @@ const getValue = (key, filterMapItem, data) => {
     return data.name;
 };
 
+const getValues = (key, filterMapItem, data) => {
+    if(!key.match(/,/)) {
+        return getValue(key, filterMapItem, data);
+    }
+    return key.split(',').map(k => getValue(k, filterMapItem, data)).join(', ');
+};
+
 class FilterSummaryItem extends Component {
     constructor(props) {
         super(props);
@@ -65,10 +72,12 @@ class FilterSummaryItem extends Component {
     render() {
         const { itemKey, filterMapItem } = this.props;
 
+        console.log(this.props.value);
+
         return (
             <div>
                 {getLabel(itemKey, filterMapItem)}:&nbsp;
-                {this.state.isLoading ? '...' : getValue(this.props.value, filterMapItem, this.state.data)}
+                {this.state.isLoading ? '...' : getValues(this.props.value, filterMapItem, this.state.data)}
             </div>
         );
     }
