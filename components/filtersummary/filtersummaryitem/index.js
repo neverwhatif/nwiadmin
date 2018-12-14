@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { get } from 'nwiadmin/services/api';
+import { formatDate } from 'nwiadmin/utility/formatters';
 
 const getLabel = (key, filterMapItem) => {
     if (key === 'search') {
@@ -23,6 +24,13 @@ const getValue = (key, filterMapItem, data) => {
     if (filterMapItem.render) {
         return filterMapItem.render(key);
     }
+
+    // Format date properly
+
+    if(key.match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)) {
+        return formatDate(key);
+    }
+
     if (Array.isArray(data)) {
         return data.length ? getFilteredName(data, key, filterMapItem) : key;
     }
