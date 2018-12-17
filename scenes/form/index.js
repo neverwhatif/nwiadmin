@@ -22,6 +22,10 @@ class FormScene extends Component {
         return 'Form';
     }
 
+    setSuccessMessage(response) {
+        return `${this.setLabel(response.data)} saved successfully`;
+    }
+
     setMethod() {
         return 'post';
     }
@@ -126,7 +130,7 @@ class FormScene extends Component {
         }
 
         if (this.state.shouldNotify) {
-            notifySuccess(`${this.setLabel(response.data)} saved successfully`);
+            notifySuccess(this.setSuccessMessage(response));
         }
         if (this.state.shouldPublish) {
             PubSub.publish('@currentScene/SET_DATA', response.data);
