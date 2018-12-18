@@ -20,7 +20,7 @@ const renderActions = (props) => {
 
     return (
         <footer className={styles.footer}>
-            {actions.map(item => renderAction(item, props, props.$functions))}
+            {actions.filter(item => item !== null).map(item => renderAction(item, props, props.$functions))}
         </footer>
     );
 };
