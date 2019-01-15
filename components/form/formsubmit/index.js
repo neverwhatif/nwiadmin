@@ -7,7 +7,7 @@ import Button from 'nwiadmin/components/button';
 import styles from './styles.scss';
 
 const FormSubmit = (props) => {
-    const { isLoading, ...otherProps } = props;
+    const { isDisabled, isLoading, ...otherProps } = props;
     const buttonStyle = isLoading ? { color: 'transparent' } : null;
 
     const rootClass = classNames(styles.root, props.buttonStyle === 'block' ? styles.rootBlock : null);
@@ -15,7 +15,7 @@ const FormSubmit = (props) => {
     return (
         <div className={rootClass}>
             { isLoading && <div className={styles.spinner}><i /><i /><i /></div>}
-            <Button {...otherProps} isDisabled={isLoading} style={buttonStyle} />
+            <Button {...otherProps} isDisabled={isDisabled || isLoading} style={buttonStyle} />
         </div>
     );
 };
