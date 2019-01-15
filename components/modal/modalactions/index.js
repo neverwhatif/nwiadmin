@@ -7,6 +7,7 @@ import { FormSubmit } from 'nwiadmin/components/form';
 import styles from './styles.scss';
 
 const ModalActions = ({
+    isDisabled,
     isLoading,
     submit,
     submitText,
@@ -15,13 +16,14 @@ const ModalActions = ({
 }) => (
     <div className={styles.root}>
         {typeof submit === 'function' && (
-            <FormSubmit onClick={() => submit()} isLoading={isLoading}>{submitText}</FormSubmit>
+            <FormSubmit onClick={() => submit()} isLoading={isLoading} isDisabled={isDisabled}>{submitText}</FormSubmit>
         )}
         <Button buttonStyle="bordered" onClick={() => cancel()}>{cancelText}</Button>
     </div>
 );
 
 ModalActions.propTypes = {
+    isDisabled: PropTypes.bool,
     isLoading: PropTypes.bool,
     submit: PropTypes.func,
     submitText: PropTypes.string,
@@ -30,6 +32,7 @@ ModalActions.propTypes = {
 };
 
 ModalActions.defaultProps = {
+    isDisabled: false,
     isLoading: false,
     submit: null,
     submitText: 'Submit',
