@@ -1,7 +1,16 @@
+//
+// Component: Banner
+//
+// Description: Really just a very basic wrapper around the logo, navigation, and mepanel components. Will not render
+// anything if either there is no 'me' prop or there has been an error
+//
+// Props:
+// me (object): The me object injected via the 'meable' function
+// isError (bool): Whether or not an error has occured higher in the hierarchy
+//
+
 import React, { Fragment } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import store from 'nwiadmin/utility/store';
 
 import meable from 'nwiadmin/services/me/meable';
 
@@ -9,15 +18,13 @@ import PrimaryNav from 'nwiadmin/components/primarynav';
 import BannerLogo from './bannerlogo';
 import MePanel from './mepanel';
 
-import styles from './styles.scss';
-
-export const BannerComponent = props => (
+export const BannerComponent = ({ me, isError }) => (
     <Fragment>
-        {props.me && !props.isError && (
+        {me && !isError && (
             <Fragment>
                 <BannerLogo />
                 <PrimaryNav />
-                <MePanel data={props.me} />
+                <MePanel data={me} />
             </Fragment>
         )}
     </Fragment>
