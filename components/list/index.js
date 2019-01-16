@@ -9,7 +9,8 @@ import ListItem from './listitem';
 import styles from './styles.scss';
 
 const transformData = (transformer, data, columns, functions) => data.map((item, index) => {
-    // If there is an '$id' in the data, assume it has already been transformed, and don't transform again
+    // If there is an '$id' in the data,
+    // assume it has already been transformed, and don't transform again
     if (item.$id) {
         return item;
     }
@@ -36,7 +37,6 @@ const List = (props) => {
         return null;
     }
 
-    //const transformed = props.data.map((item, index) => props.transformer(item, index, props.columns));
     const transformed = transformData(props.transformer, props.data, props.columns, props.functions);
 
     const rootClass = classNames(
