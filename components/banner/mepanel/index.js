@@ -8,6 +8,8 @@ import { logout } from 'nwiadmin/services/auth';
 
 import styles from './styles.scss';
 
+const getInitials = (name) => name.split(' ').map(word => word[0].toUpperCase());
+
 class MePanel extends Component {
     constructor(props) {
         super(props);
@@ -30,7 +32,7 @@ class MePanel extends Component {
                     className={styles.title}
                     onClick={this.toggleIsOpen}
                 >
-                    {data.name ? data.name : `${data.first_name} ${data.last_name}`}
+                    {getInitials(data.name ? data.name : `${data.first_name} ${data.last_name}`)}
                 </h2>
                 <div className={classNames(styles.panel, this.state.isOpen ? styles.panelOpen : null)}>
                     <div className={styles.panelItem}>
