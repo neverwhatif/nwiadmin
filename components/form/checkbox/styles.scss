@@ -21,6 +21,7 @@
     border: border($clr-grey);
     cursor: pointer;
     height: 2rem;
+    min-width: 2rem;
     position: relative;
     transition: border-color .1s;
     width: 2rem;
