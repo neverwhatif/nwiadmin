@@ -29,10 +29,7 @@ const ListItemTitle = (props) => {
             onKeyDown={e => onAccessibleKeyDown(e, () => props.onClick && props.onClick())}
         >
             {props.to ? (
-                <Link
-                    to={to}
-                    onClick={() => props.shouldInitPreload && initPreload(props.title)}
-                >
+                <Link to={to} onClick={() => props.shouldInitPreload && initPreload(props.title)}>
                     {renderTitleOrReference(props.reference, props.title, false)}
                 </Link>
             ) : renderTitleOrReference(props.reference, props.title)}
