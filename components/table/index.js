@@ -48,20 +48,21 @@ const transformData = (transformer, data, columns, totals, functions) => {
 class Table extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             isSelectable: false,
-            selected: [],
+            selected: props.initialSelected || [],
         };
     }
 
     componentWillMount() {
         const transformed = this.getTransformed();
 
-        const isSelectable = transformed[0] && transformed[0].$checkbox;
+        const isSelectable = Boolean(transformed[0] && transformed[0].$checkbox);
         this.setState({ isSelectable });
 
         if (isSelectable) {
-            PubSub.publish('@currentTable/SET_SELECTED', []);
+            PubSub.publish('@currentTable/SET_SELECTED', this.props.initialSelected || []);
         }
     }
 
