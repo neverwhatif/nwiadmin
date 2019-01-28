@@ -21,7 +21,7 @@ class TableHead extends Component {
     renderCell(item, firstRow) {
         if(item === '$checkbox') {
             return (
-                <th key={item} className={styles.cell}>{this.renderCheckbox(item)}</th>
+                <th key={item} className={classNames(styles.cell, styles.cellCheckbox)}>{this.renderCheckbox(item)}</th>
             );
         }
 

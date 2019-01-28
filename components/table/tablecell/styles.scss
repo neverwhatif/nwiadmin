@@ -4,6 +4,10 @@
 .root {
     padding: 1rem;
 
+    &Checkbox {
+        width: 1%;
+    }
+
     &Actions {
         text-align: right;
 
