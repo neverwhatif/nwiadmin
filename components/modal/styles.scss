@@ -43,7 +43,7 @@
     @include posfix((top: 0, right: 0, bottom: 0));
     animation: modal__enter .2s;
     background-color: $clr-grey-xlight;
-    min-width: 32rem;
+    min-width: 50rem;
     width: 35%;
 
     &:focus {
