@@ -1,6 +1,7 @@
 import qs from 'qs';
 
 export { default as diff } from './diff';
+export { default as flatten } from './flatten';
 
 export const parseSearch = search => qs.parse(search.replace(/^\?/, ''));
 export const stringifySearch = search => qs.stringify(search);
