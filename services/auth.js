@@ -1,6 +1,8 @@
 import store from 'nwiadmin/utility/store';
 import history from 'nwiadmin/utility/history';
 
+import { stringifyRemote } from 'nwiadmin/utility';
+
 const tokenName = 'token';
 const authRouteName = 'login';
 
@@ -36,7 +38,8 @@ const handleUnauth = () => {
     }
 
     const { pathname, search } = window.location;
-    history.push(`/${authRouteName}`, { redirect: `${pathname}${search}` });
+    window.location = stringifyRemote([`/${authRouteName}`, { redirect: `${pathname}${search}` }]);
+    //history.push(`/${authRouteName}`, { redirect: `${pathname}${search}` });
 };
 
 const checkForUnauthResponse = (error) => {
