@@ -39,7 +39,6 @@ const handleUnauth = () => {
 
     const { pathname, search } = window.location;
     window.location = stringifyRemote([`/${authRouteName}`, { redirect: `${pathname}${search}` }]);
-    //history.push(`/${authRouteName}`, { redirect: `${pathname}${search}` });
 };
 
 const checkForUnauthResponse = (error) => {
