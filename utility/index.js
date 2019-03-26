@@ -6,7 +6,8 @@ export { default as flatten } from './flatten';
 export const parseSearch = search => qs.parse(search.replace(/^\?/, ''));
 export const stringifySearch = search => qs.stringify(search);
 
-export const ucwords = str => str.replace(/^(.)|\s+(.)/g, $1 => $1.toUpperCase());
+export const ucwords = (str, force = false) =>
+    (force ? str.toLowerCase(str) : str).replace(/^(.)|\s+(.)/gu, ($1) => $1.toUpperCase());
 
 export const isPromise = value => value !== null && typeof value === 'object' && typeof value.then === 'function';
 
