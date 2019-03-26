@@ -95,7 +95,7 @@ export class ConnectedListComponent extends Component {
         get(parsedRemote.alias, parsedRemote.params)
             .then(response => this.setState({
                 columns: this.getColumns(response),
-                data: response.data,
+                data: this.props.transformData(response.data),
                 meta: response.meta,
                 totals: response.totals,
                 isDataLoading: false,
@@ -279,6 +279,7 @@ ConnectedListComponent.propTypes = {
     shouldOnlyUpdateWithFilters: PropTypes.bool,
     shouldInitPreload: PropTypes.bool,
     setFunctions: PropTypes.func,
+    transformData: PropTypes.func,
 };
 
 ConnectedListComponent.defaultProps = {
@@ -292,6 +293,7 @@ ConnectedListComponent.defaultProps = {
     shouldOnlyUpdateWithFilters: false,
     shouldInitPreload: true,
     setFunctions: () => null,
+    transformData: (data) => data,
 };
 
 export default withRouter(ConnectedListComponent);
