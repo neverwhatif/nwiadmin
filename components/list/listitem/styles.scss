@@ -2,8 +2,14 @@
 @import 'mixins';
 
 .root {
-    background-color: $clr-white;
-    border: border();
+    @if mixin-exists(listitem) {
+        @include listitem;
+    }
+    @else {
+        background-color: $clr-white;
+        border: border();
+    }
+
     margin-bottom: 1.5rem;
     padding: 1.5rem;
 

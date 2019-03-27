@@ -13,6 +13,10 @@
     transition: border-color .2s;
     width: 100%;
 
+    @if mixin-exists(textinput) {
+        @include textinput;
+    }
+
     &:focus {
         border-color: $clr-primary;
         outline: none;
@@ -26,5 +30,7 @@
 textarea.root {
     height: auto;
     line-height: 1.45;
+    min-height: 8rem;
     padding: 1rem 1.2rem;
+    resize: vertical;
 }
