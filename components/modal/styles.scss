@@ -63,6 +63,10 @@
     @include posabs((top: 3rem, left: 3rem));
     z-index: 3;
 
+    @if(mixin-exists(modaltitle)) {
+        @include modaltitle;
+    }
+
     /*@include font-size(xxlrg);
     line-height: 1.2;
     margin-bottom: 2rem;*/
