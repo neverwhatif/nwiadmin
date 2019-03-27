@@ -2,8 +2,8 @@
 @import 'mixins';
 
 .root {
+    flex: 1;
     padding-left: 3rem;
-    width: 25%;
 }
 
 .inner {
