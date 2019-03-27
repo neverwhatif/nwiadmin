@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Flag from 'nwiadmin/components/flag';
+import { getElement } from 'nwiadmin/services/app';
 
 import styles from './styles.scss';
 
