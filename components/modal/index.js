@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-
 import { withRouter } from 'react-router';
+
+import { getElement } from 'nwiadmin/services/app';
 import { addPrefixToClassNames } from 'nwiadmin/utility';
 
-import FormLegend from 'nwiadmin/components/form/formlegend';
+import Flag from 'nwiadmin/components/flag';
 import ReactModal from 'react-modal';
 
 import styles from './styles.scss';
@@ -38,6 +39,8 @@ export class ModalComponent extends Component {
             this.props.title ? styles.scrollHasTitle : null,
         );
 
+        const TitleElement = getElement('Modal__title') ? getElement('Modal__title') : (children) => (<Fragment>{children}</Fragment>);
+
         return (
             <ReactModal
                 isOpen={this.state.isAllowedOpen && this.props.isOpen}
@@ -49,7 +52,7 @@ export class ModalComponent extends Component {
             >
                 {this.props.title && (
                     <div className={styles.title}>
-                        <FormLegend isOffset>{this.props.title}</FormLegend>
+                        {TitleElement(this.props.title)}
                     </div>
                 )}
                 <div className={scrollClasses}>
