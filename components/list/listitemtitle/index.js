@@ -14,6 +14,18 @@ const renderTitleOrReference = (reference, title, isLinked = true) => {
     return title;
 };
 
+const renderLinkOrAnchor = (to, props) => {
+    if(to.match(/^http/)) {
+        return (<a href={to}>{renderTitleOrReference(props.reference, props.title, false)}</a>);
+    }
+
+    return (
+        <Link to={to} onClick={() => props.shouldInitPreload && initPreload(props.title)}>
+            {renderTitleOrReference(props.reference, props.title, false)}
+        </Link>
+    );
+};
+
 const initPreload = (title) => {
     store.setItem('preload', title);
 };
@@ -29,9 +41,7 @@ const ListItemTitle = (props) => {
             onKeyDown={e => onAccessibleKeyDown(e, () => props.onClick && props.onClick())}
         >
             {props.to ? (
-                <Link to={to} onClick={() => props.shouldInitPreload && initPreload(props.title)}>
-                    {renderTitleOrReference(props.reference, props.title, false)}
-                </Link>
+                renderLinkOrAnchor(to, props)
             ) : renderTitleOrReference(props.reference, props.title)}
         </h1>
     );
