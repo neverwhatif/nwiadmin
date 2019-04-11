@@ -6,4 +6,8 @@
     margin-bottom: 2rem;
     padding: 0;
     width: 100%;
+
+    @if(mixin-exists(formlegend)) {
+        @include formlegend;
+    }
 }
