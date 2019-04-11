@@ -41,6 +41,7 @@ const Report = (props) => {
                 transformer={reportTransformer}
                 filters={FilterComponent ? f => <FilterComponent {...f} /> : null}
                 filterMap={filterMap}
+                quickFilters={props.quickFilters}
                 hasSearch={hasSearch}
                 shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
                 cta={[{
@@ -59,6 +60,7 @@ const Report = (props) => {
                 )}
                 filters={FilterComponent ? f => <FilterComponent {...f} /> : null}
                 filterMap={filterMap}
+                quickFilters={props.quickFilters}
                 hasSearch={hasSearch}
                 shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
                 cta={[{

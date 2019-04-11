@@ -238,6 +238,7 @@ export class ConnectedListComponent extends Component {
                             location={this.props.location}
                             history={this.props.history}
                             filters={this.props.filters}
+                            quickFilters={this.props.quickFilters}
                             itemName={this.props.itemName}
                             hasSearch={this.props.hasSearch}
                             cta={this.props.cta}

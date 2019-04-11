@@ -12,6 +12,7 @@ import Button from 'nwiadmin/components/button';
 import Modal from 'nwiadmin/components/modal';
 import ModalActions from 'nwiadmin/components/modal/modalactions';
 import { Dropdown, TextInput } from 'nwiadmin/components/form';
+import QuickFilters from 'nwiadmin/components/quickfilters';
 
 import FilterBarCta from './filterbarcta';
 
@@ -71,10 +72,16 @@ class FilterBar extends Component {
         this.props.history.push(`${pathname}?${stringifySearch(search)}`);
     }
 
+    setQuickFilter(filter) {
+        const { pathname } = this.props.location;
+        this.props.history.push(`${pathname}?${stringifySearch({ filter })}`);
+    }
+
     render() {
         const {
             cta,
             filters,
+            quickFilters,
             itemName,
             hasSearch,
             sort,
@@ -101,7 +108,8 @@ class FilterBar extends Component {
                     )}
                     <div className={styles.cta}>
                         {sort && <Dropdown data={{}} name="sort" placeholder="Sort by..." />}
-                        {filters && <Button onClick={() => this.props.setVisibility()}>Filters...</Button>}
+                        {quickFilters && <QuickFilters data={quickFilters} setFilter={e => this.setQuickFilter(e)} />}
+                        {filters && <Button onClick={() => this.props.setVisibility()}>{quickFilters ? 'More ' : ''}Filters...</Button>}
                         {cta && <FilterBarCta data={cta} location={this.props.location} />}
                     </div>
 
