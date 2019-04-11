@@ -65,7 +65,7 @@ const ListItem = (props) => {
                 {props.secondary && props.secondary.title && (
                     <div className={styles.secondary}>
                         <p className={classNames(basicTitleClass)}>
-                            {props.secondary.title}
+                            <Styled data={props.secondary.title} />
                         </p>
                         {props.secondary.subtitle && (
                             <p className={styles.subtitle}>
