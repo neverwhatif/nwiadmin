@@ -19,6 +19,7 @@ class SingleScene extends Component {
         return (
             <ConnectedScene
                 basePath={basePath}
+                message={this.state.message}
                 remote={this.state.remote}
                 transformer={this.state.transformer}
                 tabs={this.state.nav.single}

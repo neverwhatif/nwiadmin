@@ -10,6 +10,7 @@ import { checkAuthResponse } from 'nwiadmin/services/auth';
 import Scene from 'nwiadmin/components/scene';
 import ErrorMessage from 'nwiadmin/components/errormessage';
 import Loading from 'nwiadmin/components/loading';
+import Message from 'nwiadmin/components/message';
 
 import { setDocumentTitle } from 'nwiadmin/services/app';
 import { get } from 'nwiadmin/services/api';
@@ -108,6 +109,8 @@ class ConnectedScene extends Component {
             return cloneElement(child, { data: this.state.data });
         });
 
+        const message = this.props.message ? this.props.message(this.state.data) : null;
+
         return (
             <Scene
                 basePath={this.props.basePath}
@@ -115,6 +118,7 @@ class ConnectedScene extends Component {
                 subtitle={this.state.transformed.subtitle}
                 {...otherProps}
             >
+                {message && <Message type="notify">{message}</Message>}
                 {childrenWithData}
             </Scene>
         );
