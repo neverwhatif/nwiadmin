@@ -8,7 +8,7 @@ import styles from './styles.scss';
 
 const parseDef = (def) => {
     if(!def) {
-        return '(None)';
+        return null;
     }
     if(!Array.isArray(def)) {
         return (<Styled data={def} />);
@@ -22,10 +22,12 @@ const parseDef = (def) => {
 };
 
 const SummaryListItem = props => {
+    const def = parseDef(props.def);
+
     const defClass = classNames(
         styles.def,
         props.isLarge ? styles.defIsLarge : null,
-        props.def === null ? styles.defIsDisabled : null
+        def === null ? styles.defIsDisabled : null
     );
 
     return (
@@ -33,7 +35,7 @@ const SummaryListItem = props => {
             <div className={styles.inner}>
                 <dt className={styles.term}>{props.term}</dt>
                 <dd className={defClass}>
-                    {parseDef(props.def)}
+                    {def || '(None)'}
                 </dd>
             </div>
         </div>
