@@ -12,4 +12,8 @@
     &:last-of-type {
         margin: 0;
     }
+
+    @if(mixin-exists(fieldset)) {
+        @include fieldset;
+    }
 }
