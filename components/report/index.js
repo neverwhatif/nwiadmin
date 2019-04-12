@@ -5,12 +5,11 @@ import { makeUrl } from 'nwiadmin/services/api';
 import { getToken } from 'nwiadmin/services/auth';
 
 import { parseSearch } from 'nwiadmin/utility';
+import { format } from 'nwiadmin/utility/formatters';
 
 import ConnectedList from 'nwiadmin/components/connectedlist';
 import ConnectedTable from 'nwiadmin/components/connectedtable';
 import ErrorMessage from 'nwiadmin/components/errormessage';
-
-import { reportTransformer } from 'app/config/transformers';
 
 import ReportCollection from './reportcollection';
 
@@ -25,6 +24,25 @@ const downloadCSV = (code, data) => {
     window.open(url);
 };
 
+const reportTransformer = (linkMap, item, $id, columns) => columns.reduce(
+        (acc, cur) => {
+            const path = linkMap && linkMap[cur.key] ? linkMap[cur.key].replace(/\{id\}/, item[`${cur.key}_id`]) : null;
+
+            if(item.hasOwnProperty(`${cur.key}_id`)) {
+                acc[cur.title] = item[`${cur.key}_id`] ? { type: 'link', title: item[cur.key], path } : null;
+                return acc;
+            }
+
+            if(!cur.key.match(/_id$/)) {
+                acc[cur.title] = format(item[cur.key], cur.type);
+                return acc;
+            }
+
+            return acc;
+        },
+        { $id }
+    );
+
 const Report = (props) => {
     const report = getReportFromData(props.data, props.code);
     const {filters, footer} = props;
@@ -38,7 +56,7 @@ const Report = (props) => {
         return (
             <ConnectedTable
                 remote={`reports/${report.code}`}
-                transformer={reportTransformer}
+                transformer={(item, $id, columns) => reportTransformer(props.linkMap, item, $id, columns)}
                 filters={FilterComponent ? f => <FilterComponent {...f} /> : null}
                 filterMap={filterMap}
                 quickFilters={props.quickFilters}
