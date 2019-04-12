@@ -25,6 +25,15 @@
     &Error {
         border-color: $clr-error;
     }
+
+    &[readOnly] {
+        background-color: $clr-grey-xlight;
+        cursor: default;
+    }
+
+    &[readOnly]:focus {
+        border-color: $clr-grey;
+    }
 }
 
 textarea.root {
