@@ -78,7 +78,7 @@ class Table extends Component {
     }
 
     isAllSelected() {
-        const transformed = this.getTransformed();
+        const transformed = this.getTransformed().filter(item => !item.$isDisabled);
         return this.state.selected.length === transformed.length;
     }
 
@@ -99,7 +99,7 @@ class Table extends Component {
     toggleSelectAll() {
         const transformed = this.getTransformed();
 
-        const selected = this.isAllSelected() ? [] : transformed.map(item => item.$id);
+        const selected = this.isAllSelected() ? [] : transformed.map(item => item.$isDisabled ? null : item.$id).filter(item => item !== null);
         this.setState({ selected });
 
         if (this.state.isSelectable) {
@@ -142,6 +142,7 @@ class Table extends Component {
                             isOdd={index % 2 === 1}
                             data={item}
                             functions={this.props.functions}
+                            isDisabled={item.$isDisabled}
                             isSelected={this.state.selected.indexOf(item.$id) > -1}
                             toggleSelect={id => this.toggleSelect(id)}
                         />

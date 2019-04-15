@@ -10,6 +10,7 @@ const TableRow = ({
     data,
     functions,
     isOdd,
+    isDisabled,
     isSelected,
     toggleSelect,
 }) => {
@@ -18,6 +19,7 @@ const TableRow = ({
     const rootClass = classNames(
         styles.root,
         isOdd ? styles.rootOdd : null,
+        isDisabled ? styles.rootDisabled : null,
         isSelectable ? styles.rootSelectable : null,
         isSelected ? styles.rootSelected : null,
     );

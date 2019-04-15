@@ -12,6 +12,11 @@
         background-color: $clr-white;
     }
 
+    &Disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+
     &Selectable {
         cursor: pointer;
     }
