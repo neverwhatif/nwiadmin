@@ -1,11 +1,12 @@
 import moment from 'moment';
 import { months, quarters, currencies } from 'nwiadmin/utility/constants';
+import config from 'app/config';
 
 export const formatBoolean = input => (input ? 'Yes' : '-');
 
 export const formatNumber = input => parseInt(input || 0, 10).toLocaleString();
 
-export const formatPoints = input => (parseInt(input || 0, 10) / 100).toLocaleString(undefined, {
+export const formatPoints = input => (parseFloat(input || 0, 10) / (config.money ? config.money.factor : 100)).toLocaleString(undefined, {
     minimumFractionDigits: 2,
 });
 
