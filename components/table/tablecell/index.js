@@ -32,7 +32,7 @@ const renderers = {
     default: value => (typeof value === 'object' && value !== null ? JSON.stringify(value) : value),
     right: value => value.value,
     link: value => (
-        <Link to={value.path} isExternal={value.isExternal}>{value.title}</Link>
+        value.path ?  <Link to={value.path} isExternal={value.isExternal}>{value.title}</Link> : value.title
     ),
     reference: value => (
         <Reference title={value.title} reference={value.reference} link={value.link} />
