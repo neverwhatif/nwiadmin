@@ -33,7 +33,7 @@ const reportTransformer = (linkMap, item, $id, columns) => columns.reduce(
                 return acc;
             }
 
-            if(cur.type !== 'link') {
+            if(cur.type !== 'id') {
                 acc[cur.title] = format(item[cur.key], cur.type);
                 return acc;
             }
