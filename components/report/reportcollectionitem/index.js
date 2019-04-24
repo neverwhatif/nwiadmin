@@ -1,7 +1,9 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
 
 import { convertDataToLandscape } from 'nwiadmin/services/table';
+import { format } from 'nwiadmin/utility/formatters';
 
 import reports from 'app/components/reports';
 
