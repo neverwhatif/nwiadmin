@@ -26,6 +26,17 @@ export const toggleArrayItem = (array, item) => {
     ];
 };
 
+export const toggleArrayObject = (array, item, key = 'id') => {
+    const { length } = array;
+    const filtered = array.filter((fitem) => fitem[key] !== item[key]);
+
+    if (filtered.length !== length) {
+        return filtered;
+    }
+
+    return [...array, item];
+};
+
 export const addPrefixToClassNames = (styles, prefix, classes = []) => {
     if (classes === null) {
         return [styles[prefix]];
