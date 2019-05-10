@@ -59,6 +59,7 @@ const Report = (props) => {
                 transformer={(item, $id, columns) => reportTransformer(props.linkMap, item, $id, columns)}
                 filters={FilterComponent ? f => <FilterComponent {...f} /> : null}
                 filterMap={filterMap}
+                shouldDisplayCount
                 quickFilters={props.quickFilters}
                 hasSearch={hasSearch}
                 shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}

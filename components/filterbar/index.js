@@ -81,6 +81,7 @@ class FilterBar extends Component {
         const {
             cta,
             filters,
+            count,
             quickFilters,
             itemName,
             hasSearch,
@@ -111,6 +112,7 @@ class FilterBar extends Component {
                         {quickFilters && <QuickFilters data={quickFilters} setFilter={e => this.setQuickFilter(e)} />}
                         {filters && <Button onClick={() => this.props.setVisibility()}>{quickFilters ? 'More ' : ''}Filters...</Button>}
                         {cta && <FilterBarCta data={cta} location={this.props.location} />}
+                        {Boolean(count) && <span className={styles.total}>Currently displaying <strong>{count}</strong> result{count === 1 ? '' : 's'}</span>}
                     </div>
 
                     {filters && (
