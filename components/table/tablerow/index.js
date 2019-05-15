@@ -28,8 +28,6 @@ const TableRow = ({
 
     const cells = Object.entries(data).filter(item => item[0] !== '' && item[0][0] !== '$');
 
-    console.log(cells);
-
     return (
         <tr className={rootClass} onClick={onClick}>
             {data.$checkbox && <TableCell value={{ type: 'checkbox', id: data.$checkbox, isSelected }} />}
