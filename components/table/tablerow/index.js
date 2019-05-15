@@ -26,7 +26,9 @@ const TableRow = ({
 
     const onClick = isSelectable ? () => toggleSelect(data.$checkbox) : () => null;
 
-    const cells = Object.entries(data).filter(item => item[0][0] !== '$');
+    const cells = Object.entries(data).filter(item => item[0] !== '' && item[0][0] !== '$');
+
+    console.log(cells);
 
     return (
         <tr className={rootClass} onClick={onClick}>
