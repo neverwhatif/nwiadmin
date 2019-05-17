@@ -4,6 +4,7 @@
 .root {
     height: 100%;
     padding-bottom: 3rem;
+    position: relative;
 
     &IsDisabled {
         opacity: .3;

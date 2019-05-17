@@ -8,7 +8,7 @@ const ReportCollection = props => (
     <Row>
         {Object.entries(props.data || {}).map(report => (
             <Column key={report[0]}>
-                <CollectionItem {...report[1]} isDisabled={props.isDisabled} />
+                <CollectionItem {...report[1]} isDisabled={props.isDisabled} onDownload={props.onDownload} />
             </Column>
         ))}
     </Row>

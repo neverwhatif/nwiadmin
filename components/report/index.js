@@ -15,10 +15,10 @@ import ReportCollection from './reportcollection';
 
 const getReportFromData = (data, code) => (data ? data.filter(item => item.code === code)[0] : null);
 
-const downloadCSV = (code, data) => {
+const downloadCSV = (code, sectionCode) => {
     const url = makeUrl(`reports/${code}`, {
-        ...parseSearch(data.location.search),
-        csv: 1,
+        ...parseSearch(location.search),
+        csv: sectionCode || 1,
         token: getToken(),
     });
     window.open(url);
@@ -65,7 +65,7 @@ const Report = (props) => {
                 shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
                 cta={[{
                     label: 'Download CSV',
-                    action: (e, data) => downloadCSV(props.code, data),
+                    action: () => downloadCSV(props.code),
                 }]}
                 footer={footer}
             />
@@ -75,17 +75,13 @@ const Report = (props) => {
             <ConnectedList
                 remote={`reports/${report.code}`}
                 renderList={data => (
-                    <ReportCollection {...data} transformer={reportTransformer} />
+                    <ReportCollection {...data} transformer={reportTransformer} onDownload={(code) => downloadCSV(props.code, code)} />
                 )}
                 filters={FilterComponent ? f => <FilterComponent {...f} /> : null}
                 filterMap={filterMap}
                 quickFilters={props.quickFilters}
                 hasSearch={hasSearch}
                 shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
-                cta={[{
-                    label: 'Download CSV',
-                    action: (e, data) => downloadCSV(props.code, data),
-                }]}
             />
         );
     }

@@ -1,0 +1,6 @@
+@import 'variables';
+@import 'mixins';
+
+.actions {
+    @include posabs((right: 1rem, top: 1rem));
+}

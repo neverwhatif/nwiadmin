@@ -8,7 +8,10 @@ import { format } from 'nwiadmin/utility/formatters';
 import reports from 'app/components/reports';
 
 import Table from 'nwiadmin/components/table';
+import Button from 'nwiadmin/components/button';
 import ReportCollectionPanel from '../reportcollectionpanel';
+
+import styles from './styles.scss';
 
 const reportTransformer = (item, $id, columns) =>
     columns.reduce(
@@ -35,6 +38,7 @@ const ReportCollectionItem = (props) => {
                 ) : (
                     <ReportCollectionItemEmpty />
                 )}
+                <div className={styles.actions}><Button onClick={() => props.onDownload(props.code, data)}>CSV</Button></div>
             </ReportCollectionPanel>
         );
     } else if (props.type === 'basic') {
@@ -45,6 +49,7 @@ const ReportCollectionItem = (props) => {
                 ) : (
                     <ReportCollectionItemEmpty />
                 )}
+                <div className={styles.actions}><Button onClick={() => props.onDownload(props.code, data)}>CSV</Button></div>
             </ReportCollectionPanel>
         );
     }
@@ -58,6 +63,7 @@ const ReportCollectionItem = (props) => {
             ) : (
                 <ReportCollectionItemEmpty />
             )}
+            <div className={styles.actions}><Button onClick={() => props.onDownload(props.code, data)}>CSV</Button></div>
         </ReportCollectionPanel>
     );
 };
