@@ -31,12 +31,29 @@ const getFiltersFromLocation = (search) => {
     };
 };
 
+const getSortFromLocation = (search) => {
+    const parsed = parseSearch(search);
+
+    if(!parsed.sort) {
+        return null;
+    }
+
+    return Object.entries(parsed.sort).reduce((acc, [key, value]) => `${key}_${value}`, '');
+};
+
+const parseSorts = (sorts) => Object.entries(sorts).reduce((acc, [key, value]) => ([
+    ...acc,
+    { id: `${key}_asc`, name: `${value} (Low → High)`, key, direction: 'asc' },
+    { id: `${key}_desc`, name: `${value} (High → Low)`, key, direction: 'desc' },
+]), []);
+
 class FilterBar extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             filter: props.location.search ? getFiltersFromLocation(props.location.search) : {},
+            sort: props.location.search ? getSortFromLocation(props.location.search) : {},
         };
     }
 
@@ -59,13 +76,17 @@ class FilterBar extends Component {
     }
 
     setFilters(search) {
-        this.setState({ filter: getFiltersFromLocation(search) });
+        this.setState({
+            filter: getFiltersFromLocation(search),
+            sort: getSortFromLocation(search),
+        });
     }
 
     submitFilters() {
         const { pathname } = this.props.location;
         const search = {
             filter: { ...this.state.filter },
+            sort: { ...this.state.sort },
         };
 
         this.props.setVisibility(false);
@@ -77,6 +98,15 @@ class FilterBar extends Component {
         this.props.history.push(`${pathname}?${stringifySearch({ filter })}`);
     }
 
+    setSort(event) {
+        const { pathname } = this.props.location;
+        const { filter } = this.state;
+        const { item } = event;
+
+        const sort = item ? { [item.key]: item.direction } : null;
+        this.props.history.push(`${pathname}?${stringifySearch({ filter, sort })}`);
+    }
+
     render() {
         const {
             cta,
@@ -85,10 +115,10 @@ class FilterBar extends Component {
             quickFilters,
             itemName,
             hasSearch,
-            sort,
+            sorts,
         } = this.props;
 
-        const modalTitle = `Search & Filter ${itemName ? `${ucwords(itemName)}s` : ''}`;
+        const modalTitle = `Filter ${itemName ? `${ucwords(itemName)}s` : ''}`;
 
         // TODO: Finish sorting
 
@@ -107,11 +137,16 @@ class FilterBar extends Component {
                             <Button buttonStyle="bordered" onClick={() => this.submitFilters()}>Search</Button>
                         </div>
                     )}
+
                     <div className={styles.cta}>
-                        {sort && <Dropdown data={{}} name="sort" placeholder="Sort by..." />}
                         {quickFilters && <QuickFilters data={quickFilters} setFilter={e => this.setQuickFilter(e)} />}
                         {filters && <Button onClick={() => this.props.setVisibility()}>{quickFilters ? 'More ' : ''}Filters...</Button>}
                         {cta && <FilterBarCta data={cta} location={this.props.location} />}
+                        {sorts && (
+                            <div className={styles.sort}>
+                                <Dropdown data={parseSorts(sorts)} onChange={(event) => this.setSort(event)} name="sort" placeholder="Sort by..." value={this.state.sort} />
+                            </div>
+                        )}
                         {Boolean(count) && <span className={styles.total}>Currently displaying <strong>{count}</strong> result{count === 1 ? '' : 's'}</span>}
                     </div>
 

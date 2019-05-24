@@ -61,6 +61,7 @@ const Report = (props) => {
                 filterMap={filterMap}
                 shouldDisplayCount
                 quickFilters={props.quickFilters}
+                sorts={props.sorts}
                 hasSearch={hasSearch}
                 shouldOnlyUpdateWithFilters={props.shouldOnlyUpdateWithFilters}
                 cta={[{

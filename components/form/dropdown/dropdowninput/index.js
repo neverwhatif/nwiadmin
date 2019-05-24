@@ -15,7 +15,7 @@ const DropdownInput = props => (
         onKeyDown={e => onAccessibleKeyDown(e, () => props.onClick())}
         tabIndex={0}
     >
-        <div className={classNames(inputStyles.root, props.hasError ? inputStyles.rootError : null)}>
+        <div className={classNames(inputStyles.root, styles.input, props.hasError ? inputStyles.rootError : null)}>
             { props.isLoading ? 'Loading...' : props.text }
         </div>
         <i className={styles.control} />

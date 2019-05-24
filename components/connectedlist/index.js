@@ -240,6 +240,7 @@ export class ConnectedListComponent extends Component {
                             filters={this.props.filters}
                             count={data && this.props.shouldDisplayCount ? data.length : 0}
                             quickFilters={this.props.quickFilters}
+                            sorts={this.props.sorts}
                             itemName={this.props.itemName}
                             hasSearch={this.props.hasSearch}
                             cta={this.props.cta}
