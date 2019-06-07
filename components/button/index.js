@@ -21,6 +21,7 @@ const Button = (props) => {
                 to={props.to}
                 className={rootClass}
                 onClick={e => props.onClick(e)}
+                isExternal={props.isExternal}
             >
                 {props.children}
             </Link>
@@ -46,6 +47,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
     children: PropTypes.node,
     isDisabled: PropTypes.bool,
+    isExternal: PropTypes.bool,
     style: PropTypes.shape({}),
 };
 
@@ -55,6 +57,7 @@ Button.defaultProps = {
     onClick: () => null,
     children: null,
     isDisabled: false,
+    isExternal: false,
     style: null,
 };
 

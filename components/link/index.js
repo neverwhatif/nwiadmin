@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const Link = ({ isExternal, ...props }) => (
     isExternal ? (
-        <a href={props.to} target="_blank" rel="noopener noreferrer">{props.children}</a>
+        <a href={props.to} target="_blank" rel="noopener noreferrer" {...props}>{props.children}</a>
     ) : (
         <RouterLink {...props}>{props.children}</RouterLink>
     )
