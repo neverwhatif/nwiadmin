@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { withLocation } from 'nwiadmin/utility/proptypes';
 
-import { onAccessibleKeyDown } from 'nwiadmin/utility';
+import { parseSearch, onAccessibleKeyDown } from 'nwiadmin/utility';
 import meable from 'nwiadmin/services/me/meable';
 import config from 'app/config';
 
@@ -41,8 +41,8 @@ export class LoginComponent extends Component {
 
         post((config.app.authEndpoint || 'login'), {}, this.state.data)
             .then((response) => {
-                const { state } = this.props.location;
-                login(response.data.token, state ? state.redirect : '/');
+                const search = parseSearch(this.props.location.search);
+                login(response.data.token, search.redirect);
             })
             .catch((error) => {
                 this.setState({
