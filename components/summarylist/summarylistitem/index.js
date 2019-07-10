@@ -32,7 +32,7 @@ const SummaryListItem = props => {
 
     return (
         <div className={styles.root}>
-            <div className={styles.inner}>
+            <div className={classNames(styles.inner, props.isHighlighted ? styles.innerIsHighlighted : null)}>
                 <dt className={styles.term}>{props.term}</dt>
                 <dd className={defClass}>
                     {def || '(None)'}

@@ -16,11 +16,20 @@
         background-color: $clr-white;
         border: border();
     }
+
+    &IsHighlighted {
+        background-color: $clr-secondary;
+        color: $clr-white;
+    }
 }
 
 .term {
     color: $clr-grey-dark;
     padding-bottom: .2rem;
+
+    .innerIsHighlighted & {
+        color: $clr-white;
+    }
 }
 
 .def {

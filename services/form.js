@@ -1,4 +1,4 @@
-export const getFieldValue = (name, data) => (name ? name.split('.').reduce((acc, cur) => acc[cur], data) : null);
+export const getFieldValue = (name, data) => (name ? name.split('.').reduce((acc, cur) => acc ? acc[cur] : null, data) : null);
 
 export const setUpdatedData = (name, value, data) => {
     const newData = { ...data };
