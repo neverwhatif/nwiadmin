@@ -32,9 +32,10 @@ class Autocomplete extends Component {
         });
 
         const parsedRemote = parseRemote(this.props.remote);
+
         const params = {
             ...parsedRemote.params,
-            filter: { search },
+            filter: { ...parsedRemote.params.filter, search },
         };
 
         get(parsedRemote.alias, params, { cancellable: true })
