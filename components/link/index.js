@@ -27,12 +27,12 @@ Link.propTypes = {
         PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})])),
     ]).isRequired,
     className: PropTypes.string,
-    isNewWindow: PropTypes.bool,
+    isExternal: PropTypes.bool,
     onClick: PropTypes.func,
 };
 
 Link.defaultProps = {
-    isNewWindow: false,
+    isExternal: false,
     className: null,
     onClick: () => null,
 };
