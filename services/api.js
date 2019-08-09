@@ -130,4 +130,4 @@ export const postRaw = (alias, params, data, options) => request('postraw', alia
 export const patch = (alias, params, data, options) => request('patch', alias, params, data, options);
 export const patchRaw = (alias, params, data, options) => request('patchraw', alias, params, data, options);
 
-export const apiDelete = (alias, params) => request('delete', alias, params);
+export const apiDelete = (alias, params, data) => request('delete', alias, params, data);
