@@ -61,6 +61,9 @@ class Autocomplete extends Component {
                     isOpen={Boolean(this.state.data.length)}
                     onItemClick={this.selectItem}
                 />
+                {this.state.value && (
+                    <button type="button" className={styles.clear} onClick={() => this.selectItem({ name: '', id: null })}>&times;</button>
+                )}
             </div>
         );
     }
