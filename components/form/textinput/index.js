@@ -21,6 +21,7 @@ const TextInput = (props) => {
 
     return (
         <Component
+            data-lpignore="true"
             className={rootClass}
             name={name}
             id={parsedId}
