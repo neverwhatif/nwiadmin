@@ -10,6 +10,7 @@ const TextInput = (props) => {
         name,
         value,
         hasError,
+        lpIgnore,
         ...otherProps
     } = props;
     const inputValue = value === null ? '' : value;
@@ -21,7 +22,7 @@ const TextInput = (props) => {
 
     return (
         <Component
-            data-lpignore="true"
+            data-lpignore={lpIgnore}
             className={rootClass}
             name={name}
             id={parsedId}
@@ -39,6 +40,7 @@ TextInput.propTypes = {
     readOnly: PropTypes.bool,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     hasError: PropTypes.bool,
+    lpIgnore: PropTypes.bool,
 };
 
 TextInput.defaultProps = {
@@ -49,6 +51,7 @@ TextInput.defaultProps = {
     readOnly: false,
     value: '',
     hasError: false,
+    lpIgnore: true,
 };
 
 export default TextInput;

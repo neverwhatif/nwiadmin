@@ -71,6 +71,7 @@ export class LoginComponent extends Component {
                         name={config.app.authUsernameField || 'username'}
                         label={config.app.authUsernameLabel || 'Username'}>
                         <TextInput
+                            lpIgnore={false}
                             value={this.state.data[config.app.authUsernameField || 'username']}
                             onChange={e => this.setInput(e)}
                             onKeyDown={e => onAccessibleKeyDown(e, () => this.handleSubmit())}
