@@ -79,6 +79,7 @@ export class LoginComponent extends Component {
                     </FormField>
                     <FormField name="password" label="Password">
                         <PasswordInput
+                            lpIgnore={false}
                             value={this.state.data.password}
                             onChange={e => this.setInput(e)}
                             onKeyDown={e => onAccessibleKeyDown(e, () => this.handleSubmit())}
