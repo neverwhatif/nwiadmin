@@ -19,6 +19,7 @@ class TableScene extends Component {
                 filters={this.state.filters}
                 filterMap={this.state.filterMap}
                 actions={this.state.actions}
+                hasSearch={this.state.hasSearch}
             />
         );
     }

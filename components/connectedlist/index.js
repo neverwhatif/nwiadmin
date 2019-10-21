@@ -93,13 +93,20 @@ export class ConnectedListComponent extends Component {
         const parsedRemote = parseRemote(this.props.remote, search);
 
         get(parsedRemote.alias, parsedRemote.params)
-            .then(response => this.setState({
-                columns: this.getColumns(response),
-                data: this.props.transformData(response.data),
-                meta: response.meta,
-                totals: response.totals,
-                isDataLoading: false,
-            }))
+            .then((response) => {
+                const transformed = this.props.transformData(response.data);
+
+                this.setState({
+                    columns: this.getColumns(response),
+                    data: transformed,
+                    meta: response.meta,
+                    totals: response.totals,
+                    isDataLoading: false,
+                });
+
+                this.props.onData(response.data);
+                this.props.onTransformedData(transformed);
+            })
             .catch((dataError) => {
                 checkAuthResponse(dataError, () => {
                     this.setState({ dataError });
@@ -216,7 +223,7 @@ export class ConnectedListComponent extends Component {
 
     render() {
         if (this.state.dataError) {
-            if (this.state.dataError.response.status === 403) {
+            if (this.state.dataError.response && this.state.dataError.response.status === 403) {
                 return (
                     <ErrorMessage
                         title="Not Allowed"
@@ -283,6 +290,8 @@ ConnectedListComponent.propTypes = {
     shouldInitPreload: PropTypes.bool,
     setFunctions: PropTypes.func,
     transformData: PropTypes.func,
+    onData: PropTypes.func,
+    onTransformedData: PropTypes.func,
 };
 
 ConnectedListComponent.defaultProps = {
@@ -297,6 +306,8 @@ ConnectedListComponent.defaultProps = {
     shouldInitPreload: true,
     setFunctions: () => null,
     transformData: (data) => data,
+    onData: () => null,
+    onTransformedData: () => null,
 };
 
 export default withRouter(ConnectedListComponent);
