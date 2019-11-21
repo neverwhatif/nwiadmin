@@ -14,7 +14,7 @@ import Notify from 'nwiadmin/components/notify';
 import Login from 'nwiadmin/components/login';
 import ResetPassword from 'nwiadmin/components/login/resetpassword';
 import SecurityScene from 'nwiadmin/scenes/security';
-import PreferenceScene from 'nwiadmin/scenes/preferences';
+import PreferenceScene from 'app/components/preferences';
 import Error404Scene from 'nwiadmin/scenes/404';
 
 import 'nwiadmin/utility/styles/elements.scss';
