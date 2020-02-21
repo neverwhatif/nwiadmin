@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -12,107 +12,80 @@ const transformData = (data, transformer) => (
     data.map(item => transformer(item)).filter(item => Boolean(`${item.name}`.replace(/ /g, '')))
 );
 
-const getValue = (props) => {
-    if (props.value === false || props.value === null) {
+const transformValue = (data, transformer, placeholder, value) => {
+    if (value === false || value === null) {
         return null;
     }
 
-    const transformed = transformData(props.data, props.transformer);
-    const selected = transformed.filter(item => `${item.id}` === `${props.value}`)[0];
+    const transformed = transformData(data, transformer);
+    const selected = transformed.filter(item => `${item.id}` === `${value}`)[0];
 
-    return selected ? selected.name : props.placeholder;
+    return selected ? selected.name : placeholder;
 };
 
-class Dropdown extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isListOpen: false,
-            value: props.isLoading ? null : getValue(props),
-        };
+const Dropdown = ({ data, label, name, placeholder, transformer, value, hasError, isDisabled, isLoading, onChange }) => {
+    const node = useRef(null);
+    const [isListOpen, setListOpen] = useState(false);
 
-        this.handleClickOutside = this.handleClickOutside.bind(this);
-        this.openList = this.openList.bind(this);
-        this.closeList = this.closeList.bind(this);
-        this.selectItem = this.selectItem.bind(this);
-        this.clearItem = this.clearItem.bind(this);
-    }
-
-    componentWillMount() {
-        document.addEventListener('click', this.handleClickOutside, false);
-    }
-
-    componentWillReceiveProps(newProps) {
-        if (this.props.value !== newProps.value) {
-            this.setState({ value: getValue(newProps) });
-        }
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('click', this.handleClickOutside, false);
-    }
-
-    handleClickOutside(e) {
-        if (this.node.contains(e.target)) {
+    const handleClickOutside = (event) => {
+        if (node.current.contains(event.target)) {
             return;
         }
-        this.closeList();
+        setListOpen(false);
     }
 
-    openList() {
-        this.setState({ isListOpen: true });
-    }
-
-    closeList() {
-        this.setState({ isListOpen: false });
-    }
-
-    selectItem(item) {
+    const handleChange = (item) => {
         const target = {
-            name: this.props.name,
+            name,
             value: item.id,
         };
 
-        this.setState({ value: item.name });
-        this.props.onChange({ target, item });
-        this.closeList();
-    }
+        onChange({ target, item });
+        setListOpen(false);
+    };
 
-    clearItem() {
+    const handleClear = () => {
         const target = {
-            name: this.props.name,
+            name,
             value: null,
         };
 
-        this.setState({ value: null });
-        this.props.onChange({ target });
-    }
+        onChange({ target });
+    };
 
-    render() {
-        const transformed = transformData(this.props.data, this.props.transformer);
-        const rootClass = classNames(
-            styles.root,
-            this.state.isListOpen ? styles.rootOpen : null,
-            this.props.isLoading || this.props.isDisabled || !transformed.length ? styles.rootDisabled : null,
-        );
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, false);
 
-        const noResultsLabel = `No ${this.props.label ? this.props.label : 'Result'}s`;
-        const placeholder = !transformed.length ? noResultsLabel : this.props.placeholder;
+        return (() => {
+            document.removeEventListener('click', handleClickOutside, false);
+        });
+    }, []);
 
-        return (
-            <div className={rootClass} ref={(node) => { this.node = node; }}>
-                <DropdownInput
-                    onClick={this.openList}
-                    text={this.state.value !== null ? this.state.value : placeholder}
-                    isLoading={this.props.isLoading}
-                    hasError={this.props.hasError}
-                />
+    const noResultsLabel = `No ${label ? label : 'Result'}s`;
 
-                <DropdownList data={transformed} onItemClick={this.selectItem} isOpen={this.state.isListOpen} />
-                {this.state.value !== null && (<DropdownClear onClick={this.clearItem} />)}
-            </div>
-        );
-    }
+    const transformedValue = transformValue(data, transformer, placeholder, value);
+    const transformedData = transformData(data, transformer);
+    const transformedPlaceholder = !transformedData.length ? noResultsLabel : placeholder;
+
+    const rootClass = classNames(
+        styles.root,
+        isListOpen ? styles.rootOpen : null,
+        isLoading || isDisabled || !transformedData.length ? styles.rootDisabled : null,
+    );
+
+    return (
+        <div className={rootClass} ref={node}>
+            <DropdownInput
+                onClick={() => setListOpen(true)}
+                text={transformedValue !== null ? transformedValue : transformedPlaceholder}
+                isLoading={isLoading}
+                hasError={hasError}
+            />
+
+            <DropdownList data={transformedData} onItemClick={handleChange} isOpen={isListOpen} />
+            {transformedValue !== null && (<DropdownClear onClick={handleClear} />)}
+        </div>
+    );
 }
 
 Dropdown.propTypes = {

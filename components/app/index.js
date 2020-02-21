@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import { get } from 'nwiadmin/services/api';
@@ -29,54 +29,49 @@ const renderRoute = (route) => {
     return (<Route key={path} path={path} exact={route.isExact || false} component={route.component} />);
 };
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            me: null,
-            isError: false,
-            isLoading: true,
-        };
-    }
-    componentWillMount() {
-        get('me').then((response) => {
-            this.setState({
-                me: response.data,
-                isError: false,
-                isLoading: false,
-            });
-        }).catch((error) => {
-            this.setState({
-                isError: true,
-                isLoading: false,
-            });
-            checkAuthResponse(error);
-        });
-    }
-    render() {
-        if (this.state.isLoading) {
-            return (
-                <Loading isFullscreen />
-            );
+const App = () => {
+    const [me, setMe] = useState(null);
+    const [isError, setError] = useState(false);
+    const [isLoading, setLoading] = useState(true);
+
+    const getData = async () => {
+        try {
+            const response = await get('me');
+            setMe(response.data);
+        } catch(err) {
+            setError(true);
+            checkAuthResponse(err);
         }
 
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    if (isLoading) {
         return (
-            <MeProvider me={this.state.me}>
-                <Fragment>
-                    <Banner isError={this.state.isError} />
-                    <Switch>
-                        { routes.map(route => renderRoute(route)) }
-                        <Route path="/login" component={Login} />
-                        <Route path="/reset/:token" component={ResetPassword} />
-                        <Route path="/security" component={SecurityScene} />
-                        <Route path="/preferences" component={PreferenceScene} />
-                        <Route component={Error404Scene} />
-                    </Switch>
-                    <Notify />
-                </Fragment>
-            </MeProvider>
+            <Loading isFullscreen />
         );
     }
+
+    return (
+        <MeProvider me={me}>
+            <Fragment>
+                <Banner isError={isError} />
+                <Switch>
+                    { routes.map(route => renderRoute(route)) }
+                    <Route path="/login" component={Login} />
+                    <Route path="/reset/:token" component={ResetPassword} />
+                    <Route path="/security" component={SecurityScene} />
+                    <Route path="/preferences" component={PreferenceScene} />
+                    <Route component={Error404Scene} />
+                </Switch>
+                <Notify />
+            </Fragment>
+        </MeProvider>
+    );
 }
 
 export default App;

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import Button from 'nwiadmin/components/button';
+import Link from 'nwiadmin/components/link';
 
 import { logout } from 'nwiadmin/services/auth';
 
@@ -10,44 +10,48 @@ import styles from './styles.scss';
 
 const getInitials = (name) => name.split(' ').map(word => word[0].toUpperCase());
 
-class MePanel extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isOpen: false,
-        };
-        this.toggleIsOpen = this.toggleIsOpen.bind(this);
-    }
+const MePanel = ({ data }) => {
+    const node = useRef(null);
+    const [isOpen, setOpen] = useState(false);
 
-    toggleIsOpen() {
-        this.setState(oldState => ({ isOpen: !oldState.isOpen }));
-    }
+    const handleClickOutside = (event) => {
+        if(node.current.contains(event.target)) {
+            return;
+        }
+        setOpen(false);
+    };
 
-    render() {
-        const { data } = this.props;
+    const handleClick = () => {
+        setOpen(false);
+    };
 
-        return (
-            <aside className={styles.root}>
-                <h2
-                    className={styles.title}
-                    onClick={this.toggleIsOpen}
-                >
-                    {getInitials(data.name ? data.name : `${data.first_name} ${data.last_name}`)}
-                </h2>
-                <div className={classNames(styles.panel, this.state.isOpen ? styles.panelOpen : null)}>
-                    <div className={styles.panelItem}>
-                        <Button buttonStyle="empty" to="/preferences" onClick={() => this.toggleIsOpen()}>Preferences</Button>
-                    </div>
-                    <div className={styles.panelItem}>
-                        <Button buttonStyle="empty" to="/security" onClick={() => this.toggleIsOpen()}>Security</Button>
-                    </div>
-                    <div className={styles.panelItem}>
-                        <Button buttonStyle="empty" onClick={() => logout()}>Log out</Button>
-                    </div>
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, false);
+
+        return (() => {
+            document.removeEventListener('click', handleClickOutside);
+        });
+    }, []);
+
+    return (
+        <aside className={styles.root} ref={node}>
+            <h2 className={styles.title}>
+                {getInitials(data.name ? data.name : `${data.first_name} ${data.last_name}`)}
+            </h2>
+            <button type="button" className={styles.control} onClick={() => setOpen(true)}>Open</button>
+            <div className={classNames(styles.panel, isOpen ? styles.panelOpen : null)}>
+                <div className={styles.item}>
+                    <Link className={styles.link} to="/preferences" onClick={handleClick}>Preferences</Link>
                 </div>
-            </aside>
-        );
-    }
+                <div className={styles.item}>
+                    <Link className={styles.link} to="/security" onClick={handleClick}>Security</Link>
+                </div>
+                <div className={styles.item}>
+                    <button type="button" className={styles.link} onClick={() => logout()}>Log out</button>
+                </div>
+            </div>
+        </aside>
+    );
 }
 
 MePanel.propTypes = {

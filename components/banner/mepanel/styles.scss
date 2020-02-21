@@ -2,10 +2,9 @@
 @import 'mixins';
 
 .root {
-    @include posfix((bottom: 0, left: 0));
+    @include posfix((bottom: 2rem, left: 8rem));
     color: rgba($clr-white, .2);
-    padding: 2rem;
-    width: 20rem;
+    width: 4rem;
     z-index: 6;
 }
 
@@ -25,15 +24,32 @@
     width: 4rem;
 }
 
+.control {
+    @include posabs((left: 0, bottom: 0));
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 4rem;
+    overflow: hidden;
+    text-indent: 4rem;
+    width: 4rem;
+
+    &:focus {
+        outline: none;
+    }
+}
+
 .panel {
-    @include posabs((right: 1rem, bottom: 100%, left: 1rem));
+    @include posabs((bottom: 6rem, left: -7rem));
     background-color: $clr-white;
     border-radius: .5rem;
     opacity: 0;
-    padding: .2rem 0;
+    padding: .5rem 1.5rem;
     pointer-events: none;
     transform: translate3d(0, 1rem, 0);
     transition: transform .1s $easing, opacity .1s $easing;
+    width: 18rem;
 
     &::after {
         @include posabs((left: calc(50% - .8rem), top: 100%));
@@ -47,9 +63,19 @@
         pointer-events: all;
         transform: translate3d(0, 0, 0);
     }
+}
 
-    &Item {
-        // border-bottom: border();
-        padding: .8rem 1rem;
-    }
+.link {
+    display: block;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+button.link {
+    background-color: transparent;
+    border: 0;
+    color: $clr-primary;
+    cursor: pointer;
+    font-family: $fontfamily;
+    text-align: left;
 }
