@@ -2,20 +2,10 @@
 @import 'mixins';
 
 .root {
-    @if mixin-exists(listitem) {
-        @include listitem;
-    }
-    @else {
-        background-color: $clr-white;
-        border: border();
-    }
-
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-
-    @include break(tablet) {
-        margin-bottom: 2rem;
-    }
+    background-color: $clr-white;
+    border: border();
+    margin-bottom: 1rem;
+    padding: 2rem;
 }
 
 .content {
@@ -26,10 +16,6 @@
 .title {
     @include font-size(lrg);
     margin-top: -.15em;
-
-    @if mixin-exists(listtitle) {
-        @include listtitle;
-    }
 
     @include break(tablet) {
         @include font-size(xlrg);
@@ -61,8 +47,8 @@
 
     @include break(tablet) {
         @include font-size(med);
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
+        margin-top: 2rem;
+        padding-top: 2rem;
     }
 }
 

@@ -18,17 +18,15 @@ import PrimaryNav from 'nwiadmin/components/primarynav';
 import BannerLogo from './bannerlogo';
 import MePanel from './mepanel';
 
-export const BannerComponent = ({ me, isError }) => (
-    <Fragment>
-        {me && !isError && (
-            <Fragment>
-                <BannerLogo />
-                <PrimaryNav />
-                <MePanel data={me} />
-            </Fragment>
-        )}
-    </Fragment>
-);
+export const BannerComponent = ({ me, isError }) =>
+    me &&
+    !isError && (
+        <Fragment>
+            <BannerLogo />
+            <PrimaryNav />
+            <MePanel data={me} />
+        </Fragment>
+    );
 
 BannerComponent.propTypes = {
     me: PropTypes.shape({

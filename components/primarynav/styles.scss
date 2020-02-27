@@ -3,16 +3,11 @@
 
 .root {
     @include posfix((top: 0, bottom: 0, left: 0));
+    background-color: $clr-dark;
     padding-top: 10rem;
     width: 20rem;
     z-index: 4;
 
-    @if mixin-exists(primarynav) {
-        @include primarynav;
-    }
-    @else {
-        background-color: $clr-dark;
-    }
 
     &Pink {
         background-color: $clr-pink;

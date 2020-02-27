@@ -7,15 +7,9 @@
 }
 
 .inner {
+    background-color: $clr-white;
+    border: border();
     padding: 1rem 1.5rem;
-
-    @if mixin-exists(summarylistitem) {
-        @include summarylistitem;
-    }
-    @else {
-        background-color: $clr-white;
-        border: border();
-    }
 
     &IsHighlighted {
         background-color: $clr-secondary;

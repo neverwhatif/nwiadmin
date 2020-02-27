@@ -9,6 +9,7 @@ export { default as TextInput } from './textinput';
 export { default as DateInput } from './dateinput';
 export { default as FileInput } from './fileinput';
 export { default as ImageInput } from './imageinput';
+export { default as MoneyInput } from './moneyinput';
 export { default as PasswordInput } from './passwordinput';
 export { default as TextArea } from './textarea';
 export { default as FormSubmit } from './formsubmit';

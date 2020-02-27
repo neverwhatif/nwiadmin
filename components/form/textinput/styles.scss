@@ -3,8 +3,9 @@
 
 .root {
     @include font-size(med);
-    background-color: $clr-grey-light;
-    border: border();
+    background-color: $clr-white;
+    border: border($clr-grey);
+    border-radius: .2rem;
     color: $clr-text;
     font-family: $fontfamily;
     height: 4rem;
@@ -12,10 +13,6 @@
     padding: 0 1.2rem;
     transition: border-color .2s;
     width: 100%;
-
-    @if mixin-exists(textinput) {
-        @include textinput;
-    }
 
     &:focus {
         border-color: $clr-primary;
@@ -28,7 +25,9 @@
 
     &[readOnly] {
         background-color: $clr-grey-xlight;
+        border-color: $clr-grey-light;
         cursor: default;
+        opacity: .8;
     }
 
     &[readOnly]:focus {

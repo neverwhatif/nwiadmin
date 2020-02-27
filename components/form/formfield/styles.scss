@@ -1,9 +1,5 @@
 .root {
     clear: both; // Counteract the fact that legend needs to be floated to display properly
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     max-width: 90rem;
-
-    @if(mixin-exists(formfield)) {
-        @include formfield;
-    }
 }

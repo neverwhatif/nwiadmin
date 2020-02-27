@@ -4,6 +4,10 @@
 .root {
     @include font-size(med);
     -webkit-appearance: none; // sass-lint:disable-line no-vendor-prefixes
+    background-color: $clr-link;
+    border: border($clr-link);
+    border-radius: .5rem;
+    color: $clr-white;
     cursor: pointer;
     display: inline-block;
     font-family: $fontfamily;
@@ -13,15 +17,6 @@
     text-align: center;
     transition: background-color .15s;
     white-space: nowrap;
-
-    @if mixin-exists(button) {
-        @include button;
-    }
-    @else {
-        background-color: $clr-link;
-        border: border($clr-link);
-        color: $clr-white;
-    }
 
     &:hover {
         background-color: $clr-link-hover;
@@ -42,17 +37,12 @@
     }
 
     &Bordered {
-        @if mixin-exists(button-bordered) {
-            @include button-bordered;
-        }
-        @else {
+        background-color: $clr-white;
+        color: $clr-link;
+
+        &:hover {
             background-color: $clr-white;
             color: $clr-link;
-
-            &:hover {
-                background-color: $clr-white;
-                color: $clr-link;
-            }
         }
     }
 

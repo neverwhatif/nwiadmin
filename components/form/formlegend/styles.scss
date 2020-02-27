@@ -2,12 +2,12 @@
 @import 'mixins';
 
 .root {
+    @include font-size(xlrg);
+    border-bottom: 1px #f0f0f0 solid;
     float: left; // Get it to be inside the fieldset properly
-    margin-bottom: 2rem;
-    padding: 0;
-    width: 100%;
-
-    @if(mixin-exists(formlegend)) {
-        @include formlegend;
-    }
+    margin: -1rem -3rem 3rem;
+    padding: 0 3rem 2rem;
+    width: calc(100% + 6rem);
 }
+
+

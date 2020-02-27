@@ -1,0 +1,24 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    position: relative;
+
+    &::before {
+        @include font-size(lrg);
+        @include posabs((top: .1rem, left: .1rem));
+        background-color: $clr-grey-light;
+        color: $clr-grey-dark;
+        content: '£';
+        font-weight: $bold-fontweight;
+        height: calc(100% - .2rem);
+        line-height: 3.7rem;
+        pointer-events: none;
+        text-align: center;
+        width: 4rem;
+    }
+}
+
+.input {
+    padding-left: 5rem;
+}

@@ -1,17 +1,19 @@
 @import 'variables';
+@import 'mixins';
 
 .root {
     color: $clr-dark;
     display: block;
-    margin-bottom: .5rem;
+    margin-bottom: .7rem;
+    margin-top: -.3rem;
 
     &Reverse {
         color: $clr-white;
     }
 
     &IsDesc {
+        @include font-size(xsml);
         color: $clr-grey-dark;
-        font-style: italic;
         margin-top: -.5rem;
     }
 }

@@ -6,6 +6,7 @@ import styles from './styles.scss';
 
 const TextInput = (props) => {
     const {
+        className,
         component,
         name,
         value,
@@ -15,7 +16,7 @@ const TextInput = (props) => {
     } = props;
     const inputValue = value === null ? '' : value;
 
-    const rootClass = classNames(styles.root, hasError ? styles.rootError : null);
+    const rootClass = classNames(styles.root, className, hasError ? styles.rootError : null);
 
     const parsedId = name.replace(/\./g, '-');
     const Component = component || 'input';
@@ -33,6 +34,7 @@ const TextInput = (props) => {
 };
 
 TextInput.propTypes = {
+    className: PropTypes.string,
     component: PropTypes.string,
     onChange: PropTypes.func,
     name: PropTypes.string,
@@ -44,6 +46,7 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
+    className: null,
     component: null,
     onChange: () => null,
     name: '',

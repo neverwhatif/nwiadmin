@@ -60,16 +60,12 @@
 }
 
 .title {
-    @include posabs((top: 3rem, left: 3rem));
+    @include font-size(xlrg);
+    @include posabs((top: 0, left: 0, right: 0));
+    background-color: $clr-white;
+    border-bottom: border();
+    padding: 3rem;
     z-index: 3;
-
-    @if(mixin-exists(modaltitle)) {
-        @include modaltitle;
-    }
-
-    /*@include font-size(xxlrg);
-    line-height: 1.2;
-    margin-bottom: 2rem;*/
 }
 
 .scroll {
@@ -92,6 +88,6 @@
     }
 
     &HasTitle {
-        padding-top: 10rem;
+        padding-top: 12rem;
     }
 }

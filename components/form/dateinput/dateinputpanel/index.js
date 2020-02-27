@@ -60,8 +60,8 @@ class DateInputPanel extends Component {
                     disabledFn={this.props.disabledFn}
                 />
                 <div className={styles.actions}>
-                    <button className={styles.button} onClick={() => this.previousMonth()}>← Previous</button>
-                    <button className={styles.button} onClick={() => this.nextMonth()}>Next →</button>
+                    <button className={styles.button} onClick={() => this.previousMonth()}>←</button>
+                    <button className={styles.button} onClick={() => this.nextMonth()}>→</button>
                 </div>
             </div>
         );

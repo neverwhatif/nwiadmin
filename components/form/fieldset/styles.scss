@@ -4,16 +4,13 @@
 .root {
     background-color: $clr-white;
     border: border();
+    border-radius: .5rem;
     height: 100%;
     margin: 0 0 3rem;
-    padding: 1rem 2rem 0;
+    padding: 3rem 3rem 0;
     position: relative;
 
     &:last-of-type {
         margin: 0;
-    }
-
-    @if(mixin-exists(fieldset)) {
-        @include fieldset;
     }
 }

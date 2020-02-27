@@ -78,6 +78,7 @@ class DateInput extends Component {
             <div className={styles.root} ref={(node) => { this.node = node; }}>
                 <TextInput
                     {...this.otherProps}
+                    className={styles.input}
                     autoComplete="off"
                     onFocus={this.openPanel}
                     onChange={e => this.onChange(e)}
@@ -91,6 +92,14 @@ class DateInput extends Component {
                         disabledFn={disabledFn}
                     />
                 </div>
+                <button type="button" className={styles.control} onClick={this.openPanel}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="2">
+                        <rect x="1" y="3" width="12" height="10" />
+                        <line x1="3" y1="0" x2="3" y2="3"/>
+                        <line x1="11" y1="0" x2="11" y2="3"/>
+                        <line x1="0" y1="6" x2="14" y2="6"/>
+                    </svg>
+                </button>
             </div>
         );
     }
