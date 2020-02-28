@@ -2,5 +2,11 @@
   "name": "nwiadmin",
   "version": "1.0.0",
   "description": "Framework for rest based admin systems used by Never What If",
-  "author": "Never What If"
+  "author": "Never What If",
+  "dependencies": {
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "format": "prettier --write \"components/**/*.js\" \"scenes/**/*.js\""
+  }
 }
