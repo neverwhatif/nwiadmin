@@ -3,7 +3,8 @@
 
 .root {
     background-color: $clr-white;
-    border: border($clr-primary);
+    border: border($clr-grey);
+    box-shadow: 0 4px 4px rgba($clr-black, .05), 0 16px 16px rgba($clr-black, .05);
     padding: 1rem;
     position: relative;
 }

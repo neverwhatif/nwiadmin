@@ -14,7 +14,7 @@
 }
 
 .cell {
-    border: border($clr-grey);
+    border: border($clr-grey-light);
     padding: 0;
 
     &Active {
@@ -37,6 +37,7 @@
 
 .control {
     @include empty-button;
+    color: $clr-grey-dark;
     line-height: 3rem;
     width: 100%;
 
