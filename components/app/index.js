@@ -6,7 +6,7 @@ import { checkAuthResponse } from 'nwiadmin/services/auth';
 
 import routes from 'app/config/routes';
 
-import MeProvider from 'nwiadmin/services/me/meprovider';
+import { AppContextProvider } from 'nwiadmin/services/context';
 import Banner from 'nwiadmin/components/banner';
 import Loading from 'nwiadmin/components/loading';
 import Notify from 'nwiadmin/components/notify';
@@ -57,7 +57,7 @@ const App = () => {
     }
 
     return (
-        <MeProvider me={me}>
+        <AppContextProvider value={{me}}>
             <Fragment>
                 <Banner isError={isError} />
                 <Switch>
@@ -70,7 +70,7 @@ const App = () => {
                 </Switch>
                 <Notify />
             </Fragment>
-        </MeProvider>
+        </AppContextProvider>
     );
 }
 

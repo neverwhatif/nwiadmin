@@ -4,7 +4,6 @@ import { withRouter } from 'react-router';
 import { withLocation } from 'nwiadmin/utility/proptypes';
 
 import { parseSearch, onAccessibleKeyDown } from 'nwiadmin/utility';
-import meable from 'nwiadmin/services/me/meable';
 import config from 'app/config';
 
 import { post } from 'nwiadmin/services/api';
@@ -120,13 +119,6 @@ export class LoginComponent extends Component {
 
 LoginComponent.propTypes = {
     ...withLocation,
-    me: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-    }),
 };
 
-LoginComponent.defaultProps = {
-    me: null,
-};
-
-export default withRouter(meable(LoginComponent));
+export default withRouter(LoginComponent);

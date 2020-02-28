@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 
 import { BannerComponent } from './index';
 
-jest.mock('nwiadmin/services/me/meable');
 jest.mock('nwiadmin/components/primarynav', () => 'PrimaryNav');
 jest.mock('./bannerlogo', () => 'BannerLogo');
 jest.mock('./mepanel', () => 'MePanel');

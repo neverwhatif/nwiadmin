@@ -5,16 +5,18 @@
 // null, depending on the result
 //
 // Props:
-// me (object): The me object injected via the 'meable' function
 // permission (string): The name of the permission that determines whether or not the child components are rendererd.
 // children (node): The elements that may or may not be displayed
 //
 
-import meable from 'nwiadmin/services/me/meable';
 import PropTypes from 'prop-types';
 
-const Allow = ({ me, permission, children }) => {
-    if (!permission || !me.permissions || me.permissions.indexOf(permission) === -1) {
+import { useAppContext } from 'nwiadmin/services/context';
+
+const Allow = ({ permission, children }) => {
+    const appContext = useAppContext();
+
+    if (!permission || !appContext.me.permissions || appContext.me.permissions.indexOf(permission) === -1) {
         return null;
     }
 
@@ -35,4 +37,4 @@ Allow.defaultProps = {
     permission: '',
 };
 
-export default meable(Allow);
+export default Allow;

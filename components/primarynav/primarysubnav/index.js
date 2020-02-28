@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import meable from 'nwiadmin/services/me/meable';
+import { useAppContext } from 'nwiadmin/services/context';
 
 import Allow from 'nwiadmin/components/allow';
 import PrimarySubNavItem from '../primarysubnavitem';
@@ -15,7 +15,9 @@ const renderItem = (item, basePath, setActiveSubNav) => (
 );
 
 const PrimarySubNav = props => {
-    const children = props.data.children.filter(item => !item.permission || props.me.permissions.indexOf(item.permission) > -1);
+    const appContext = useAppContext();
+
+    const children = props.data.children.filter(item => !item.permission || appContext.me.permissions.indexOf(item.permission) > -1);
 
     if(!children || !children.length) {
         return null;
@@ -42,4 +44,4 @@ const PrimarySubNav = props => {
     );
 };
 
-export default meable(PrimarySubNav);
+export default PrimarySubNav;

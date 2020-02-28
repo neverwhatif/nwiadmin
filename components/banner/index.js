@@ -5,28 +5,31 @@
 // anything if either there is no 'me' prop or there has been an error
 //
 // Props:
-// me (object): The me object injected via the 'meable' function
 // isError (bool): Whether or not an error has occured higher in the hierarchy
 //
 
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import meable from 'nwiadmin/services/me/meable';
+import { useAppContext } from 'nwiadmin/services/context';
 
 import PrimaryNav from 'nwiadmin/components/primarynav';
 import BannerLogo from './bannerlogo';
 import MePanel from './mepanel';
 
-export const BannerComponent = ({ me, isError }) =>
-    me &&
-    !isError && (
-        <Fragment>
-            <BannerLogo />
-            <PrimaryNav />
-            <MePanel data={me} />
-        </Fragment>
-    );
+export const BannerComponent = ({ isError }) => {
+    const appContext = useAppContext();
+
+    if(!appContext.me || isError) {
+        return null;
+    }
+
+    return (<Fragment>
+        <BannerLogo />
+        <PrimaryNav />
+        <MePanel data={appContext.me} />
+    </Fragment>);
+}
 
 BannerComponent.propTypes = {
     me: PropTypes.shape({
@@ -42,4 +45,4 @@ BannerComponent.defaultProps = {
     isError: false,
 };
 
-export default meable(BannerComponent);
+export default BannerComponent;
