@@ -9,13 +9,15 @@ class SingleScene extends Component {
     constructor(props) {
         super(props);
 
+        console.warn('SingleScene is deprecated, and will be removed in a future version');
+
         if (this.setInitialState) {
             this.setInitialState(props);
         }
     }
 
     render() {
-        if(!this.state.remote) {
+        if (!this.state.remote) {
             const basePath = this.props.basePath;
 
             return (

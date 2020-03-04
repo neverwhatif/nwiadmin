@@ -7,9 +7,9 @@ import { addPrefixToClassNames, ucwords } from 'nwiadmin/utility';
 
 import styles from './styles.scss';
 
-const TableHead = ({ data, headClass, isAllSelected, toggleSelectAll }) => {
+const TableHead = ({ data, headClass, isAllSelected, onSelect }) => {
     const renderCheckbox = () => (
-        <Checkbox name="selected" onChange={() => toggleSelectAll()} value={isAllSelected} />
+        <Checkbox name="selected" onChange={onSelect} value={isAllSelected} />
     );
 
     const renderCell = (item, firstRow) => {
@@ -52,13 +52,13 @@ TableHead.propTypes = {
         $id: PropTypes.number.isRequired,
         $actions: PropTypes.oneOfType([PropTypes.func, PropTypes.arrayOf(PropTypes.shape({}))]),
     }).isRequired,
-    toggleSelectAll: PropTypes.func,
+    onSelect: PropTypes.func,
     isAllSelected: PropTypes.bool,
     headClass: PropTypes.string,
 };
 
 TableHead.defaultProps = {
-    toggleSelectAll: () => null,
+    onSelect: () => null,
     isAllSelected: false,
     headClass: null,
 };

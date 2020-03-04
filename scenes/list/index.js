@@ -6,6 +6,8 @@ class ListScene extends Component {
     constructor(props) {
         super(props);
 
+        console.warn('ListScene is deprecated, and will be removed in a future version');
+
         if (this.setInitialState) {
             this.setInitialState(props);
         }
