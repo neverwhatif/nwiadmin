@@ -1,6 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { withConnected, withHistory, withLocation, defaultWithConnected } from 'nwiadmin/utility/proptypes';
+import {
+    withConnected,
+    withHistory,
+    withLocation,
+    defaultWithConnected,
+} from 'nwiadmin/utility/proptypes';
 
 import { withRouter } from 'react-router';
 import { checkAuthResponse } from 'nwiadmin/services/auth';
@@ -125,7 +130,10 @@ export class ConnectedListComponent extends Component {
         }
 
         if (this.hasFilters()) {
-            return ['No results found with these filters', 'Adjust the filters above to display results'];
+            return [
+                'No results found with these filters',
+                'Adjust the filters above to display results',
+            ];
         }
 
         return [];
@@ -136,13 +144,15 @@ export class ConnectedListComponent extends Component {
     }
 
     hasFilters(search) {
-        const parsed = parseSearch(typeof search === 'undefined' ? this.props.location.search : search);
+        const parsed = parseSearch(
+            typeof search === 'undefined' ? this.props.location.search : search
+        );
 
         if (!parsed.filter || typeof parsed.filter !== 'object') {
             return false;
         }
 
-        return Boolean(Object.values(parsed.filter).filter(item => item !== '').length);
+        return Boolean(Object.values(parsed.filter).filter((item) => item !== '').length);
     }
 
     resetFilters() {
@@ -168,19 +178,21 @@ export class ConnectedListComponent extends Component {
     renderList() {
         // (Report collections have data as an object of 'data's, so it's important to check both)
 
-        const data = this.state.data && this.props.actions ? this.state.data.map(item => ({
-            ...item,
-            $actions: this.props.actions,
-        })) : this.state.data;
+        const data =
+            this.state.data && this.props.actions
+                ? this.state.data.map((item) => ({
+                      ...item,
+                      $actions: this.props.actions,
+                  }))
+                : this.state.data;
 
-        const hasData = Boolean((
-            Array.isArray(data) && data.length
-        ) || (
-            typeof data === 'object'
-                && data !== null
-                && Object.values(data).length
-                && Object.values(data)[0].data.length
-        ));
+        const hasData = Boolean(
+            (Array.isArray(data) && data.length) ||
+                (typeof data === 'object' &&
+                    data !== null &&
+                    Object.values(data).length &&
+                    Object.values(data)[0].data.length)
+        );
 
         // If the data is loading, this trumps everything else
 
@@ -199,26 +211,28 @@ export class ConnectedListComponent extends Component {
 
         if (!hasData) {
             const [emptyTitle, emptyDescription] = this.getEmptyList();
-            return [
-                <EmptyList title={emptyTitle} description={emptyDescription} />, data, hasData
-            ];
+            return [<EmptyList title={emptyTitle} description={emptyDescription} />, data, hasData];
         }
 
         // We have data and our list isn't in a loading state. Display the list.
 
-        return [this.props.renderList({
+        return [
+            this.props.renderList({
+                data,
+                columns: this.state.columns,
+                totals: this.state.totals,
+                transformer: this.props.transformer,
+                isDisabled: this.props.isDisabled || isDisabled,
+                shouldInitPreload: this.props.shouldInitPreload,
+                functions: {
+                    updateData: this.updateData,
+                    updateRow: this.updateRow,
+                    reloadData: () => this.getData(this.state.search),
+                },
+            }),
             data,
-            columns: this.state.columns,
-            totals: this.state.totals,
-            transformer: this.props.transformer,
-            isDisabled: this.props.isDisabled || isDisabled,
-            shouldInitPreload: this.props.shouldInitPreload,
-            functions: {
-                updateData: this.updateData,
-                updateRow: this.updateRow,
-                reloadData: () => this.getData(this.state.search),
-            },
-        }), data, hasData];
+            hasData,
+        ];
     }
 
     render() {
@@ -232,7 +246,7 @@ export class ConnectedListComponent extends Component {
                     />
                 );
             }
-            return (<ErrorMessage />);
+            return <ErrorMessage />;
         }
 
         const [list, data, hasData] = this.renderList();
@@ -282,10 +296,12 @@ ConnectedListComponent.propTypes = {
     itemName: PropTypes.string,
     renderList: PropTypes.func,
     hasSearch: PropTypes.bool,
-    cta: PropTypes.arrayOf(PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        action: PropTypes.func.isRequired,
-    })),
+    cta: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            action: PropTypes.func.isRequired,
+        })
+    ),
     shouldOnlyUpdateWithFilters: PropTypes.bool,
     shouldInitPreload: PropTypes.bool,
     setFunctions: PropTypes.func,
@@ -299,7 +315,7 @@ ConnectedListComponent.defaultProps = {
     filters: null,
     filterMap: {},
     itemName: null,
-    renderList: data => <List {...data} />,
+    renderList: (data) => <List {...data} />,
     hasSearch: false,
     cta: null,
     shouldOnlyUpdateWithFilters: false,

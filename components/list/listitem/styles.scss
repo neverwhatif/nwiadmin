@@ -4,6 +4,7 @@
 .root {
     background-color: $clr-white;
     border: border();
+    border-radius: .5rem;
     margin-bottom: 1rem;
     padding: 2rem;
 }
@@ -15,7 +16,7 @@
 
 .title {
     @include font-size(lrg);
-    margin-top: -.15em;
+    line-height: 1.2;
 
     @include break(tablet) {
         @include font-size(xlrg);

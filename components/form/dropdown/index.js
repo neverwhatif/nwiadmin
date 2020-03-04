@@ -8,9 +8,10 @@ import DropdownClear from './dropdownclear';
 
 import styles from './styles.scss';
 
-const transformData = (data, transformer) => (
-    data.map(item => transformer(item)).filter(item => Boolean(`${item.name}`.replace(/ /g, '')))
-);
+const transformData = (data, transformer) =>
+    data
+        .map((item) => transformer(item))
+        .filter((item) => Boolean(`${item.name}`.replace(/ /g, '')));
 
 const transformValue = (data, transformer, placeholder, value) => {
     if (value === false || value === null) {
@@ -18,12 +19,23 @@ const transformValue = (data, transformer, placeholder, value) => {
     }
 
     const transformed = transformData(data, transformer);
-    const selected = transformed.filter(item => `${item.id}` === `${value}`)[0];
+    const selected = transformed.filter((item) => `${item.id}` === `${value}`)[0];
 
     return selected ? selected.name : placeholder;
 };
 
-const Dropdown = ({ data, label, name, placeholder, transformer, value, hasError, isDisabled, isLoading, onChange }) => {
+const Dropdown = ({
+    data,
+    label,
+    name,
+    placeholder,
+    transformer,
+    value,
+    hasError,
+    isDisabled,
+    isLoading,
+    onChange,
+}) => {
     const node = useRef(null);
     const [isListOpen, setListOpen] = useState(false);
 
@@ -32,7 +44,7 @@ const Dropdown = ({ data, label, name, placeholder, transformer, value, hasError
             return;
         }
         setListOpen(false);
-    }
+    };
 
     const handleChange = (item) => {
         const target = {
@@ -56,9 +68,9 @@ const Dropdown = ({ data, label, name, placeholder, transformer, value, hasError
     useEffect(() => {
         document.addEventListener('click', handleClickOutside, false);
 
-        return (() => {
+        return () => {
             document.removeEventListener('click', handleClickOutside, false);
-        });
+        };
     }, []);
 
     const noResultsLabel = `No ${label ? label : 'Result'}s`;
@@ -70,7 +82,7 @@ const Dropdown = ({ data, label, name, placeholder, transformer, value, hasError
     const rootClass = classNames(
         styles.root,
         isListOpen ? styles.rootOpen : null,
-        isLoading || isDisabled || !transformedData.length ? styles.rootDisabled : null,
+        isLoading || isDisabled || !transformedData.length ? styles.rootDisabled : null
     );
 
     return (
@@ -83,16 +95,18 @@ const Dropdown = ({ data, label, name, placeholder, transformer, value, hasError
             />
 
             <DropdownList data={transformedData} onItemClick={handleChange} isOpen={isListOpen} />
-            {transformedValue !== null && (<DropdownClear onClick={handleClear} />)}
+            {transformedValue !== null && <DropdownClear onClick={handleClear} />}
         </div>
     );
-}
+};
 
 Dropdown.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-        name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    })).isRequired,
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+            name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+        })
+    ).isRequired,
     label: PropTypes.string,
     // We can't make this required as FormField doesn't set the name fast enough. Probably needs a fix.
     name: PropTypes.string,
@@ -101,10 +115,7 @@ Dropdown.propTypes = {
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
     transformer: PropTypes.func,
-    value: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-    ]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Dropdown.defaultProps = {
@@ -114,7 +125,7 @@ Dropdown.defaultProps = {
     isDisabled: false,
     placeholder: 'Select...',
     onChange: () => null,
-    transformer: item => item,
+    transformer: (item) => item,
     value: null,
 };
 

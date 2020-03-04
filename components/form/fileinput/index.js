@@ -1,19 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class FileInput extends Component {
-    handleChange(e) {
-        this.props.onChange(e);
-    }
-
-    render() {
-        const { name } = this.props;
-
-        return (
-            <input type="file" name={name} onChange={e => this.handleChange(e)} />
-        );
-    }
-}
+const FileInput = ({ name, onChange }) => <input type="file" name={name} onChange={onChange} />;
 
 FileInput.propTypes = {
     name: PropTypes.string.isRequired,

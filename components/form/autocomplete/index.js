@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import { parseRemote } from 'nwiadmin/utility';
 import { get } from 'nwiadmin/services/api';
@@ -8,65 +8,52 @@ import DropdownList from '../dropdown/dropdownlist';
 
 import styles from './styles.scss';
 
-class Autocomplete extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [],
-            isDataLoading: false,
-            value: props.initialValue || ''
-        };
+const Autocomplete = ({ initialValue, name, remote, onChange }) => {
+    const [data, setData] = useState([]);
+    const [value, setValue] = useState(initialValue || '');
 
-        this.selectItem = this.selectItem.bind(this);
-    }
+    const handleSelect = (item) => {
+        setData([]);
+        setValue(item.name);
 
-    selectItem(item) {
-        this.setState({ data: [], value: item.name });
-        this.props.onChange({ target: { name: this.props.name, value: item.id } }) ;
-    }
+        onChange({ target: { name, value: item.id } });
+    };
 
-    getData(search) {
-        this.setState({
-            isDataLoading: true,
-            value: search,
-        });
+    const getData = async (event) => {
+        setValue(event.target.value);
 
-        const parsedRemote = parseRemote(this.props.remote);
+        const parsedRemote = parseRemote(remote);
 
         const params = {
             ...parsedRemote.params,
-            filter: { ...parsedRemote.params.filter, search },
+            filter: { ...parsedRemote.params.filter, search: event.target.value },
         };
 
-        get(parsedRemote.alias, params, { cancellable: true })
-            .then(response => this.setState({
-                data: response.data ? response.data : this.state.data,
-                isDataLoading: false,
-            }))
-            .catch(error => this.setState({
-                dataError: error.toString(),
-            }));
-    }
+        try {
+            const response = await get(parsedRemote.alias, params, { cancellable: true });
+            setData(response.data || data);
+        } catch (err) {}
+    };
 
-    render() {
-        return (
-            <div className={styles.root}>
-                <TextInput
-                    value={this.state.value}
-                    onChange={(e) => this.getData(e.target.value)}
-                    placeholder="Start typing..."
-                />
-                <DropdownList
-                    data={this.state.data}
-                    isOpen={Boolean(this.state.data.length)}
-                    onItemClick={this.selectItem}
-                />
-                {this.state.value && (
-                    <button type="button" className={styles.clear} onClick={() => this.selectItem({ name: '', id: null })}>&times;</button>
-                )}
-            </div>
-        );
-    }
-}
+    return (
+        <div className={styles.root}>
+            <TextInput
+                value={value}
+                onChange={(event) => getData(event)}
+                placeholder="Start typing..."
+            />
+            <DropdownList data={data} isOpen={Boolean(data.length)} onItemClick={handleSelect} />
+            {value && (
+                <button
+                    type="button"
+                    className={styles.clear}
+                    onClick={() => handleSelect({ name: '', id: null })}
+                >
+                    &times;
+                </button>
+            )}
+        </div>
+    );
+};
 
 export default Autocomplete;

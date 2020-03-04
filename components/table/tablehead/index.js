@@ -7,21 +7,17 @@ import { addPrefixToClassNames, ucwords } from 'nwiadmin/utility';
 
 import styles from './styles.scss';
 
-class TableHead extends Component {
-    renderCheckbox() {
-        return (
-            <Checkbox
-                name="selected"
-                onChange={() => this.props.toggleSelectAll()}
-                value={this.props.isAllSelected}
-            />
-        );
-    }
+const TableHead = ({ data, headClass, isAllSelected, toggleSelectAll }) => {
+    const renderCheckbox = () => (
+        <Checkbox name="selected" onChange={() => toggleSelectAll()} value={isAllSelected} />
+    );
 
-    renderCell(item, firstRow) {
-        if(item === '$checkbox') {
+    const renderCell = (item, firstRow) => {
+        if (item === '$checkbox') {
             return (
-                <th key={item} className={classNames(styles.cell, styles.cellCheckbox)}>{this.renderCheckbox(item)}</th>
+                <th key={item} className={classNames(styles.cell, styles.cellCheckbox)}>
+                    {renderCheckbox(item)}
+                </th>
             );
         }
 
@@ -31,25 +27,25 @@ class TableHead extends Component {
 
         const cellClass = classNames(
             styles.cell,
-            firstRow && firstRow.type ? styles[`cell${ucwords(firstRow.type)}`] : null,
+            firstRow && firstRow.type ? styles[`cell${ucwords(firstRow.type)}`] : null
         );
 
         return (
-            <th key={item} className={cellClass}>{item}</th>
+            <th key={item} className={cellClass}>
+                {item}
+            </th>
         );
-    }
+    };
 
-    render() {
-        const rootClass = classNames(addPrefixToClassNames(styles, 'root', this.props.headClass));
+    const rootClass = classNames(addPrefixToClassNames(styles, 'root', headClass));
 
-        return (
-            <tr className={rootClass}>
-                {Object.entries(this.props.data).map(([item, firstRow]) => this.renderCell(item, firstRow))}
-                {this.props.data.$actions && this.renderCell('')}
-            </tr>
-        );
-    }
-}
+    return (
+        <tr className={rootClass}>
+            {Object.entries(data).map(([item, firstRow]) => renderCell(item, firstRow))}
+            {data.$actions && renderCell('')}
+        </tr>
+    );
+};
 
 TableHead.propTypes = {
     data: PropTypes.shape({

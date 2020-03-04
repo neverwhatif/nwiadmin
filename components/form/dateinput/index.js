@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -17,93 +17,79 @@ const parseDate = (date) => {
     return moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
 };
 
-class DateInput extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isPanelOpen: false,
-            value: formatDate(props.value),
-        };
+const DateInput = ({ disabledFn, name, value, onChange }) => {
+    const node = useRef(node);
 
-        this.handleClickOutside = this.handleClickOutside.bind(this);
-        this.openPanel = this.openPanel.bind(this);
-        this.closePanel = this.closePanel.bind(this);
-    }
+    const [isPanelOpen, setPanelOpen] = useState(false);
+    const [dateValue, setDateValue] = useState(formatDate(value));
 
-    componentWillMount() {
-        document.addEventListener('click', this.handleClickOutside, false);
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('click', this.handleClickOutside, false);
-    }
-
-    onChange(e) {
-        const { target: { value } } = e;
-
-        this.setState({ value });
-
-        const parsedValue = parseDate(value);
-        const fakeEvent = { target: { name: this.props.name, value: parsedValue } };
-
-        this.props.onChange(fakeEvent);
-    }
-
-    onSelectDate(value) {
-        this.setState({ value: formatDate(value) });
-        this.props.onChange({ target: { name: this.props.name, value } });
-        this.closePanel();
-    }
-
-    handleClickOutside(e) {
-        if (this.node.contains(e.target)) {
+    const handleClickOutside = (event) => {
+        if (node.current.contains(event.target)) {
             return;
         }
-        this.closePanel();
-    }
+        setPanelOpen(false);
+    };
 
-    openPanel() {
-        this.setState({ isPanelOpen: true });
-    }
+    const handleChange = (event) => {
+        setDateValue(event.target.value);
 
-    closePanel() {
-        this.setState({ isPanelOpen: false });
-    }
+        const parsedValue = parseDate(event.target.value);
+        onChange({ target: { name, value: parsedValue } });
+    };
 
-    render() {
-        const panelClass = classNames(styles.panel, this.state.isPanelOpen ? styles.panelIsOpen : null);
-        const { disabledFn, ...otherProps } = this.props;
+    const handleSelect = (value) => {
+        setDateValue(formatDate(value));
 
-        return (
-            <div className={styles.root} ref={(node) => { this.node = node; }}>
-                <TextInput
-                    {...this.otherProps}
-                    className={styles.input}
-                    autoComplete="off"
-                    onFocus={this.openPanel}
-                    onChange={e => this.onChange(e)}
-                    value={this.state.value}
+        onChange({ target: { name, value } });
+        setPanelOpen(false);
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, false);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside, false);
+        };
+    }, []);
+
+    const panelClass = classNames(styles.panel, isPanelOpen ? styles.panelIsOpen : null);
+
+    return (
+        <div className={styles.root} ref={node}>
+            <TextInput
+                name={name}
+                className={styles.input}
+                autoComplete="off"
+                onFocus={() => setPanelOpen(true)}
+                onChange={handleChange}
+                value={dateValue}
+            />
+            <div className={panelClass}>
+                <DateInputPanel
+                    initialValue={dateValue ? dateValue.split(' ')[0] : ''}
+                    onSelectDate={handleSelect}
+                    active={dateValue}
+                    disabledFn={disabledFn}
                 />
-                <div className={panelClass}>
-                    <DateInputPanel
-                        initialValue={this.props.value ? this.props.value.split(' ')[0] : ''}
-                        onSelectDate={date => this.onSelectDate(date)}
-                        active={this.state.value}
-                        disabledFn={disabledFn}
-                    />
-                </div>
-                <button type="button" className={styles.control} onClick={this.openPanel}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none" strokeWidth="2">
-                        <rect x="1" y="3" width="12" height="10" />
-                        <line x1="3" y1="0" x2="3" y2="3"/>
-                        <line x1="11" y1="0" x2="11" y2="3"/>
-                        <line x1="0" y1="6" x2="14" y2="6"/>
-                    </svg>
-                </button>
             </div>
-        );
-    }
-}
+            <button type="button" className={styles.control} onClick={() => setPanelOpen(true)}>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    strokeWidth="2"
+                >
+                    <rect x="1" y="3" width="12" height="10" />
+                    <line x1="3" y1="0" x2="3" y2="3" />
+                    <line x1="11" y1="0" x2="11" y2="3" />
+                    <line x1="0" y1="6" x2="14" y2="6" />
+                </svg>
+            </button>
+        </div>
+    );
+};
 
 DateInput.propTypes = {
     name: PropTypes.string,

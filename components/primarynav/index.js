@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { withRouter } from 'react-router-dom';
 import { withLocation } from 'nwiadmin/utility/proptypes';
@@ -13,68 +13,57 @@ import styles from './styles.scss';
 
 const renderItem = (item, toggleActiveSubNav, isOpen) => (
     <li key={item.key}>
-        <PrimaryNavItem {...item} toggleActiveSubNav={path => toggleActiveSubNav(path)} isOpen={isOpen} />
+        <PrimaryNavItem
+            {...item}
+            toggleActiveSubNav={(path) => toggleActiveSubNav(path)}
+            isOpen={isOpen}
+        />
     </li>
 );
 
-export class PrimaryNavComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeSubNav: null,
-        };
+export const PrimaryNavComponent = ({ location }) => {
+    const [activeSubNav, setActiveSubNav] = useState(null);
 
-        this.setActiveSubNav = this.setActiveSubNav.bind(this);
-        this.toggleActiveSubNav = this.toggleActiveSubNav.bind(this);
-    }
+    const toggleActiveSubNav = (path) => setActiveSubNav(activeSubNav === path ? null : path);
 
-    componentWillReceiveProps(newProps) {
-        if (newProps.location.pathname !== this.props.location.pathname) {
-            this.setActiveSubNav(false);
-        }
-    }
+    const nav = getPrimaryNav(location.pathname);
 
-    setActiveSubNav(activeSubNav) {
-        this.setState({ activeSubNav });
-    }
+    const preferences = store.getObject('preferences');
+    const rootClass = classNames(
+        styles.root,
+        preferences && preferences.pink ? styles.rootPink : null
+    );
 
-    toggleActiveSubNav(activeSubNav) {
-        this.setState({ activeSubNav: this.state.activeSubNav === activeSubNav ? null : activeSubNav });
-    }
+    useEffect(() => {
+        setActiveSubNav(false);
+    }, [location.pathname]);
 
-    render() {
-        const nav = getPrimaryNav(this.props.location.pathname);
-        const preferences = store.getObject('preferences');
-        const rootClass = classNames(
-            styles.root,
-            preferences && preferences.pink ? styles.rootPink : null,
-        );
-
-        return (
-            <Fragment>
-                <ul className={rootClass}>
-                    {nav.map(item => (
-                        item.permission
-                            ? (
-                                <Allow permission={item.permission} key={item.key}>
-                                    {renderItem(item, this.toggleActiveSubNav, this.state.activeSubNav === item.path)}
-                                </Allow>
-                            )
-                            : renderItem(item, this.toggleActiveSubNav, this.state.activeSubNav === item.path)
-                    ))}
-                </ul>
-                {nav.filter(item => item.children && item.children.length).map(item => (
+    return (
+        <Fragment>
+            <ul className={rootClass}>
+                {nav.map((item) =>
+                    item.permission ? (
+                        <Allow permission={item.permission} key={item.key}>
+                            {renderItem(item, toggleActiveSubNav, activeSubNav === item.path)}
+                        </Allow>
+                    ) : (
+                        renderItem(item, toggleActiveSubNav, activeSubNav === item.path)
+                    )
+                )}
+            </ul>
+            {nav
+                .filter((item) => item.children && item.children.length)
+                .map((item) => (
                     <PrimarySubNav
                         key={item.path}
                         data={item}
-                        isOpen={this.state.activeSubNav === item.path}
-                        setActiveSubNav={this.setActiveSubNav}
+                        isOpen={activeSubNav === item.path}
+                        setActiveSubNav={setActiveSubNav}
                     />
                 ))}
-            </Fragment>
-        );
-    }
-}
+        </Fragment>
+    );
+};
 
 PrimaryNavComponent.propTypes = {
     ...withLocation,

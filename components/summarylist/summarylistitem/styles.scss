@@ -9,6 +9,7 @@
 .inner {
     background-color: $clr-white;
     border: border();
+    border-radius: .5rem;
     padding: 1rem 1.5rem;
 
     &IsHighlighted {

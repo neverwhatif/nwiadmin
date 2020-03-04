@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { get } from 'nwiadmin/services/api';
@@ -12,7 +12,7 @@ const getLabel = (key, filterMapItem) => {
 };
 
 const getFilteredName = (data, key, filterMapItem) => {
-    const filtered = data.filter(item => `${item.id}` === `${key}`)[0];
+    const filtered = data.filter((item) => `${item.id}` === `${key}`)[0];
 
     if (!filtered) {
         return filterMapItem.allOption || '';
@@ -27,7 +27,7 @@ const getValue = (key, filterMapItem, data) => {
 
     // Format date properly
 
-    if(key.match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)) {
+    if (key.match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/)) {
         return formatDate(key);
     }
 
@@ -38,65 +38,52 @@ const getValue = (key, filterMapItem, data) => {
 };
 
 const getValues = (key, filterMapItem, data) => {
-    if(!key.match(/,/)) {
+    if (!key.match(/,/)) {
         return getValue(key, filterMapItem, data);
     }
-    return key.split(',').map(k => getValue(k, filterMapItem, data)).join(', ');
+    return key
+        .split(',')
+        .map((k) => getValue(k, filterMapItem, data))
+        .join(', ');
 };
 
-class FilterSummaryItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [],
-            isLoading: Boolean(props.filterMapItem.remote),
-        };
-    }
-    componentWillMount() {
-        const { filterMapItem: { remote }, value } = this.props;
-        this.getRemote(remote, value);
-    }
-    componentWillReceiveProps(nextProps) {
-        if (this.props.value !== nextProps.value) {
-            const { filterMapItem: { remote } } = this.props;
-            this.getRemote(remote, nextProps.value);
-        }
-    }
-    getRemote(remote, value) {
+const FilterSummaryItem = ({ filterMapItem, itemKey, value }) => {
+    const { remote } = filterMapItem;
+
+    const [data, setData] = useState([]);
+    const [isLoading, setLoading] = useState(Boolean(remote));
+
+    const getData = async () => {
         if (!remote) {
             return;
         }
 
-        this.setState({ isLoading: true });
+        setLoading(true);
 
         const alias = typeof remote === 'function' ? remote(value) : remote;
+        const response = await get(alias);
 
-        get(alias)
-            .then(response => this.setState({
-                data: response.data,
-                isLoading: false,
-            }));
-    }
-    render() {
-        const { itemKey, filterMapItem } = this.props;
+        setData(response.data);
+        setLoading(false);
+    };
 
-        return (
-            <div>
-                {getLabel(itemKey, filterMapItem)}:&nbsp;
-                {this.state.isLoading ? '...' : getValues(this.props.value, filterMapItem, this.state.data)}
-            </div>
-        );
-    }
-}
+    useEffect(() => {
+        getData();
+    }, [value]);
+
+    return (
+        <div>
+            {getLabel(itemKey, filterMapItem)}:&nbsp;
+            {isLoading ? '...' : getValues(value, filterMapItem, data)}
+        </div>
+    );
+};
 
 FilterSummaryItem.propTypes = {
     itemKey: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     filterMapItem: PropTypes.shape({
-        remote: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.func,
-        ]),
+        remote: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     }),
 };
 

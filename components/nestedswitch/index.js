@@ -9,7 +9,7 @@ export const renderRoute = (route, basePath, switchData) => {
     const Component = route.component;
     const data = {
         ...switchData,
-        ...route.data || {},
+        ...(route.data || {}),
     };
 
     return (
@@ -17,23 +17,27 @@ export const renderRoute = (route, basePath, switchData) => {
             exact={!route.path || route.isExact}
             key={route.path}
             path={buildNestedPath(basePath, route.path)}
-            render={componentProps => (<Component {...componentProps} basePath={basePath} data={data} />)}
+            render={(componentProps) => (
+                <Component {...componentProps} basePath={basePath} data={data} />
+            )}
         />
     );
 };
 
 const NestedSwitch = ({ routes, basePath, data }) => (
     <Switch>
-        {routes.map(route => renderRoute(route, basePath, data))}
+        {routes.map((route) => renderRoute(route, basePath, data))}
         <Route component={Error404Scene} />
     </Switch>
 );
 
 NestedSwitch.propTypes = {
-    routes: PropTypes.arrayOf(PropTypes.shape({
-        path: PropTypes.string.isRequired,
-        component: PropTypes.func,
-    })).isRequired,
+    routes: PropTypes.arrayOf(
+        PropTypes.shape({
+            path: PropTypes.string.isRequired,
+            component: PropTypes.func,
+        })
+    ).isRequired,
     basePath: PropTypes.string,
     data: PropTypes.shape({}),
 };

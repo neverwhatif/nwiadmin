@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
@@ -7,66 +6,65 @@ import DateInputCal from '../dateinputcal';
 
 import styles from './styles.scss';
 
-const getMonthFromDate = value =>  (value ? moment(value, 'YYYY-MM-DD') : moment()).format('YYYY-MM');
+const getMonthFromDate = (value) =>
+    (value ? moment(value, 'YYYY-MM-DD') : moment()).format('YYYY-MM');
 
-class DateInputPanel extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            active: props.initialValue,
-            month: getMonthFromDate(props.initialValue),
-        };
-    }
+const DateInputPanel = ({ active, disabledFn, initialValue, onSelectDate }) => {
+    const [activeValue, setActiveValue] = useState(initialValue);
+    const [month, setMonth] = useState(getMonthFromDate(initialValue));
 
-    componentWillReceiveProps(newProps) {
-        if (newProps.active !== this.props.active) {
-            this.setState({
-                active: newProps.active.match(/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/)
-                    ? moment(newProps.active, 'DD/MM/YYYY').format('YYYY-MM-DD')
-                    : null,
-            });
-        }
-        if (this.state.active) {
-            this.setState({ month: getMonthFromDate(this.state.active) });
-        }
-    }
-
-    onSelectDate(date) {
-        this.props.onSelectDate(date);
-    }
-
-    previousMonth() {
-        const month = moment(`${this.state.month}-01`).subtract(1, 'month').format('YYYY-MM');
-        this.setState({ month });
-    }
-
-    nextMonth() {
-        const month = moment(`${this.state.month}-01`).add(1, 'month').format('YYYY-MM');
-        this.setState({ month });
-    }
-
-    render() {
-        const monthName = moment(`${this.state.month}-01`).format('MMMM YYYY');
-
-        return (
-            <div className={styles.root}>
-                <div className={styles.title}>
-                    <p className={styles.titleText}>{monthName}</p>
-                </div>
-                <DateInputCal
-                    month={this.state.month}
-                    onSelectDate={date => this.onSelectDate(date)}
-                    active={this.state.active}
-                    disabledFn={this.props.disabledFn}
-                />
-                <div className={styles.actions}>
-                    <button className={styles.button} onClick={() => this.previousMonth()}>←</button>
-                    <button className={styles.button} onClick={() => this.nextMonth()}>→</button>
-                </div>
-            </div>
+    const handlePreviousMonth = () => {
+        setMonth(
+            moment(`${month}-01`)
+                .subtract(1, 'month')
+                .format('YYYY-MM')
         );
-    }
-}
+    };
+
+    const handleNextMonth = () => {
+        setMonth(
+            moment(`${month}-01`)
+                .add(1, 'month')
+                .format('YYYY-MM')
+        );
+    };
+
+    const monthName = moment(`${month}-01`).format('MMMM YYYY');
+
+    useEffect(() => {
+        const newActiveValue = active.match(/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/)
+            ? moment(active, 'DD/MM/YYYY').format('YYYY-MM-DD')
+            : null;
+
+        setActiveValue(newActiveValue);
+
+        if (newActiveValue) {
+            setMonth(getMonthFromDate(newActiveValue));
+        }
+    }, [active]);
+
+    return (
+        <div className={styles.root}>
+            <div className={styles.title}>
+                <p className={styles.titleText}>{monthName}</p>
+            </div>
+            <DateInputCal
+                month={month}
+                onSelectDate={onSelectDate}
+                active={activeValue}
+                disabledFn={disabledFn}
+            />
+            <div className={styles.actions}>
+                <button className={styles.button} onClick={handlePreviousMonth}>
+                    ←
+                </button>
+                <button className={styles.button} onClick={handleNextMonth}>
+                    →
+                </button>
+            </div>
+        </div>
+    );
+};
 
 DateInputPanel.propTypes = {
     initialValue: PropTypes.string,

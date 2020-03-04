@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { setDocumentTitle } from 'nwiadmin/services/app';
@@ -8,43 +8,42 @@ import Tabs from 'nwiadmin/components/tabs';
 
 import styles from './styles.scss';
 
-class Scene extends Component {
-    componentDidMount() {
-        if (this.props.shouldSetDocumentTitle) {
-            setDocumentTitle(this.props.title);
+const Scene = ({ basePath, children, subtitle, tabs, title, shouldSetDocumentTitle }) => {
+    useEffect(() => {
+        if (shouldSetDocumentTitle) {
+            setDocumentTitle(title);
         }
-    }
-    render() {
-        return (
-            <ErrorBoundary isScene>
-                <main className={styles.root}>
-                    {this.props.title && (
-                        <header className={styles.header}>
-                            <h1 className={styles.title}>{this.props.title}</h1>
-                            {this.props.subtitle && (
-                                <p className={styles.subtitle}>{this.props.subtitle}</p>
-                            )}
-                        </header>
-                    )}
-                    {this.props.tabs && (<Tabs data={this.props.tabs} basePath={this.props.basePath} />)}
-                    <section className={styles.content}>
-                        {this.props.children}
-                    </section>
-                </main>
-            </ErrorBoundary>
-        );
-    }
-}
+    }, []);
+
+    return (
+        <ErrorBoundary isScene>
+            <main className={styles.root}>
+                {title && (
+                    <header className={styles.header}>
+                        <h1 className={styles.title}>{title}</h1>
+                        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+                    </header>
+                )}
+                {tabs && <Tabs data={tabs} basePath={basePath} />}
+                <section className={styles.content}>{children}</section>
+            </main>
+        </ErrorBoundary>
+    );
+};
 
 Scene.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
-    tabs: PropTypes.arrayOf(PropTypes.shape({
-        data: PropTypes.arrayOf(PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            path: PropTypes.string.isRequired,
-        })),
-    })),
+    tabs: PropTypes.arrayOf(
+        PropTypes.shape({
+            data: PropTypes.arrayOf(
+                PropTypes.shape({
+                    label: PropTypes.string.isRequired,
+                    path: PropTypes.string.isRequired,
+                })
+            ),
+        })
+    ),
     basePath: PropTypes.string,
     children: PropTypes.node,
     shouldSetDocumentTitle: PropTypes.bool,

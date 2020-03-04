@@ -7,7 +7,7 @@ const tokenName = 'token';
 const authRouteName = 'login';
 
 export const getToken = () => (store.getItem(tokenName) || '').replace(/\n/, '');
-export const setToken = token => store.setItem(tokenName, token);
+export const setToken = (token) => store.setItem(tokenName, token);
 export const removeToken = () => store.removeItem(tokenName);
 
 export const setTokenFromHeader = (headers = {}) => {
@@ -42,16 +42,17 @@ const handleUnauth = () => {
 };
 
 const checkForUnauthResponse = (error) => {
-    if(!error.response) {
+    if (!error.response) {
         console.log(error);
         return;
     }
     if (error.response.status === 401) {
         return true;
     }
-    if (error.response.status === 400
-        && error.response.data.error
-        && error.response.data.error.match(/token/)
+    if (
+        error.response.status === 400 &&
+        error.response.data.error &&
+        error.response.data.error.match(/token/)
     ) {
         return true;
     }
@@ -71,7 +72,7 @@ export const checkAuthResponse = (error, elseFn) => {
     }
 
     if (elseFn && typeof elseFn === 'function') {
-        elseFn();
+        elseFn(error);
     }
 };
 

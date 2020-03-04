@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { parseRemote } from 'nwiadmin/utility';
 import { withConnected, defaultWithConnected } from 'nwiadmin/utility/proptypes';
@@ -7,58 +7,40 @@ import { get } from 'nwiadmin/services/api';
 
 import { Dropdown } from 'nwiadmin/components/form';
 
-class ConnectedDropdown extends Component {
-    constructor(props) {
-        super(props);
+const ConnectedDropdown = ({ allOption, remote, ...otherProps }) => {
+    const [data, setData] = useState({});
+    const [dataError, setDataError] = useState('');
+    const [isDataLoading, setDataLoading] = useState(true);
 
-        this.state = {
-            isDataLoading: true,
-            dataError: '',
-            data: [],
-        };
-    }
+    const getData = async () => {
+        setDataLoading(true);
 
-    componentWillMount() {
-        this.getData();
-    }
+        const parsedRemote = parseRemote(remote);
 
-    getData() {
-        this.setState({
-            isDataLoading: true,
-        });
-
-        const parsedRemote = parseRemote(this.props.remote);
-
-        get(parsedRemote.alias, parsedRemote.params)
-            .then(response => this.setState({
-                data: this.parseData(response.data),
-                isDataLoading: false,
-            }))
-            .catch(error => this.setState({
-                dataError: error.toString(),
-            }));
-    }
-
-    parseData(data) {
-        return this.props.allOption ? [{ id: '', name: this.props.allOption }, ...data] : data;
-    }
-
-    render() {
-        if (this.state.dataError) {
-            return (<div>Error: {this.state.dataError}</div>);
+        try {
+            const response = await get(parsedRemote.alias, parsedRemote.params);
+            setData(allOption ? [{ id: '', name: allOption }, ...response.data] : response.data);
+        } catch (err) {
+            setDataError(err.toString());
         }
 
-        if (this.state.isDataLoading) {
-            return (<Dropdown data={[]} isLoading />);
-        }
+        setDataLoading(false);
+    };
 
-        const { remote, ...otherProps } = this.props;
+    useEffect(() => {
+        getData();
+    }, []);
 
-        return (
-            <Dropdown data={this.state.data} {...otherProps} />
-        );
+    if (dataError) {
+        return <div>Error: {dataError}</div>;
     }
-}
+
+    if (isDataLoading) {
+        return <Dropdown data={[]} isLoading />;
+    }
+
+    return <Dropdown data={data} {...otherProps} />;
+};
 
 ConnectedDropdown.propTypes = {
     ...withConnected,
@@ -67,7 +49,7 @@ ConnectedDropdown.propTypes = {
 
 ConnectedDropdown.defaultProps = {
     ...defaultWithConnected,
-    transformer: item => item,
+    transformer: (item) => item,
 };
 
 export default ConnectedDropdown;

@@ -1,54 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import TextInput from '../textinput';
 
 import styles from './styles.scss';
 
-class PasswordInput extends Component {
-    constructor(props) {
-        super(props);
+const PasswordInput = ({ value, onChange, ...otherProps }) => {
+    const [visible, setVisible] = useState(false);
 
-        this.state = {
-            value: '',
-            visible: false,
-        };
-    }
+    const toggleVisible = () => setVisible(!visible);
 
-    onChange(e) {
-        this.setState({ value: e.target.value });
-        this.props.onChange(e);
-    }
-
-    toggleVisibility() {
-        this.setState({
-            visible: !this.state.visible,
-        });
-    }
-
-    render() {
-        const { onChange, ...otherProps } = this.props;
-
-        return (
-            <div className={styles.root}>
-                <TextInput
-                    {...otherProps}
-                    onChange={e => this.onChange(e)}
-                    type={this.state.visible ? 'text' : 'password'}
-                    autoComplete="off"
-                />
-                <button
-                    className={styles.control}
-                    type="button"
-                    onClick={() => this.toggleVisibility()}
-                    style={{ display: this.state.value ? 'block' : 'none' }}
-                >
-                    { this.state.visible ? 'Hide password' : 'Show password' }
-                </button>
-            </div>
-        );
-    }
-}
+    return (
+        <div className={styles.root}>
+            <TextInput
+                {...otherProps}
+                value={value}
+                onChange={onChange}
+                type={visible ? 'text' : 'password'}
+                autoComplete="off"
+            />
+            <button
+                className={styles.control}
+                type="button"
+                onClick={toggleVisible}
+                style={{ display: value ? 'block' : 'none' }}
+            >
+                {visible ? 'Hide password' : 'Show password'}
+            </button>
+        </div>
+    );
+};
 
 PasswordInput.propTypes = {
     onChange: PropTypes.func,

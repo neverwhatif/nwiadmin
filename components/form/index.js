@@ -14,7 +14,6 @@ export { default as PasswordInput } from './passwordinput';
 export { default as TextArea } from './textarea';
 export { default as FormSubmit } from './formsubmit';
 
-export { default as AddressLookup } from './addresslookup';
 export { default as Autocomplete } from './autocomplete';
 export { default as ConnectedDropdown } from './connecteddropdown';
 
