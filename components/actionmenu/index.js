@@ -9,7 +9,7 @@ import styles from './styles.scss';
 
 const ActionMenu = ({ actions, label, isDisabled }) => {
     const node = useRef(null);
-    const [isOpen, setOpen] = useState(true);
+    const [isOpen, setOpen] = useState(false);
 
     const toggleOpen = () => setOpen(!isOpen);
 
