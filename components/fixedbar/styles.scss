@@ -3,6 +3,8 @@
 
 .root {
     @include posfix((top: 3rem, right: 3rem));
+    align-items: center;
+    display: flex;
     z-index: 4;
 
     > * {

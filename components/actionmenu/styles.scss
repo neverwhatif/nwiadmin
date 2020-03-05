@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    position: relative;
+}
+
+.panel {
+    @include posabs((top: calc(100% + .8rem), left: 50%));
+    background-color: $clr-white;
+    border: border();
+    border-radius: .5rem;
+    box-shadow: 0 0 4px rgba($clr-black, .03), 0 0 16px rgba($clr-black, .03);
+    min-width: 20rem;
+    opacity: 0;
+    padding: .2rem 1.5rem;
+    pointer-events: none;
+    transform: translate3d(-50%, -1rem, 0);
+    transition: transform .1s $easing, opacity .1s $easing;
+
+    &::before,
+    &::after {
+        @include posabs((left: calc(50% - .8rem), bottom: 100%));
+        border: .8rem solid;
+        border-color: transparent transparent $clr-grey-light transparent;
+        content: '';
+    }
+
+    &::after {
+        border-bottom-color: $clr-white;
+        transform: translateY(.1rem);
+    }
+
+    &Open {
+        opacity: 1;
+        pointer-events: all;
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.button {
+    background-color: transparent;
+    border: 0;
+    border-bottom: border();
+    color: $clr-primary;
+    cursor: pointer;
+    display: block;
+    font-family: $fontfamily;
+    padding: 1.2rem 0;
+    text-align: left;
+    width: 100%;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &Error {
+        color: $clr-error;
+    }
+}
