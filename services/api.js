@@ -4,7 +4,7 @@ import qs from 'qs';
 import config from 'app/config';
 import { getAuthedHeaders, setTokenFromHeader } from './auth';
 
-let responseTransformer = response => response;
+let responseTransformer = (response) => response;
 let isRegistered = false;
 
 export const registerAPI = (opts = {}) => {
@@ -57,14 +57,13 @@ const transformRequestToRaw = (requestObj, method) => {
     newRequestObj.data = fd;
     newRequestObj.headers['Content-Type'] = undefined;
 
-    newRequestObj.transformRequest = $ => $;
+    newRequestObj.transformRequest = ($) => $;
 
     return newRequestObj;
 };
 
-export const makeUrl = (alias, params = {}) => `${config.paths.api}/${alias}${Object.keys(params).length
-    ? `?${qs.stringify(params)}`
-    : ''}`;
+export const makeUrl = (alias, params = {}) =>
+    `${config.paths.api}/${alias}${Object.keys(params).length ? `?${qs.stringify(params)}` : ''}`;
 
 const createRequestConfig = (rawMethod, alias, params = {}, rawData = {}, rawOptions = {}) => {
     let method = rawMethod || 'post';
@@ -94,7 +93,7 @@ const createRequestConfig = (rawMethod, alias, params = {}, rawData = {}, rawOpt
     let requestConfig = {
         headers,
         method,
-        url: makeUrl(alias, params),
+        url: makeUrl(alias, params || {}),
     };
 
     if (data) {
@@ -117,17 +116,21 @@ const createRequestConfig = (rawMethod, alias, params = {}, rawData = {}, rawOpt
 
 export const request = (method, alias, params, data, options) => {
     const requestConfig = createRequestConfig(method, alias, params, data, options);
-    return axios.request(requestConfig)
-        .then(response => responseSuccess(response))
-        .catch(error => responseError(error));
+    return axios
+        .request(requestConfig)
+        .then((response) => responseSuccess(response))
+        .catch((error) => responseError(error));
 };
 
 export const get = (alias, params, options) => request('get', alias, params, false, options);
 
 export const post = (alias, params, data, options) => request('post', alias, params, data, options);
-export const postRaw = (alias, params, data, options) => request('postraw', alias, params, data, options);
+export const postRaw = (alias, params, data, options) =>
+    request('postraw', alias, params, data, options);
 
-export const patch = (alias, params, data, options) => request('patch', alias, params, data, options);
-export const patchRaw = (alias, params, data, options) => request('patchraw', alias, params, data, options);
+export const patch = (alias, params, data, options) =>
+    request('patch', alias, params, data, options);
+export const patchRaw = (alias, params, data, options) =>
+    request('patchraw', alias, params, data, options);
 
 export const apiDelete = (alias, params, data) => request('delete', alias, params, data);
