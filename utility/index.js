@@ -3,27 +3,23 @@ import qs from 'qs';
 export { default as diff } from './diff';
 export { default as flatten } from './flatten';
 
-export const parseSearch = search => qs.parse(search.replace(/^\?/, ''));
-export const stringifySearch = search => qs.stringify(search);
+export const parseSearch = (search) => qs.parse(search.replace(/^\?/, ''));
+export const stringifySearch = (search) => qs.stringify(search);
 
 export const ucwords = (str, force = false) =>
     (force ? str.toLowerCase(str) : str).replace(/^(.)|\s+(.)/gu, ($1) => $1.toUpperCase());
 
-export const isPromise = value => value !== null && typeof value === 'object' && typeof value.then === 'function';
+export const isPromise = (value) =>
+    value !== null && typeof value === 'object' && typeof value.then === 'function';
 
 export const onAccessibleKeyDown = (e, fn) => (e.keyCode === 13 ? fn() : null);
 
-export const unique = arr => arr.reduce((x, y) => (
-    x.includes(y) ? x : [...x, y]
-), []);
+export const unique = (arr) => arr.reduce((x, y) => (x.includes(y) ? x : [...x, y]), []);
 
 export const toggleArrayItem = (array, item) => {
     const index = array.indexOf(item);
 
-    return index > -1 ? array.filter(i => i !== item) : [
-        ...array,
-        item,
-    ];
+    return index > -1 ? array.filter((i) => i !== item) : [...array, item];
 };
 
 export const toggleArrayObject = (array, item, key = 'id') => {
@@ -43,14 +39,11 @@ export const addPrefixToClassNames = (styles, prefix, classes = []) => {
     }
 
     const classArray = Array.isArray(classes) ? classes : classes.split(' ');
-    const allClasses = [
-        ...classArray,
-        '',
-    ];
+    const allClasses = [...classArray, ''];
 
     return unique(allClasses)
-        .map(item => styles[`${prefix}${ucwords(item)}`])
-        .filter(item => typeof item !== 'undefined');
+        .map((item) => styles[`${prefix}${ucwords(item)}`])
+        .filter((item) => typeof item !== 'undefined');
 };
 
 export const parseRemote = (remote, search = '') => {
@@ -90,3 +83,8 @@ export const stringifyRemote = (data) => {
     return `${alias}${Object.keys(params).length ? `?${qs.stringify(params)}` : ''}`;
 };
 
+export const getFromObject = (data, keys) =>
+    keys.reduce(
+        (acc, cur) => (typeof data[cur] === 'undefined' ? acc : { ...acc, [cur]: data[cur] }),
+        {}
+    );
