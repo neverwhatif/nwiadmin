@@ -53,12 +53,12 @@ export const parseRemote = (remote, search = '') => {
         const ret = {
             alias: remote[0],
             params: {
-                ...remote[1],
+                ...(remote[1] || {}),
                 ...parsedSearch,
             },
         };
 
-        if (remote[1].filter || parsedSearch.filter) {
+        if ((remote[1] && remote[1].filter) || parsedSearch.filter) {
             ret.params.filter = {
                 ...remote[1].filter,
                 ...parsedSearch.filter,
@@ -88,3 +88,6 @@ export const getFromObject = (data, keys) =>
         (acc, cur) => (typeof data[cur] === 'undefined' ? acc : { ...acc, [cur]: data[cur] }),
         {}
     );
+
+export const logDeprecated = (element) =>
+    console.warn(`DEPRECATED: ${element} is deprecated, and will be removed in a future version`);

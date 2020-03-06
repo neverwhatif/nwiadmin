@@ -3,16 +3,18 @@
 import { Component } from 'react';
 import PubSub from 'pubsub-js';
 
+import { diff, logDeprecated, parseRemote } from 'nwiadmin/utility';
+
 import { request } from 'nwiadmin/services/api';
 import { checkAuthResponse } from 'nwiadmin/services/auth';
 import { notifySuccess, notifyError, clearNotify } from 'nwiadmin/services/notify';
 import { getFieldValue, setUpdatedData } from 'nwiadmin/services/form';
 
-import { diff, parseRemote } from 'nwiadmin/utility';
-
 class FormScene extends Component {
     constructor(props) {
         super(props);
+
+        logDeprecated('FormScene');
 
         this.$setInitialState(props);
         this.$setInitialFieldValues();
@@ -41,16 +43,17 @@ class FormScene extends Component {
     }
 
     setInput(e) {
-        const { target: { name, value } } = e;
+        const {
+            target: { name, value },
+        } = e;
 
         if (e.target.type === 'file') {
             this.setImageInput(e.target, name);
             return;
         }
 
-        const setValue = e.target.type === 'checkbox'
-            ? this.getCheckboxValue(e.target.checked)
-            : value;
+        const setValue =
+            e.target.type === 'checkbox' ? this.getCheckboxValue(e.target.checked) : value;
 
         this.setState({
             pendingData: setUpdatedData(name, setValue, this.state.pendingData),
@@ -63,18 +66,19 @@ class FormScene extends Component {
 
     $setInitialFieldValues() {
         const fields = this.setFields();
-        const getInitialFieldValues = (array, result = {}) => array.reduce((acc, cur) => {
-            if (!cur) {
+        const getInitialFieldValues = (array, result = {}) =>
+            array.reduce((acc, cur) => {
+                if (!cur) {
+                    return acc;
+                }
+                if (Array.isArray(cur) || cur.children) {
+                    return getInitialFieldValues(cur.children || cur, result);
+                }
+                if (typeof cur.value !== 'undefined') {
+                    acc[cur.name] = cur.value;
+                }
                 return acc;
-            }
-            if (Array.isArray(cur) || cur.children) {
-                return getInitialFieldValues(cur.children || cur, result);
-            }
-            if (typeof cur.value !== 'undefined') {
-                acc[cur.name] = cur.value;
-            }
-            return acc;
-        }, result);
+            }, result);
 
         const initialFieldValues = Object.entries(getInitialFieldValues(fields));
 
@@ -144,10 +148,14 @@ class FormScene extends Component {
     responseError(error) {
         this.setState({ isLoading: false });
         checkAuthResponse(error, () => {
-            const { response: { status, data } } = error;
+            const {
+                response: { status, data },
+            } = error;
 
             if (status !== 422 || !data) {
-                notifyError('Sorry, something appears to have gone wrong. Please contact the site administrator.');
+                notifyError(
+                    'Sorry, something appears to have gone wrong. Please contact the site administrator.'
+                );
                 return;
             }
             if (this.state.shouldNotify) {
@@ -180,9 +188,11 @@ class FormScene extends Component {
         const method = this.setMethod(pendingData);
         const parsedRemote = parseRemote(remote);
 
-        let diffed = this.state.shouldDiffRequest ? diff(pendingData, this.state.data) : pendingData;
+        let diffed = this.state.shouldDiffRequest
+            ? diff(pendingData, this.state.data)
+            : pendingData;
 
-        if(Array.isArray(this.state.shouldDiffRequest)) {
+        if (Array.isArray(this.state.shouldDiffRequest)) {
             const undiffed = this.state.shouldDiffRequest.reduce((acc, cur) => {
                 acc[cur] = pendingData[cur];
                 return acc;
@@ -194,8 +204,8 @@ class FormScene extends Component {
         const transformed = this.transformRequest(diffed);
 
         request(method, parsedRemote.alias, parsedRemote.params, transformed)
-            .then(response => this.responseSuccess(response))
-            .catch(error => this.responseError(error));
+            .then((response) => this.responseSuccess(response))
+            .catch((error) => this.responseError(error));
     }
 }
 

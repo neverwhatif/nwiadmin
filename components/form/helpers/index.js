@@ -3,12 +3,14 @@
 import React from 'react';
 import FormScene from 'nwiadmin/scenes/form';
 
+import { logDeprecated } from 'nwiadmin/utility';
+
 import { getFieldValue } from 'nwiadmin/services/form';
 import { FormRow, FormField, FormDesc, FormError, TextInput } from '../index';
 
 const renderField = (field, form, index) => {
     if (field === '-') {
-        return (<hr key={index} />);
+        return <hr key={index} />;
     }
     if (!field.name && field.desc) {
         return (
@@ -41,39 +43,48 @@ const renderField = (field, form, index) => {
     };
 
     const pendingValue = getFieldValue(field.name, pendingData);
-    const value = typeof pendingValue === 'undefined' || pendingValue === null ? field.value : pendingValue;
+    const value =
+        typeof pendingValue === 'undefined' || pendingValue === null ? field.value : pendingValue;
 
     return (
-        <FormField key={field.name || field.key} name={field.name} label={field.label} desc={field.desc}>
+        <FormField
+            key={field.name || field.key}
+            name={field.name}
+            label={field.label}
+            desc={field.desc}
+        >
             <Component
                 {...otherProps}
                 name={field.name}
                 value={value}
-                onChange={e => onChange(e)}
+                onChange={(e) => onChange(e)}
                 hasError={hasError}
             />
-            { hasError && (<FormError>{errorMessage}</FormError>) }
+            {hasError && <FormError>{errorMessage}</FormError>}
         </FormField>
     );
 };
 
 const renderRow = (children, form, index) => (
     <FormRow key={children[0].name}>
-        {children.map(field => renderField(field, form, index))}
+        {children.map((field) => renderField(field, form, index))}
     </FormRow>
 );
 
-const renderRowOrField = (field, form, index) => (
-    field.children
-        ? renderRow(field.children, form, index)
-        : renderField(field, form, index)
-);
+const renderRowOrField = (field, form, index) =>
+    field.children ? renderRow(field.children, form, index) : renderField(field, form, index);
 
 export const renderFields = (fieldData, form) => {
+    logDeprecated('renderFields');
+
     if (!(form instanceof FormScene)) {
-        throw new Error('[Form Helper] renderFields can only be called from within a FormScene class');
+        throw new Error(
+            '[Form Helper] renderFields can only be called from within a FormScene class'
+        );
     }
-    return fieldData ? fieldData.filter(field => field !== null).map((field, index) => (
-        renderRowOrField(field, form, index)
-    )) : null;
+    return fieldData
+        ? fieldData
+              .filter((field) => field !== null)
+              .map((field, index) => renderRowOrField(field, form, index))
+        : null;
 };
