@@ -17,7 +17,7 @@ const parseDate = (date) => {
     return moment(date, 'DD/MM/YYYY').format('YYYY-MM-DD');
 };
 
-const DateInput = ({ disabledFn, name, value, onChange }) => {
+const DateInput = ({ disabledFn, hasError, name, value, onChange }) => {
     const node = useRef(node);
 
     const [isPanelOpen, setPanelOpen] = useState(false);
@@ -60,9 +60,10 @@ const DateInput = ({ disabledFn, name, value, onChange }) => {
                 name={name}
                 className={styles.input}
                 autoComplete="off"
+                value={dateValue}
+                hasError={hasError}
                 onFocus={() => setPanelOpen(true)}
                 onChange={handleChange}
-                value={dateValue}
             />
             <div className={panelClass}>
                 <DateInputPanel
