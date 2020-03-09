@@ -18,7 +18,7 @@ const parseDate = (date) => {
 };
 
 const DateInput = ({ disabledFn, hasError, name, value, onChange }) => {
-    const node = useRef(node);
+    const node = useRef(null);
 
     const [isPanelOpen, setPanelOpen] = useState(false);
     const [dateValue, setDateValue] = useState(formatDate(value));
