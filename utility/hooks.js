@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PubSub from 'pubsub-js';
 
 import { diff, getFromObject, parseRemote } from 'nwiadmin/utility';
 
@@ -26,6 +27,8 @@ export const useForm = ({
     remote = '',
     transformRequest = (d) => d,
     transformResponse = (d) => d,
+    shouldDiffRequest = true,
+    shouldPublish = true,
 }) => {
     const fieldNames = fields.map((field) => field.name).filter((name) => name);
     const fieldData = getFromObject(transformResponse(data), fieldNames);
@@ -60,11 +63,26 @@ export const useForm = ({
         });
     };
 
+    const diffData = () => {
+        let diffed = shouldDiffRequest ? diff(formData, fieldData) : formData;
+
+        if (Array.isArray(shouldDiffRequest)) {
+            const undiffed = shouldDiffRequest.reduce(
+                (acc, cur) => ({ ...acc, [cur]: formData[cur] }),
+                {}
+            );
+
+            diffed = { ...diffed, ...undiffed };
+        }
+
+        return diffed;
+    };
+
     const handleSubmit = async (onSubmit = () => null) => {
         setSubmitting(true);
         setErrors({});
 
-        const diffedData = diff(formData, fieldData) || {};
+        const diffedData = diffData();
         const [method, ...otherRemote] = remote;
 
         const parsedRemote = parseRemote(otherRemote);
@@ -76,7 +94,12 @@ export const useForm = ({
                 parsedRemote.params,
                 transformRequest(diffedData)
             );
-            onSubmit(response);
+
+            if (shouldPublish) {
+                PubSub.publish('@currentScene/SET_DATA', response.data);
+            }
+
+            onSubmit(response.data);
         } catch (err) {
             setErrors(err.response && err.response.data ? err.response.data.errors : {});
         }
