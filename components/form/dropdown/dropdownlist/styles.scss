@@ -37,8 +37,8 @@
 
 .item {
     cursor: pointer;
-    line-height: 4rem;
-    padding: 0 1.5rem;
+    line-height: 2rem;
+    padding: 1rem 1.5rem;
 
     &:nth-child(even) {
         background-color: $clr-grey-xlight;
