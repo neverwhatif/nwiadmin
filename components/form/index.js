@@ -1,6 +1,7 @@
 export { default as Fieldset } from './fieldset';
 export { default as Dropdown } from './dropdown';
 export { default as FormField } from './formfield';
+export { default as ActionField } from './actionfield';
 export { default as FormDesc } from './formdesc';
 export { default as FormError } from './formerror';
 export { default as FormRow } from './formrow';
