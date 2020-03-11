@@ -22,7 +22,7 @@ export const useFormData = (initialData = {}, defaults = {}) => {
 };
 
 const getFieldNames = (fields) => {
-    if (typeof fields === 'object') {
+    if (typeof fields === 'object' && !Array.isArray(fields)) {
         return Object.values(fields)
             .reduce((acc, cur) => [...acc, ...cur], [])
             .map((field) => field.name)
