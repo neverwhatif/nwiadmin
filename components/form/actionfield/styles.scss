@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'mixins';
+
+.inner {
+    display: flex;
+}
+
+.control {
+    flex: 0 1 100%;
+    padding-right: 2rem;
+}

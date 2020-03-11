@@ -1,12 +1,18 @@
 import React from 'react';
 
+import Button from 'nwiadmin/components/button';
 import FormField from '../formfield';
 
 import styles from './styles.scss';
 
-const ActionField = ({ children, to, onClick, ...props }) => (
+const ActionField = ({ actionLabel, children, to, onClick, ...props }) => (
     <FormField {...props}>
-        <div>{children}</div>
+        <div className={styles.inner}>
+            <div className={styles.control}>{children}</div>
+            <Button buttonStyle="bordered" to={to} onClick={onClick} isExternal>
+                {actionLabel}
+            </Button>
+        </div>
     </FormField>
 );
 

@@ -5,29 +5,54 @@ import FormLabel from 'nwiadmin/components/form/formlabel';
 
 import styles from './styles.scss';
 
-const cloneInput = (input, props) => {
-    if (!input || (input.type && input.type.name === 'FormError')) {
+const fields = [
+    'autocomplete',
+    'checkbox',
+    'connecteddropdown',
+    'dateinput',
+    'dropdown',
+    'fileinput',
+    'imageinput',
+    'moneyinput',
+    'passwordinput',
+    'textarea',
+    'textinput',
+];
+
+const recursiveMap = (children, fn) =>
+    Children.map(children, (child) => {
+        if (!React.isValidElement(child)) {
+            return child;
+        }
+
+        if (child.props.children) {
+            child = cloneElement(child, {
+                children: recursiveMap(child.props.children, fn),
+            });
+        }
+
+        return fn(child);
+    });
+
+const cloneInput = (input, label, name) => {
+    if (!input || (input.type && fields.indexOf((input.type.name || '').toLowerCase()) === -1)) {
         return input;
     }
 
     return cloneElement(input, {
-        name: props.name,
-        label: props.label,
+        label,
+        name,
     });
 };
 
-const FormField = (props) => {
-    const childrenWithData = props.name
-        ? Children.map(props.children, child => cloneInput(child, props))
-        : props.children;
+const FormField = ({ children, desc, label, labelClass, name }) => {
+    const childrenWithData = recursiveMap(children, (child) => cloneInput(child, label, name));
 
     return (
         <div className={styles.root}>
-            { props.label && <FormLabel text={props.label} for={props.name} extraClasses={props.labelClass} /> }
-            { props.desc && <FormLabel text={props.desc} for={props.name} isDesc /> }
-            <Fragment>
-                { childrenWithData }
-            </Fragment>
+            {Boolean(label) && <FormLabel text={label} for={name} extraClasses={labelClass} />}
+            {Boolean(desc) && <FormLabel text={desc} for={name} isDesc />}
+            <Fragment>{childrenWithData}</Fragment>
         </div>
     );
 };

@@ -5,7 +5,7 @@ import { diff, getFromObject, parseRemote } from 'nwiadmin/utility';
 
 import { request } from 'nwiadmin/services/api';
 
-import { FormField, FormError, TextInput } from 'nwiadmin/components/form';
+import { ActionField, FormField, FormError, TextInput } from 'nwiadmin/components/form';
 
 export const useFormData = (initialData = {}, defaults = {}) => {
     const [data, setData] = useState({ ...defaults, ...initialData });
@@ -21,6 +21,16 @@ export const useFormData = (initialData = {}, defaults = {}) => {
     return [data, setFormData];
 };
 
+const getFieldNames = (fields) => {
+    if (typeof fields === 'object') {
+        return Object.values(fields)
+            .reduce((acc, cur) => [...acc, ...cur], [])
+            .map((field) => field.name)
+            .filter((name) => name);
+    }
+    return fields.map((field) => field.name).filter((name) => name);
+};
+
 export const useForm = ({
     data = {},
     fields = [],
@@ -30,7 +40,7 @@ export const useForm = ({
     shouldDiffRequest = true,
     shouldPublish = true,
 }) => {
-    const fieldNames = fields.map((field) => field.name).filter((name) => name);
+    const fieldNames = getFieldNames(fields);
     const fieldData = getFromObject(transformResponse(data), fieldNames);
 
     const [formData, setFormData] = useFormData(fieldData);
@@ -38,19 +48,25 @@ export const useForm = ({
     const [errors, setErrors] = useState({});
     const [isSubmitting, setSubmitting] = useState(false);
 
-    const handleRenderFields = () => {
-        return fields.map((field, index) => {
+    const handleRenderSelectedFields = (selectedFields) =>
+        selectedFields.map((field, index) => {
             if (field === '-') {
                 return <hr key={index} />;
             }
 
             const Component = field.component || TextInput;
+            const FieldComponent = field.actionProps ? ActionField : FormField;
 
             const hasError = Boolean(errors && errors[field.name]);
             const errorMessage = hasError ? errors[field.name][0] : '';
 
             return (
-                <FormField key={field.name} name={field.name} label={field.label}>
+                <FieldComponent
+                    key={field.name}
+                    name={field.name}
+                    label={field.label}
+                    {...(field.actionProps || {})}
+                >
                     <Component
                         {...(field.props || {})}
                         value={formData[field.name]}
@@ -58,9 +74,15 @@ export const useForm = ({
                         hasError={hasError}
                     />
                     {hasError && <FormError>{errorMessage}</FormError>}
-                </FormField>
+                </FieldComponent>
             );
         });
+
+    const handleRenderFields = (key) => {
+        if (key) {
+            return handleRenderSelectedFields(fields[key]);
+        }
+        return handleRenderSelectedFields(fields);
     };
 
     const diffData = () => {
