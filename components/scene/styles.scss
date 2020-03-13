@@ -2,8 +2,11 @@
 @import 'mixins';
 
 .root {
-    margin-left: 20rem;
     padding-bottom: 4rem;
+
+    @include break(tablet) {
+        margin-left: 20rem;
+    }
 }
 
 .header {
@@ -12,17 +15,39 @@
     box-shadow: 0 .5rem .5rem rgba($clr-black, .02);
     display: flex;
     flex-direction: column;
-    height: 10rem;
+    height: 7rem;
     justify-content: center;
-    padding: 0 3rem;
+    padding: 0 1.5rem;
     z-index: 2;
+
+    @include break(tablet) {
+        height: 10rem;
+        padding: 0 3rem;
+    }
 }
 
 .title {
+    @include font-size(lrg);
     //@include title;
+
+    @include break(tablet) {
+        @include font-size(xxlrg);
+    }
+}
+
+.subtitle {
+    @include font-size(sml);
+
+    @include break(tablet) {
+        @include font-size(med);
+    }
 }
 
 .content {
     border-top: border();
-    padding: 3rem;
+    padding: 1.5rem;
+
+    @include break(tablet) {
+        padding: 3rem;
+    }
 }

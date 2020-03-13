@@ -2,16 +2,56 @@
 @import 'mixins';
 
 .root {
+    max-height: 5.8rem;
+    overflow: hidden;
+    position: relative;
+
+    &Open {
+        max-height: none;
+    }
+}
+
+.control {
+    @include posabs((top: 0, left: 0));
+    background-color: transparent;
+    border: 0;
+    color: transparent;
+    cursor: pointer;
+    height: 5.8rem;
+    user-select: none;
+    width: 100%;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.list {
     background-color: $clr-white;
     display: flex;
+    flex-direction: column;
+
 
     &::before {
         @include posabs((left: 3rem, right: 3rem, top: 0));
-        border-top: border();
         content: '';
+    }
+
+    @include break(tablet) {
+        flex-direction: row;
+
+        &::before {
+            border-top: border();
+        }
     }
 }
 
 .item {
-    margin-left: 2rem;
+    @include break(tablet) {
+        margin-left: 2rem;
+    }
+
+    &Active {
+        order: -1;
+    }
 }

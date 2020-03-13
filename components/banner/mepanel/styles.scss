@@ -2,10 +2,15 @@
 @import 'mixins';
 
 .root {
-    @include posfix((bottom: 2rem, left: 8rem));
-    color: rgba($clr-white, .2);
-    width: 4rem;
-    z-index: 6;
+    display: none;
+
+    @include break(tablet) {
+        @include posfix((bottom: 2rem, left: 8rem));
+        color: rgba($clr-white, .2);
+        display: block;
+        width: 4rem;
+        z-index: 6;
+    }
 }
 
 .title {

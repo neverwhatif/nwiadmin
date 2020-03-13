@@ -2,12 +2,17 @@
 @import 'mixins';
 
 .root {
-    @include posfix((left: 0, top: 0));
-    width: 20rem;
-    z-index: 5;
+    display: none;
 
-    &Dev {
-        background-color: $clr-error;
+    @include break(tablet) {
+        @include posfix((left: 0, top: 0));
+        display: block;
+        width: 20rem;
+        z-index: 5;
+
+        &Dev {
+            background-color: $clr-error;
+        }
     }
 }
 

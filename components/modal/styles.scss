@@ -43,35 +43,52 @@
     @include posfix((top: 0, right: 0, bottom: 0));
     animation: modal__enter .2s;
     background-color: $clr-grey-xlight;
-    min-width: 50rem;
-    width: 35%;
+    width: 95%;
+
+    @include break(tablet) {
+        min-width: 50rem;
+        width: 35%;
+    }
 
     &:focus {
         outline: none;
     }
 
     &Filters {
-        width: 25%;
+        @include break(tablet) {
+            width: 25%;
+        }
     }
 
     &Wide {
-        width: 80%;
+        @include break(tablet) {
+            width: 80%;
+        }
     }
 }
 
 .title {
-    @include font-size(xlrg);
+    @include font-size(lrg);
     @include posabs((top: 0, left: 0, right: 0));
     background-color: $clr-white;
     border-bottom: border();
-    padding: 3rem;
+    padding: 1.5rem;
     z-index: 3;
+
+    @include break(tablet) {
+        @include font-size(xlrg);
+        padding: 3rem;
+    }
 }
 
 .scroll {
     height: 100vh;
     overflow-y: auto;
-    padding: 3rem;
+    padding: 1.5rem;
+
+    @include break(tablet) {
+        padding: 3rem;
+    }
 
     &::-webkit-scrollbar {
         height: 8px;
@@ -88,6 +105,10 @@
     }
 
     &HasTitle {
-        padding-top: 12rem;
+        padding-top: 8rem;
+
+        @include break(tablet) {
+            padding-top: 12rem;
+        }
     }
 }

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import classNames from 'classnames';
 
 import { parseTabs } from 'nwiadmin/services/nav';
 import { withLocation } from 'nwiadmin/utility/proptypes';
@@ -11,24 +12,54 @@ import TabItem from './tabitem';
 import styles from './styles.scss';
 
 const renderItem = (item) => (
-    <li key={item.key} className={styles.item}>
+    <li
+        key={item.key}
+        className={classNames(styles.item, item.isActive ? styles.itemActive : null)}
+    >
         <TabItem {...item} />
     </li>
 );
 
-const TabsComponent = ({ basePath, data, location }) => (
-    <ul className={styles.root}>
-        {parseTabs(data, basePath, location.pathname).map((item) =>
-            item.permission ? (
-                <Allow permission={item.permission} key={item.key}>
-                    {renderItem(item)}
-                </Allow>
-            ) : (
-                renderItem(item)
-            )
-        )}
-    </ul>
-);
+const TabsComponent = ({ basePath, data, location }) => {
+    const control = useRef();
+    const [isOpen, setOpen] = useState(false);
+
+    const toggleOpen = () => setOpen(!isOpen);
+
+    const handleClickOutside = (event) => {
+        if (control.current.contains(event.target)) {
+            return;
+        }
+        setOpen(false);
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, false);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
+    return (
+        <div className={classNames(styles.root, isOpen ? styles.rootOpen : null)}>
+            <ul className={styles.list}>
+                {parseTabs(data, basePath, location.pathname).map((item) =>
+                    item.permission ? (
+                        <Allow permission={item.permission} key={item.key}>
+                            {renderItem(item)}
+                        </Allow>
+                    ) : (
+                        renderItem(item)
+                    )
+                )}
+            </ul>
+            <button type="button" className={styles.control} onClick={toggleOpen} ref={control}>
+                Menu
+            </button>
+        </div>
+    );
+};
 
 TabsComponent.propTypes = {
     ...withLocation,

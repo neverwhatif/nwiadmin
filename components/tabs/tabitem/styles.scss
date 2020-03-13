@@ -4,8 +4,12 @@
 .root {
     @include font-size(med);
     display: block;
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
     position: relative;
+
+    @include break(tablet) {
+        padding: 2rem 1rem;
+    }
 
     &Disabled {
         opacity: .3;
@@ -13,11 +17,16 @@
     }
 
     &Active {
-        &::before {
-            @include posabs((right: 1rem, bottom: 0, left: 1rem));
-            background-color: $clr-primary;
-            content: '';
-            height: .3rem;
+        font-weight: $bold-fontweight;
+
+        @include break(tablet) {
+            &::before {
+                @include posabs((right: 1rem, bottom: 0, left: 1rem));
+                background-color: $clr-primary;
+                content: '';
+                font-weight: $body-fontweight;
+                height: .3rem;
+            }
         }
     }
 }

@@ -3,7 +3,12 @@
 
 .root {
     flex: 1;
-    padding-left: 3rem;
+    margin-bottom: 1rem;
+
+    @include break(tablet) {
+        margin-bottom: 0;
+        padding-left: 3rem;
+    }
 }
 
 .inner {

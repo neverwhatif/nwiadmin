@@ -1,9 +1,14 @@
-.root {
-    display: flex;
-    justify-content: space-between;
-    margin-left: -3rem;
+@import "variables";
+@import "mixins";
 
-    &Wrapped {
-        flex-wrap: wrap;
+.root {
+    @include break(tablet) {
+        display: flex;
+        justify-content: space-between;
+        margin-left: -3rem;
+
+        &Wrapped {
+            flex-wrap: wrap;
+        }
     }
 }

@@ -2,17 +2,22 @@
 @import 'mixins';
 
 .root {
-    @include posfix((top: 0, bottom: 0, left: 20rem));
-    background-color: $clr-white;
-    border-right: border();
-    padding-top: 10rem;
-    transform: translate3d(-100%, 0, 0);
-    transition: transform .3s $easing;
-    width: 30rem;
-    z-index: 3;
+    display: none;
 
-    &IsOpen {
-        transform: translate3d(0, 0, 0);
+    @include break(tablet) {
+        @include posfix((top: 0, bottom: 0, left: 20rem));
+        background-color: $clr-white;
+        border-right: border();
+        display: block;
+        padding-top: 10rem;
+        transform: translate3d(-100%, 0, 0);
+        transition: transform .3s $easing;
+        width: 30rem;
+        z-index: 3;
+
+        &IsOpen {
+            transform: translate3d(0, 0, 0);
+        }
     }
 }
 

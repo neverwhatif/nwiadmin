@@ -2,14 +2,18 @@
 @import 'mixins';
 
 .root {
-    @include posfix((top: 0, bottom: 0, left: 0));
-    background-color: $clr-dark;
-    padding-top: 10rem;
-    width: 20rem;
-    z-index: 4;
+    display: none;
 
+    @include break(tablet) {
+        @include posfix((top: 0, bottom: 0, left: 0));
+        background-color: $clr-dark;
+        display: block;
+        padding-top: 10rem;
+        width: 20rem;
+        z-index: 4;
 
-    &Pink {
-        background-color: $clr-pink;
+        &Pink {
+            background-color: $clr-pink;
+        }
     }
 }
