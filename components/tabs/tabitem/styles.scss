@@ -20,6 +20,8 @@
         font-weight: $bold-fontweight;
 
         @include break(tablet) {
+            font-weight: $body-fontweight;
+
             &::before {
                 @include posabs((right: 1rem, bottom: 0, left: 1rem));
                 background-color: $clr-primary;

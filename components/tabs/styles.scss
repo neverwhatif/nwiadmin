@@ -24,6 +24,10 @@
     &:focus {
         outline: none;
     }
+
+    @include break(tablet) {
+        display: none;
+    }
 }
 
 .list {
@@ -31,18 +35,8 @@
     display: flex;
     flex-direction: column;
 
-
-    &::before {
-        @include posabs((left: 3rem, right: 3rem, top: 0));
-        content: '';
-    }
-
     @include break(tablet) {
         flex-direction: row;
-
-        &::before {
-            border-top: border();
-        }
     }
 }
 
@@ -53,5 +47,9 @@
 
     &Active {
         order: -1;
+    }
+
+    @include break(tablet) {
+        order: 0;
     }
 }
