@@ -19,20 +19,31 @@ const PrimaryNavItem = (props) => {
         props.children ? styles.rootHasChildren : null,
         props.isActive ? styles.rootActive : null,
         props.isDisabled ? styles.rootDisabled : null,
-        props.isOpen ? styles.rootOpen : null,
+        props.isOpen ? styles.rootOpen : null
     );
 
-    const path = props.filters ? stringifyRemote([props.path, { filter: props.filters }]) : props.path;
-    const isUnauthed = props.children && props.children.filter(item => !item.permission || appContext.me.permissions.indexOf(item.permission) > -1).length === 0;
+    const path = props.filters
+        ? stringifyRemote([props.path, { filter: props.filters }])
+        : props.path;
+    const isUnauthed =
+        props.children &&
+        props.children.filter(
+            (item) =>
+                !item.permission || (appContext.me.permissions || []).indexOf(item.permission) > -1
+        ).length === 0;
 
-    if(isUnauthed) {
+    if (isUnauthed) {
         return null;
     }
 
     return props.children ? (
-        <span className={rootClass} onClick={() => props.toggleActiveSubNav(props.path)}>{props.label}</span>
+        <span className={rootClass} onClick={() => props.toggleActiveSubNav(props.path)}>
+            {props.label}
+        </span>
     ) : (
-        <Link to={path} className={rootClass} onClick={() => clearNotify()}>{props.label}</Link>
+        <Link to={path} className={rootClass} onClick={() => clearNotify()}>
+            {props.label}
+        </Link>
     );
 };
 

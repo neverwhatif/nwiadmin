@@ -14,27 +14,30 @@ const renderItem = (item, basePath, setActiveSubNav) => (
     </li>
 );
 
-const PrimarySubNav = props => {
+const PrimarySubNav = (props) => {
     const appContext = useAppContext();
 
-    const children = props.data.children.filter(item => !item.permission || appContext.me.permissions.indexOf(item.permission) > -1);
+    const children = props.data.children.filter(
+        (item) =>
+            !item.permission || (appContext.me.permissions || []).indexOf(item.permission) > -1
+    );
 
-    if(!children || !children.length) {
+    if (!children || !children.length) {
         return null;
     }
 
     return (
         <div className={classNames(styles.root, props.isOpen ? styles.rootIsOpen : null)}>
             <ul className={styles.list}>
-                {props.data.children.map(item => (
-                    item.permission
-                        ? (
-                            <Allow permission={item.permission} key={item.key}>
-                                {renderItem(item, props.data.path, props.setActiveSubNav)}
-                            </Allow>
-                        )
-                        : renderItem(item, props.data.path, props.setActiveSubNav)
-                ))}
+                {props.data.children.map((item) =>
+                    item.permission ? (
+                        <Allow permission={item.permission} key={item.key}>
+                            {renderItem(item, props.data.path, props.setActiveSubNav)}
+                        </Allow>
+                    ) : (
+                        renderItem(item, props.data.path, props.setActiveSubNav)
+                    )
+                )}
             </ul>
             <i
                 className={classNames(styles.close, props.isOpen ? styles.closeIsOpen : null)}
