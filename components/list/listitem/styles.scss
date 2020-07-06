@@ -42,6 +42,17 @@
     white-space: pre-line;
 }
 
+.description {
+    @include font-size(sml);
+    border-top: border();
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+
+    @include break(tablet) {
+        @include font-size(med);
+    }
+}
+
 .meta {
     @include font-size(sml);
     border-top: border();

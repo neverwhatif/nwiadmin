@@ -9,18 +9,26 @@ import styles from './styles.scss';
 const ModalActions = ({
     isDisabled,
     isLoading,
+    onSubmit,
     submit,
     submitText,
+    onCancel,
     cancel,
     cancelText,
-}) => (
-    <div className={styles.root}>
-        {typeof submit === 'function' && (
-            <FormSubmit onClick={() => submit()} isLoading={isLoading} isDisabled={isDisabled}>{submitText}</FormSubmit>
-        )}
-        <Button buttonStyle="bordered" onClick={() => cancel()}>{cancelText}</Button>
-    </div>
-);
+}) => {
+    return (
+        <div className={styles.root}>
+            {typeof submit === 'function' && (
+                <FormSubmit onClick={onSubmit || submit} isLoading={isLoading} isDisabled={isDisabled}>
+                    {submitText}
+                </FormSubmit>
+            )}
+            <Button buttonStyle="bordered" onClick={onCancel || cancel}>
+                {cancelText}
+            </Button>
+        </div>
+    );
+};
 
 ModalActions.propTypes = {
     isDisabled: PropTypes.bool,

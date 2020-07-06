@@ -5,25 +5,17 @@ import classNames from 'classnames';
 import styles from './styles.scss';
 
 const Checkbox = (props) => {
-    const {
-        hasError,
-        labelText,
-        name,
-        isDisabled,
-        readonly,
-        value,
-        ...otherProps
-    } = props;
+    const { hasError, labelText, name, isDisabled, readonly, value, ...otherProps } = props;
 
     const iconClass = classNames(
         styles.icon,
         isDisabled ? styles.iconIsDisabled : null,
-        readonly || isDisabled ? styles.readonly : null,
+        readonly || isDisabled ? styles.readonly : null
     );
     const labelClass = classNames(
         styles.label,
         isDisabled ? styles.iconIsDisabled : null,
-        readonly || isDisabled ? styles.readonly : null,
+        readonly || isDisabled ? styles.readonly : null
     );
 
     return (
@@ -40,14 +32,16 @@ const Checkbox = (props) => {
             />
             <label className={iconClass} htmlFor={props.name} />
             {(props.children || labelText) && (
-                <label className={labelClass} htmlFor={props.name}>{props.children || labelText}</label>
+                <label className={labelClass} htmlFor={props.name}>
+                    {props.children || labelText}
+                </label>
             )}
         </div>
     );
 };
 
 Checkbox.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
     hasError: PropTypes.bool,
     labelText: PropTypes.string,

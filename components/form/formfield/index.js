@@ -41,7 +41,7 @@ const cloneInput = (input, label, name) => {
 
     return cloneElement(input, {
         label,
-        name,
+        name: input.props.name || name,
     });
 };
 

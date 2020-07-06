@@ -10,7 +10,7 @@ import TableRow from './tablerow';
 
 import styles from './styles.scss';
 
-const transformDataItem = (transformer, item, index, columns, functions) => {
+const transformDataItem = (transformer, item, index, columns, functions, actions) => {
     // If there is an '$id' in the data, assume it has already been transformed, and don't transform again
     if (item.$id) {
         return item;
@@ -25,13 +25,13 @@ const transformDataItem = (transformer, item, index, columns, functions) => {
             acc.$functions = functions;
             return acc;
         },
-        item.$actions ? { $actions: item.$actions } : {}
+        actions ? { $actions: actions } : {}
     );
 };
 
-const transformData = (transformer, data, columns, totals, functions) => {
+const transformData = (transformer, data, columns, totals, functions, actions) => {
     const transformed = data.map((item, index) =>
-        transformDataItem(transformer, item, index, columns, functions)
+        transformDataItem(transformer, item, index, columns, functions, actions)
     );
 
     if (totals) {
@@ -62,6 +62,7 @@ const transformData = (transformer, data, columns, totals, functions) => {
 const Table = ({
     data,
     columns,
+    actions,
     functions,
     headClass,
     initialSelected,
@@ -73,7 +74,8 @@ const Table = ({
     const [isSelectable, setSelectable] = useState(false);
     const [selected, setSelected] = useState(initialSelected);
 
-    const getTransformed = () => transformData(transformer, data, columns, totals, functions);
+    const getTransformed = () =>
+        transformData(transformer, data, columns, totals, functions, actions);
 
     const isAllSelected = () => {
         const transformed = getTransformed().filter((item) => !item.$isDisabled);

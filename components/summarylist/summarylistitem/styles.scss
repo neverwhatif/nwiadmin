@@ -24,8 +24,10 @@
 }
 
 .term {
+    border-bottom: border();
     color: $clr-grey-dark;
-    padding-bottom: .2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
 
     .innerIsHighlighted & {
         color: $clr-white;
@@ -40,5 +42,13 @@
         @include font-size(4xlrg);
         font-weight: $light-fontweight;
         line-height: 1;
+    }
+}
+
+.value {
+    display: flex;
+
+    &Text {
+        flex-grow: 1;
     }
 }

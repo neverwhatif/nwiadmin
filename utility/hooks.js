@@ -31,6 +31,13 @@ const getFieldNames = (fields) => {
     return fields.map((field) => field.name).filter((name) => name);
 };
 
+const getElementOnChangeValue = (target) => {
+    if (target.type === 'checkbox') {
+        return target.checked;
+    }
+    return target.value;
+};
+
 export const useForm = ({
     data = {},
     fields = [],
@@ -70,7 +77,13 @@ export const useForm = ({
                     <Component
                         {...(field.props || {})}
                         value={formData[field.name]}
-                        onChange={(event) => setFormData(field.name, event.target.value)}
+                        onChange={(event) => {
+                            setFormData(field.name, getElementOnChangeValue(event.target));
+
+                            if (field.props && field.props.onChange) {
+                                field.props.onChange(event);
+                            }
+                        }}
                         hasError={hasError}
                     />
                     {hasError && <FormError>{errorMessage}</FormError>}
@@ -129,5 +142,11 @@ export const useForm = ({
         setSubmitting(false);
     };
 
-    return { isSubmitting, handleFormData: setFormData, handleRenderFields, handleSubmit };
+    return {
+        isSubmitting,
+        handleFormData: setFormData,
+        handleRenderFields,
+        handleSubmit,
+        pendingData: formData,
+    };
 };

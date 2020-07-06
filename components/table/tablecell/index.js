@@ -13,15 +13,15 @@ import styles from './styles.scss';
 
 const renderAction = (item, row, functions) => {
     const label = typeof item.label === 'function' ? item.label(row) : item.label;
-    const isDisabled = typeof item.isDisabled === 'function' ? item.isDisabled(row) : item.isDisabled;
-    const buttonStyle = typeof item.style === 'function' ? item.style(row) : item.style;
+    const isDisabled =
+        typeof item.isDisabled === 'function' ? item.isDisabled(row) : item.isDisabled;
 
     return (
         <Button
             key={label}
             onClick={() => item.action({ row, ...functions })}
             isDisabled={isDisabled}
-            buttonStyle={buttonStyle}
+            buttonStyle="empty"
         >
             {label}
         </Button>
@@ -29,26 +29,30 @@ const renderAction = (item, row, functions) => {
 };
 
 const renderers = {
-    default: value => (typeof value === 'object' && value !== null ? JSON.stringify(value) : value),
-    right: value => value.value,
-    link: value => (
-        value.path ?  <Link to={value.path} isExternal={value.isExternal}>{value.title}</Link> : value.title
-    ),
-    reference: value => (
+    default: (value) =>
+        typeof value === 'object' && value !== null ? JSON.stringify(value) : value,
+    right: (value) => value.value,
+    link: (value) =>
+        value.path ? (
+            <Link to={value.path} isExternal={value.isExternal}>
+                {value.title}
+            </Link>
+        ) : (
+            value.title
+        ),
+    reference: (value) => (
         <Reference title={value.title} reference={value.reference} link={value.link} />
     ),
-    details: value => (
+    details: (value) => (
         <Fragment>
             <p>{value.title}</p>
-            <p><small className={styles.extra}>{value.details}</small></p>
+            <p>
+                <small className={styles.extra}>{value.details}</small>
+            </p>
         </Fragment>
     ),
-    checkbox: value => (
-        <Checkbox
-            readOnly
-            name={`selected.${value.id}`}
-            value={value.isSelected}
-        />
+    checkbox: (value) => (
+        <Checkbox readOnly name={`selected.${value.id}`} value={value.isSelected} />
     ),
     actions: (value) => {
         const { row, functions } = value;
@@ -59,16 +63,22 @@ const renderers = {
         }
 
         return (
-            <Fragment>
-                {actions.map(item => renderAction(item, row, functions))}
-            </Fragment>
+            <div className={styles.actions}>
+                {actions.map((item) => renderAction(item, row, functions))}
+            </div>
         );
     },
 };
 
 const TableCell = ({ value }) => (
-    <td className={classNames(addPrefixToClassNames(styles, 'root', value && value.type ? value.type : null))}>
-        {value && value.type && renderers[value.type] ? renderers[value.type](value) : renderers.default(value)}
+    <td
+        className={classNames(
+            addPrefixToClassNames(styles, 'root', value && value.type ? value.type : null)
+        )}
+    >
+        {value && value.type && renderers[value.type]
+            ? renderers[value.type](value)
+            : renderers.default(value)}
     </td>
 );
 

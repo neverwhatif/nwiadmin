@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -18,16 +18,23 @@ const renderActions = (props) => {
         return null;
     }
 
+    const filteredActions = actions.filter((item) => item !== null);
+
+    if (!filteredActions.length) {
+        return null;
+    }
+
     return (
         <footer className={styles.footer}>
-            {actions.filter(item => item !== null).map(item => renderAction(item, props, props.$functions))}
+            {filteredActions.map((item) => renderAction(item, props, props.$functions))}
         </footer>
     );
 };
 
 const renderAction = (item, row, functions) => {
     const label = typeof item.label === 'function' ? item.label(row) : item.label;
-    const isDisabled = typeof item.isDisabled === 'function' ? item.isDisabled(row) : item.isDisabled;
+    const isDisabled =
+        typeof item.isDisabled === 'function' ? item.isDisabled(row) : item.isDisabled;
 
     return (
         <Button
@@ -39,6 +46,20 @@ const renderAction = (item, row, functions) => {
             {label}
         </Button>
     );
+};
+
+const isMetaNotEmpty = (meta) => Boolean((meta || []).filter((item) => item !== null).length);
+
+const shouldRenderMeta = (props) => {
+    if (props.meta && isMetaNotEmpty(props.meta)) {
+        return true;
+    }
+
+    if (props.secondary && props.secondary.meta && isMetaNotEmpty(props.meta)) {
+        return true;
+    }
+
+    return false;
 };
 
 const ListItem = (props) => {
@@ -54,7 +75,11 @@ const ListItem = (props) => {
         <article className={rootClass}>
             <div className={styles.content}>
                 <div className={styles.primary}>
-                    <ListItemTitle {...props} className={titleClass} shouldInitPreload={props.shouldInitPreload} />
+                    <ListItemTitle
+                        {...props}
+                        className={titleClass}
+                        shouldInitPreload={props.shouldInitPreload}
+                    />
                     {props.subtitle && (
                         <p className={styles.subtitle}>
                             <Styled data={props.subtitle} />
@@ -76,7 +101,11 @@ const ListItem = (props) => {
                 )}
             </div>
 
-            {props.meta && (
+            {Boolean(props.description) && (
+                <div className={styles.description}>{props.description}</div>
+            )}
+
+            {shouldRenderMeta(props) && (
                 <div className={styles.meta}>
                     <ListItemMeta data={props.meta} />
                     {props.secondary && props.secondary.meta && (
@@ -86,6 +115,13 @@ const ListItem = (props) => {
             )}
 
             {actions}
+
+            {props.$panels && props.$panels[props.$activePanel] ? (
+                <Fragment>
+                    <hr />
+                    {props.$panels[props.$activePanel](props)}
+                </Fragment>
+            ) : null}
         </article>
     );
 };
@@ -93,20 +129,16 @@ const ListItem = (props) => {
 ListItem.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
-    meta: PropTypes.arrayOf(PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.shape({}),
-    ])),
-    cta: PropTypes.arrayOf(PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        action: PropTypes.func.isRequired,
-    })),
+    meta: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})])),
+    cta: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            action: PropTypes.func.isRequired,
+        })
+    ),
     secondary: PropTypes.shape({
         title: PropTypes.string,
-        meta: PropTypes.arrayOf(PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.shape({}),
-        ])),
+        meta: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})])),
     }),
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     shouldInitPreload: PropTypes.bool,

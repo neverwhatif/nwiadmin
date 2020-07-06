@@ -1,0 +1,36 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include font-size(med);
+    background-color: $clr-white;
+    border: border($clr-grey);
+    border-radius: .2rem;
+    color: $clr-text;
+    font-family: $fontfamily;
+    height: 4rem;
+    line-height: 3.8rem;
+    padding: 0 1.2rem;
+    transition: border-color .2s;
+    width: 100%;
+
+    &:focus {
+        border-color: $clr-primary;
+        outline: none;
+    }
+
+    &Error {
+        border-color: $clr-error;
+    }
+
+    &[readOnly] {
+        background-color: $clr-grey-xlight;
+        border-color: $clr-grey-light;
+        cursor: default;
+        opacity: .8;
+    }
+
+    &[readOnly]:focus {
+        border-color: $clr-grey-light;
+    }
+}

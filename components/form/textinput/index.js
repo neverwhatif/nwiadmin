@@ -5,15 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.scss';
 
 const TextInput = (props) => {
-    const {
-        className,
-        component,
-        name,
-        value,
-        hasError,
-        lpIgnore,
-        ...otherProps
-    } = props;
+    const { className, component, name, value, hasError, lpIgnore, ...otherProps } = props;
     const inputValue = value === null ? '' : value;
 
     const rootClass = classNames(styles.root, className, hasError ? styles.rootError : null);

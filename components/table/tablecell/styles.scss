@@ -33,3 +33,31 @@
     @include font-size(sml);
     color: $clr-grey-dark;
 }
+
+.actions {
+    text-align: right;
+
+    > * {
+        margin-left: 1rem;
+        padding-left: 1.4rem;
+        position: relative;
+
+        &::before {
+            @include posabs((left: 0, top: .55em));
+            background-color: $clr-grey;
+            border-radius: 50%;
+            content: '';
+            height: .4rem;
+            width: .4rem;
+        }
+
+        &:first-child {
+            margin-left: 0;
+            padding-left: 0;
+
+            &::before {
+                content: none;
+            }
+        }
+    }
+}

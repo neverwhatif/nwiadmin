@@ -51,7 +51,7 @@ export class ConnectedListComponent extends Component {
         this.updateRow = this.updateRow.bind(this);
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         if (this.props.shouldOnlyUpdateWithFilters && !this.hasFilters()) {
             this.setState(defaultState);
             return;
@@ -59,15 +59,16 @@ export class ConnectedListComponent extends Component {
         this.getData(this.props.location.search);
     }
 
-    componentDidMount() {
+    UNSAFE_componentDidMount() {
         this.props.setFunctions({
+            setActivePanel: this.setActivePanel,
             updateData: this.updateData,
             updateRow: this.updateRow,
             reloadData: () => this.getData(this.state.search),
         });
     }
 
-    componentWillReceiveProps(newProps) {
+    UNSAFE_componentWillReceiveProps(newProps) {
         const { search } = newProps.location;
 
         if (search === this.state.search) {
@@ -175,16 +176,29 @@ export class ConnectedListComponent extends Component {
         });
     }
 
+    setActivePanel(row, $activePanel) {
+        this.updateRow({ ...row, $activePanel });
+    }
+
     renderList() {
         // (Report collections have data as an object of 'data's, so it's important to check both)
 
-        const data =
-            this.state.data && this.props.actions
-                ? this.state.data.map((item) => ({
-                      ...item,
-                      $actions: this.props.actions,
-                  }))
-                : this.state.data;
+        let data = [];
+
+        if (this.state.data) {
+            data = [...this.state.data];
+        }
+
+        if (this.props.actions) {
+            data = data.map((item) => ({ ...item, $actions: this.props.actions }));
+        }
+
+        if (this.props.panels) {
+            data = data.map((item) => ({
+                ...item,
+                $panels: this.props.panels,
+            }));
+        }
 
         const hasData = Boolean(
             (Array.isArray(data) && data.length) ||
@@ -225,6 +239,7 @@ export class ConnectedListComponent extends Component {
                 isDisabled: this.props.isDisabled || isDisabled,
                 shouldInitPreload: this.props.shouldInitPreload,
                 functions: {
+                    setActivePanel: this.setActivePanel,
                     updateData: this.updateData,
                     updateRow: this.updateRow,
                     reloadData: () => this.getData(this.state.search),
