@@ -51,7 +51,7 @@ export class ConnectedListComponent extends Component {
         this.updateRow = this.updateRow.bind(this);
     }
 
-    UNSAFE_componentWillMount() {
+    componentWillMount() {
         if (this.props.shouldOnlyUpdateWithFilters && !this.hasFilters()) {
             this.setState(defaultState);
             return;
@@ -59,7 +59,7 @@ export class ConnectedListComponent extends Component {
         this.getData(this.props.location.search);
     }
 
-    UNSAFE_componentDidMount() {
+    componentDidMount() {
         this.props.setFunctions({
             setActivePanel: this.setActivePanel,
             updateData: this.updateData,
@@ -68,7 +68,7 @@ export class ConnectedListComponent extends Component {
         });
     }
 
-    UNSAFE_componentWillReceiveProps(newProps) {
+    componentWillReceiveProps(newProps) {
         const { search } = newProps.location;
 
         if (search === this.state.search) {

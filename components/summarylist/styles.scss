@@ -4,7 +4,6 @@
 .root {
     @include break(tablet) {
         display: flex;
-        justify-content: space-between;
         margin-left: -3rem;
 
         &Wrapped {

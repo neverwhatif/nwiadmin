@@ -1,0 +1,7 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    @include font-size(xlrg);
+    margin-bottom: 3rem;
+}

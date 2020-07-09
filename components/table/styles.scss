@@ -7,6 +7,10 @@
     margin-bottom: 2rem;
     width: 100%;
 
+    &:last-child {
+        margin-bottom: 0;
+    }
+
     &HasHead {
         border-top: 0;
     }

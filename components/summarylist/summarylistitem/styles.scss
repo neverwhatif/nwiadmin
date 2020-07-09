@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .root {
-    flex: 1;
+    flex: 0 1 25%;
     margin-bottom: 1rem;
 
     @include break(tablet) {
@@ -12,10 +12,10 @@
 }
 
 .inner {
-    background-color: $clr-white;
-    border: border();
-    border-radius: .5rem;
-    padding: 1rem 1.5rem;
+    //background-color: $clr-white;
+    //border: border();
+    //border-radius: .5rem;
+    //padding: 1rem 1.5rem;
 
     &IsHighlighted {
         background-color: $clr-secondary;
@@ -24,10 +24,12 @@
 }
 
 .term {
-    border-bottom: border();
-    color: $clr-grey-dark;
-    margin-bottom: 1rem;
+    @include font-size(sml);
+    color: rgba($clr-grey-dark, .7);
+    font-weight: $bold-fontweight;
+    letter-spacing: .1em;
     padding-bottom: 1rem;
+    text-transform: uppercase;
 
     .innerIsHighlighted & {
         color: $clr-white;
@@ -36,7 +38,7 @@
 
 .def {
     &IsDisabled {
-        color: $clr-grey-light;
+        color: $clr-grey;
     }
     &IsLarge {
         @include font-size(4xlrg);
@@ -49,6 +51,6 @@
     display: flex;
 
     &Text {
-        flex-grow: 1;
+        margin-right: 2rem;
     }
 }

@@ -32,9 +32,14 @@ const getFieldNames = (fields) => {
 };
 
 const getElementOnChangeValue = (target) => {
+    if (target.type === 'file') {
+        return target.files[0];
+    }
+
     if (target.type === 'checkbox') {
         return target.checked;
     }
+
     return target.value;
 };
 
@@ -130,16 +135,20 @@ export const useForm = ({
                 transformRequest(diffedData)
             );
 
+            setSubmitting(false);
+
             if (shouldPublish) {
                 PubSub.publish('@currentScene/SET_DATA', response.data);
             }
 
             onSubmit(response.data);
         } catch (err) {
-            setErrors(err.response && err.response.data ? err.response.data.errors : {});
-        }
+            setSubmitting(false);
 
-        setSubmitting(false);
+            if (err.response && err.response.data && err.response.data.errors) {
+                setErrors(err.response.data.errors);
+            }
+        }
     };
 
     return {
