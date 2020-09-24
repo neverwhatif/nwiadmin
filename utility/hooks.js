@@ -4,6 +4,7 @@ import PubSub from 'pubsub-js';
 import { diff, getFromObject, parseRemote } from 'nwiadmin/utility';
 
 import { request } from 'nwiadmin/services/api';
+import { notifySuccess, notifyError } from 'nwiadmin/services/notify';
 
 import { ActionField, FormField, FormError, TextInput } from 'nwiadmin/components/form';
 
@@ -144,6 +145,19 @@ export const useForm = ({
             onSubmit(response.data);
         } catch (err) {
             setSubmitting(false);
+
+            const {
+                response: { status, data },
+            } = err;
+
+            if (status !== 422 || !data) {
+                notifyError(
+                    'Sorry, something appears to have gone wrong. Please contact the site administrator.'
+                );
+                return;
+            }
+
+            notifyError('Please double check the form and try again');
 
             if (err.response && err.response.data && err.response.data.errors) {
                 setErrors(err.response.data.errors);
