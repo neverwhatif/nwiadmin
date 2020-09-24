@@ -4,7 +4,9 @@
 .root {
     @include font-size(lrg);
     border-bottom: 1px #f0f0f0 solid;
+    color: rgba($clr-grey-dark, .7);
     float: left; // Get it to be inside the fieldset properly
+    font-weight: $bold-fontweight;
     margin: -1rem -1.5rem 1.5rem;
     padding: 0 1.5rem 2rem;
     width: calc(100% + 3rem);

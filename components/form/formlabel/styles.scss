@@ -2,8 +2,9 @@
 @import 'mixins';
 
 .root {
-    color: $clr-dark;
+    color: rgba($clr-grey-dark, .8);
     display: block;
+    font-weight: $bold-fontweight;
     margin-bottom: .7rem;
     margin-top: -.3rem;
 

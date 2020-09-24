@@ -58,7 +58,9 @@
 }
 
 .label {
+    color: rgba($clr-grey-dark, .8);
     cursor: pointer;
+    font-weight: $bold-fontweight;
     margin-left: .8rem;
 
     &IsDisabled {

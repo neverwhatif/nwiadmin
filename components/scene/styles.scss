@@ -28,6 +28,8 @@
 
 .title {
     @include font-size(lrg);
+    color: rgba($clr-grey-dark, .7);
+    font-weight: $bold-fontweight;
     //@include title;
 
     @include break(tablet) {

@@ -12,8 +12,7 @@
     display: inline-block;
     font-family: $fontfamily;
     height: 4rem;
-    line-height: 3.9rem;
-    padding: 0 2rem;
+    padding: 0 2rem .1rem;
     text-align: center;
     transition: background-color .15s;
     white-space: nowrap;
@@ -76,4 +75,8 @@
             background-color: transparent;
         }
     }
+}
+
+a.root {
+    line-height: 3.8rem;
 }

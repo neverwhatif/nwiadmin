@@ -2,12 +2,13 @@
 @import 'mixins';
 
 .root {
-    @include font-size(med);
+    @include font-size(lrg);
     background-color: $clr-white;
     border: border($clr-grey);
     border-radius: .2rem;
     color: $clr-text;
     font-family: $fontfamily;
+    font-weight: $bold-fontweight;
     height: 4rem;
     line-height: 3.8rem;
     padding: 0 1.2rem;

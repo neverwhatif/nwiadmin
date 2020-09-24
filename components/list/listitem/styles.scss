@@ -20,6 +20,7 @@
 
 .title {
     @include font-size(lrg);
+    font-weight: $bold-fontweight;
     line-height: 1.2;
 
     @include break(tablet) {

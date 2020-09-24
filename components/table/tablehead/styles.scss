@@ -14,14 +14,11 @@
 }
 
 .cell {
-    @include font-size(sml);
     border-bottom: border($clr-grey-light, .2rem);
     color: rgba($clr-grey-dark, .7);
     font-weight: $bold-fontweight;
-    letter-spacing: .1em;
     padding: 0 1rem 1rem;
     text-align: left;
-    text-transform: uppercase;
 
     &Checkbox {
         width: 1%;
