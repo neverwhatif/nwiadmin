@@ -55,7 +55,10 @@ const List = (props) => {
             <ul className={rootClass}>
                 {transformed.map((item) => (
                     <li key={item.id || item.$id}>
-                        <ListItem {...item} shouldInitPreload={props.shouldInitPreload} />
+                        <ListItem
+                            {...item}
+                            shouldInitPreload={item.shouldInitPreload || props.shouldInitPreload}
+                        />
                     </li>
                 ))}
             </ul>

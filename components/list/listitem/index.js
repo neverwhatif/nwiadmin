@@ -141,7 +141,7 @@ ListItem.propTypes = {
         meta: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})])),
     }),
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    shouldInitPreload: PropTypes.bool,
+    shouldInitPreload: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     $rootClassName: PropTypes.string,
     $titleClassName: PropTypes.string,
     onClick: PropTypes.func,
