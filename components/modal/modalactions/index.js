@@ -18,8 +18,12 @@ const ModalActions = ({
 }) => {
     return (
         <div className={styles.root}>
-            {typeof submit === 'function' && (
-                <FormSubmit onClick={onSubmit || submit} isLoading={isLoading} isDisabled={isDisabled}>
+            {(typeof submit === 'function' || typeof onSubmit === 'function') && (
+                <FormSubmit
+                    onClick={onSubmit || submit}
+                    isLoading={isLoading}
+                    isDisabled={isDisabled}
+                >
                     {submitText}
                 </FormSubmit>
             )}
