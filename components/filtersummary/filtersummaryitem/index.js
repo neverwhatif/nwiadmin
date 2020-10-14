@@ -63,7 +63,9 @@ const FilterSummaryItem = ({ filterMapItem, itemKey, value }) => {
         const alias = typeof remote === 'function' ? remote(value) : remote;
         const response = await get(alias);
 
-        setData(response.data);
+        const transformer = filterMapItem.transformer ? filterMapItem.transformer : (item) => item;
+
+        setData((response.data || []).map(item => transformer(item)));
         setLoading(false);
     };
 
