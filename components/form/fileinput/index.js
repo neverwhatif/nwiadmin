@@ -13,7 +13,7 @@ const FileInput = ({ name, onChange }) => {
 };
 
 FileInput.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     onChange: PropTypes.func,
 };
 
