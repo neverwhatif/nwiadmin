@@ -49,7 +49,10 @@ const TableHead = ({ data, headClass, isAllSelected, onSelect }) => {
 
 TableHead.propTypes = {
     data: PropTypes.shape({
-        $id: PropTypes.number.isRequired,
+        $id: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string,
+        ]).isRequired,
         $actions: PropTypes.oneOfType([PropTypes.func, PropTypes.arrayOf(PropTypes.shape({}))]),
     }).isRequired,
     onSelect: PropTypes.func,
