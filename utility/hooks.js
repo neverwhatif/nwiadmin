@@ -166,10 +166,11 @@ export const useForm = ({
     };
 
     return {
-        isSubmitting,
+        errors,
         handleFormData: setFormData,
         handleRenderFields,
         handleSubmit,
         pendingData: formData,
+        isSubmitting,
     };
 };
