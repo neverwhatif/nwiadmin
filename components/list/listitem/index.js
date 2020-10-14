@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { addPrefixToClassNames } from 'nwiadmin/utility';
 
 import Button from 'nwiadmin/components/button';
+import Link from 'nwiadmin/components/link';
 import ListItemTitle from '../listitemtitle';
 import ListItemMeta from '../listitemmeta';
 import Styled from 'nwiadmin/components/styled';
@@ -35,6 +36,11 @@ const renderAction = (item, row, functions) => {
     const label = typeof item.label === 'function' ? item.label(row) : item.label;
     const isDisabled =
         typeof item.isDisabled === 'function' ? item.isDisabled(row) : item.isDisabled;
+
+    if(item.to) {
+        const to = typeof item.to === 'function' ? item.to(row) : item.to;
+        return <Link to={to} isDisabled={isDisabled}>{label}</Link>
+    }
 
     return (
         <Button
