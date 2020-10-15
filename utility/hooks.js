@@ -146,6 +146,11 @@ export const useForm = ({
         } catch (err) {
             setSubmitting(false);
 
+            if(!err.response) {
+                console.error(err);
+                return;
+            }
+
             const {
                 response: { status, data },
             } = err;
