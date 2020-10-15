@@ -41,6 +41,8 @@ const ImageInput = ({ media, name, onChange }) => {
     );
 };
 
+ImageInput.displayName = 'ImageInput';
+
 ImageInput.propTypes = {
     name: PropTypes.string.isRequired,
     media: PropTypes.shape({

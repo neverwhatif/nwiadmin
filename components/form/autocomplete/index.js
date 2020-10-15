@@ -56,4 +56,6 @@ const Autocomplete = ({ initialValue, name, remote, onChange }) => {
     );
 };
 
+Autocomplete.displayName = 'Autocomplete';
+
 export default Autocomplete;

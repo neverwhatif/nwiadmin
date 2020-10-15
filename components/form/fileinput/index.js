@@ -12,6 +12,8 @@ const FileInput = ({ name, onChange }) => {
     );
 };
 
+FileInput.displayName = 'FileInput';
+
 FileInput.propTypes = {
     name: PropTypes.string,
     onChange: PropTypes.func,

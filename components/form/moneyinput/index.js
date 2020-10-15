@@ -14,4 +14,6 @@ const MoneyInput = (props) => (
     </div>
 );
 
+MoneyInput.displayName = 'MoneyInput';
+
 export default MoneyInput;

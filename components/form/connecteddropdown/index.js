@@ -42,6 +42,8 @@ const ConnectedDropdown = ({ allOption, remote, ...otherProps }) => {
     return <Dropdown data={data} {...otherProps} />;
 };
 
+ConnectedDropdown.displayName = 'ConnectedDropdown';
+
 ConnectedDropdown.propTypes = {
     ...withConnected,
     transformer: PropTypes.func,

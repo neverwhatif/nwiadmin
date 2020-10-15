@@ -6,17 +6,17 @@ import FormLabel from 'nwiadmin/components/form/formlabel';
 import styles from './styles.scss';
 
 const fields = [
-    'autocomplete',
-    'checkbox',
-    'connecteddropdown',
-    'dateinput',
-    'dropdown',
-    'fileinput',
-    'imageinput',
-    'moneyinput',
-    'passwordinput',
-    'textarea',
-    'textinput',
+    'Autocomplete',
+    'Checkbox',
+    'ConnectedDropdown',
+    'DateInput',
+    'Dropdown',
+    'FileInput',
+    'ImageInput',
+    'MoneyInput',
+    'PasswordInput',
+    'TextArea',
+    'TextInput',
 ];
 
 const recursiveMap = (children, fn) =>
@@ -35,7 +35,7 @@ const recursiveMap = (children, fn) =>
     });
 
 const cloneInput = (input, label, name) => {
-    if (!input || (input.type && fields.indexOf((input.type.name || '').toLowerCase()) === -1)) {
+    if (!input || (input.type && fields.indexOf(input.type.displayName || '') === -1)) {
         return input;
     }
 

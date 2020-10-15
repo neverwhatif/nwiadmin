@@ -31,6 +31,8 @@ const PasswordInput = ({ value, onChange, ...otherProps }) => {
     );
 };
 
+PasswordInput.displayName = 'PasswordInput';
+
 PasswordInput.propTypes = {
     onChange: PropTypes.func,
 };

@@ -92,6 +92,8 @@ const DateInput = ({ disabledFn, hasError, name, value, onChange }) => {
     );
 };
 
+DateInput.displayName = 'DateInput';
+
 DateInput.propTypes = {
     name: PropTypes.string,
     value: PropTypes.string,

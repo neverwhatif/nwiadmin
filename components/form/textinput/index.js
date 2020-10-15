@@ -25,6 +25,8 @@ const TextInput = (props) => {
     );
 };
 
+TextInput.displayName = 'TextInput';
+
 TextInput.propTypes = {
     className: PropTypes.string,
     component: PropTypes.string,

@@ -100,6 +100,8 @@ const Dropdown = ({
     );
 };
 
+Dropdown.displayName = 'Dropdown';
+
 Dropdown.propTypes = {
     data: PropTypes.arrayOf(
         PropTypes.shape({

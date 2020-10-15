@@ -40,6 +40,8 @@ const Checkbox = (props) => {
     );
 };
 
+Checkbox.displayName = 'Checkbox';
+
 Checkbox.propTypes = {
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
