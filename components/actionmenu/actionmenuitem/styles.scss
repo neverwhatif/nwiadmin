@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'mixins';
+
+.root {
+    background-color: transparent;
+    border: 0;
+    border-bottom: border();
+    color: $clr-primary;
+    cursor: pointer;
+    display: block;
+    font-family: $fontfamily;
+    padding: 1.2rem 0;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &Error {
+        color: $clr-error;
+    }
+}

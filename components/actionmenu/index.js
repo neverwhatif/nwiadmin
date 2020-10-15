@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import { ucwords } from 'nwiadmin/utility';
-
+import Allow from 'nwiadmin/components/allow';
 import Button from 'nwiadmin/components/button';
+
+import ActionMenuItem from './actionmenuitem';
 
 import styles from './styles.scss';
 
@@ -42,17 +43,7 @@ const ActionMenu = ({ actions, label, isDisabled }) => {
                 {actions
                     .filter((action) => action)
                     .map((action) => (
-                        <button
-                            key={action.label}
-                            className={classNames(
-                                styles.button,
-                                action.variant ? styles[`button${ucwords(action.variant)}`] : null
-                            )}
-                            onClick={() => handleClick(action.onClick)}
-                            disabled={action.isDisabled}
-                        >
-                            {action.label}
-                        </button>
+                        action.permission ? <Allow key={action.label} permission={action.permission}><ActionMenuItem action={action} onClick={handleClick} /></Allow> : <ActionMenuItem key={action.label} action={action} onClick={handleClick} />
                     ))}
             </div>
         </div>
