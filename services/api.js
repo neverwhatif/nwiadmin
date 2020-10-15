@@ -63,7 +63,7 @@ const transformRequestToRaw = (requestObj, method) => {
 };
 
 export const makeUrl = (alias, params = {}) =>
-    `${config.paths.api}/${alias}${Object.keys(params).length ? `?${qs.stringify(params)}` : ''}`;
+    `${alias.match(/^http/) ? '' : `${config.paths.api}/`}${alias}${Object.keys(params).length ? `?${qs.stringify(params)}` : ''}`;
 
 const createRequestConfig = (rawMethod, alias, params = {}, rawData = {}, rawOptions = {}) => {
     let method = rawMethod || 'post';
