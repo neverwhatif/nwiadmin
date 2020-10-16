@@ -26,6 +26,7 @@ const getPreloadedTitle = () => {
 };
 
 const ConnectedScene = ({
+    back,
     basePath,
     children,
     message,
@@ -103,6 +104,7 @@ const ConnectedScene = ({
             basePath={basePath}
             title={getTitle()}
             subtitle={transformed.subtitle}
+            back={typeof back === 'function' ? back(data) : back}
             {...otherProps}
         >
             {Boolean(messageString) && <Message type="notify">{messageString}</Message>}

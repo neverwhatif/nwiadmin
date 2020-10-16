@@ -8,7 +8,7 @@ import Tabs from 'nwiadmin/components/tabs';
 
 import styles from './styles.scss';
 
-const Scene = ({ basePath, children, subtitle, tabs, title, shouldSetDocumentTitle }) => {
+const Scene = ({ back, basePath, children, subtitle, tabs, title, shouldSetDocumentTitle }) => {
     useEffect(() => {
         if (shouldSetDocumentTitle) {
             setDocumentTitle(title);
@@ -24,7 +24,7 @@ const Scene = ({ basePath, children, subtitle, tabs, title, shouldSetDocumentTit
                         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
                     </header>
                 )}
-                {tabs && <Tabs data={tabs} basePath={basePath} />}
+                {tabs && <Tabs data={tabs} basePath={basePath} back={back} />}
                 <section className={styles.content}>{children}</section>
             </main>
         </ErrorBoundary>

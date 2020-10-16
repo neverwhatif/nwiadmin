@@ -20,7 +20,7 @@ const renderItem = (item) => (
     </li>
 );
 
-const TabsComponent = ({ basePath, data, location }) => {
+const TabsComponent = ({ back, basePath, data, location }) => {
     const control = useRef();
     const [isOpen, setOpen] = useState(false);
 
@@ -44,6 +44,7 @@ const TabsComponent = ({ basePath, data, location }) => {
     return (
         <div className={classNames(styles.root, isOpen ? styles.rootOpen : null)}>
             <ul className={styles.list}>
+                {Boolean(back) && <li className={styles.item}><TabItem path={back[0]} label={back[1] ? `← ${back[1]}` : '← Back'} /></li>}
                 {parseTabs(data, basePath, location.pathname).map((item) =>
                     item.permission ? (
                         <Allow permission={item.permission} key={item.key}>
