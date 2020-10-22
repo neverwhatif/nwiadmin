@@ -244,6 +244,7 @@ export class ConnectedListComponent extends Component {
                     updateRow: this.updateRow,
                     reloadData: () => this.getData(this.state.search),
                 },
+                onSelect: this.props.onSelect,
             }),
             data,
             hasData,

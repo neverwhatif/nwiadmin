@@ -70,6 +70,7 @@ const Table = ({
     transformer,
     hasHead,
     isDisabled,
+    onSelect,
 }) => {
     const [isSelectable, setSelectable] = useState(false);
     const [selected, setSelected] = useState(initialSelected);
@@ -79,38 +80,44 @@ const Table = ({
 
     const isAllSelected = () => {
         const transformed = getTransformed().filter((item) => !item.$isDisabled);
+
+        console.log(selected, transformed);
         return selected.length === transformed.length;
     };
 
     const handleSelect = (id) => {
-        setSelected(toggleArrayItem(selected, id));
+        const sel = toggleArrayItem(selected, id);
+        setSelected(sel);
 
         const transformed = getTransformed();
 
         if (isSelectable) {
-            PubSub.publish(
-                '@currentTable/SET_SELECTED',
-                transformed.filter((item) => selected.indexOf(item.$id) > -1 && item.$id > 0)
+            const newTransformed = transformed.filter(
+                (item) => sel.indexOf(item.$id) > -1 && item.$id > 0
             );
+
+            PubSub.publish('@currentTable/SET_SELECTED', newTransformed);
+            onSelect(newTransformed);
         }
     };
 
     const handleSelectAll = () => {
         const transformed = getTransformed();
+        const sel = isAllSelected()
+            ? []
+            : transformed
+                  .map((item) => (item.$isDisabled ? null : item.$id))
+                  .filter((item) => item !== null);
 
-        setSelected(
-            isAllSelected()
-                ? []
-                : transformed
-                      .map((item) => (item.$isDisabled ? null : item.$id))
-                      .filter((item) => item !== null)
-        );
+        setSelected(sel);
 
         if (isSelectable) {
-            PubSub.publish(
-                '@currentTable/SET_SELECTED',
-                transformed.filter((item) => selected.indexOf(item.$id) > -1 && item.$id > 0)
+            const newTransformed = transformed.filter(
+                (item) => sel.indexOf(item.$id) > -1 && item.$id > 0
             );
+
+            PubSub.publish('@currentTable/SET_SELECTED', newTransformed);
+            onSelect(newTransformed);
         }
     };
 
@@ -121,6 +128,7 @@ const Table = ({
 
         if (isSelectable) {
             PubSub.publish('@currentTable/SET_SELECTED', initialSelected || []);
+            onSelect(initialSelected || []);
         }
     }, []);
 
@@ -183,6 +191,7 @@ Table.propTypes = {
         })
     ),
     functions: PropTypes.objectOf(PropTypes.func),
+    onSelect: PropTypes.func,
 };
 
 Table.defaultProps = {
@@ -193,6 +202,7 @@ Table.defaultProps = {
     initialSelected: [],
     columns: [],
     functions: null,
+    onSelect: () => null,
 };
 
 export default Table;
