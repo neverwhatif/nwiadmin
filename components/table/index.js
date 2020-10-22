@@ -80,8 +80,6 @@ const Table = ({
 
     const isAllSelected = () => {
         const transformed = getTransformed().filter((item) => !item.$isDisabled);
-
-        console.log(selected, transformed);
         return selected.length === transformed.length;
     };
 
