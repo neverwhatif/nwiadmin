@@ -44,6 +44,47 @@ const getElementOnChangeValue = (target) => {
     return target.value;
 };
 
+const transformResponseDataObject = (parentKey, data) =>
+    Object.entries(data).reduce(
+        (acc, [key, value]) => ({
+            ...acc,
+            [`${parentKey}[${key}]`]: value,
+        }),
+        {}
+    );
+
+const transformResponseData = (data, transformResponse) => {
+    const transformed = transformResponse(data);
+
+    return Object.entries(transformed).reduce((acc, [key, value]) => {
+        if (value && typeof value === 'object') {
+            return { ...acc, ...transformResponseDataObject(key, value) };
+        }
+
+        return { ...acc, [key]: value };
+    }, {});
+};
+
+const transformRequestData = (data, transformRequest) => {
+    const transformed = transformRequest(data);
+
+    return Object.entries(transformed).reduce((acc, [key, value]) => {
+        const matches = key.match(/([^\[]+)\[([^\]]+)\]/);
+
+        if (!matches) {
+            return { ...acc, [key]: value };
+        }
+
+        const [, parentKey, itemKey] = matches;
+
+        if (acc[parentKey]) {
+            return { ...acc, [parentKey]: { ...acc[parentKey], [itemKey]: value } };
+        }
+
+        return { ...acc, [parentKey]: { [itemKey]: value } };
+    }, {});
+};
+
 export const useForm = ({
     data = {},
     fields = [],
@@ -54,7 +95,7 @@ export const useForm = ({
     shouldPublish = true,
 }) => {
     const fieldNames = getFieldNames(fields);
-    const fieldData = getFromObject(transformResponse(data), fieldNames);
+    const fieldData = getFromObject(transformResponseData(data, transformResponse), fieldNames);
 
     const [formData, setFormData] = useFormData(fieldData);
 
@@ -133,7 +174,7 @@ export const useForm = ({
                 method,
                 parsedRemote.alias,
                 parsedRemote.params,
-                transformRequest(diffedData)
+                transformRequestData(diffedData, transformRequest)
             );
 
             setSubmitting(false);
@@ -146,7 +187,7 @@ export const useForm = ({
         } catch (err) {
             setSubmitting(false);
 
-            if(!err.response) {
+            if (!err.response) {
                 console.error(err);
                 return;
             }
