@@ -25,7 +25,7 @@ export const useFormData = (initialData = {}, defaults = {}) => {
 const getFieldNames = (fields) => {
     if (typeof fields === 'object' && !Array.isArray(fields)) {
         return Object.values(fields)
-            .reduce((acc, cur) => [...acc, ...cur], [])
+            .reduce((acc, cur) => [...acc, ...(cur || [])], [])
             .map((field) => field.name)
             .filter((name) => name);
     }
@@ -103,7 +103,7 @@ export const useForm = ({
     const [isSubmitting, setSubmitting] = useState(false);
 
     const handleRenderSelectedFields = (selectedFields) =>
-        selectedFields.map((field, index) => {
+        (selectedFields || []).map((field, index) => {
             if (field === '-') {
                 return <hr key={index} />;
             }
