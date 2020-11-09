@@ -57,7 +57,7 @@ const transformResponseData = (data, transformResponse) => {
     const transformed = transformResponse(data);
 
     return Object.entries(transformed).reduce((acc, [key, value]) => {
-        if (value && typeof value === 'object') {
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
             return { ...acc, ...transformResponseDataObject(key, value) };
         }
 
