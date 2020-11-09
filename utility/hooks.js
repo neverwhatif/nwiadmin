@@ -94,8 +94,15 @@ export const useForm = ({
     shouldDiffRequest = true,
     shouldPublish = true,
 }) => {
+    const [method] = remote;
+
     const fieldNames = getFieldNames(fields);
-    const fieldData = getFromObject(transformResponseData(data, transformResponse), fieldNames);
+    const fieldData = getFromObject(
+        ['postRaw', 'patchRaw'].indexOf(method) === -1
+            ? transformResponseData(data, transformResponse)
+            : transformResponse(data),
+        fieldNames
+    );
 
     const [formData, setFormData] = useFormData(fieldData);
 
@@ -174,7 +181,9 @@ export const useForm = ({
                 method,
                 parsedRemote.alias,
                 parsedRemote.params,
-                transformRequestData(diffedData, transformRequest)
+                ['postRaw', 'patchRaw'].indexOf(method) === -1
+                    ? transformRequestData(diffedData, transformRequest)
+                    : transformRequest(diffedData)
             );
 
             setSubmitting(false);
