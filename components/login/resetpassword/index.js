@@ -39,7 +39,7 @@ const ResetPasswordComponent = ({ match }) => {
             <form className={styles.form}>
                 <Logo className={styles.logo} />
 
-                <em class={styles.rules}>
+                <em className={styles.rules}>
                     Minimum of eight characters, at least one uppercase letter, one lowercase
                     letter, one number and one punctuation mark or symbol.
                     <br />
