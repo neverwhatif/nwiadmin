@@ -10,7 +10,7 @@ import Logo from 'app/components/logo';
 
 import styles from '../styles.scss';
 
-const ResetPasswordComponent = () => {
+const ResetPasswordComponent = ({ match }) => {
     const [formData, setFormData] = useFormData({
         token: match.params.token,
         email: '',
@@ -39,7 +39,7 @@ const ResetPasswordComponent = () => {
             <form className={styles.form}>
                 <Logo className={styles.logo} />
 
-                <em>
+                <em class={styles.rules}>
                     Minimum of eight characters, at least one uppercase letter, one lowercase
                     letter, one number and one punctuation mark or symbol.
                     <br />
