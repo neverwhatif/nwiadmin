@@ -8,6 +8,7 @@ import Button from 'nwiadmin/components/button';
 import Checkbox from 'nwiadmin/components/form/checkbox';
 import Link from 'nwiadmin/components/link';
 import Reference from 'nwiadmin/components/reference';
+import Styled from 'nwiadmin/components/styled';
 
 import styles from './styles.scss';
 
@@ -30,7 +31,11 @@ const renderAction = (item, row, functions) => {
 
 const renderers = {
     default: (value) =>
-        typeof value === 'object' && value !== null ? JSON.stringify(value) : value,
+        typeof value === 'object' && value !== null ? (
+            JSON.stringify(value)
+        ) : (
+            <Styled data={value} />
+        ),
     right: (value) => value.value,
     link: (value) =>
         value.path ? (
