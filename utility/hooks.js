@@ -89,8 +89,8 @@ export const useForm = ({
     data = {},
     fields = [],
     remote = '',
-    transformRequest = (d) => d,
-    transformResponse = (d) => d,
+    transformRequest = (d) => d || {},
+    transformResponse = (d) => d || {},
     shouldDiffRequest = true,
     shouldPublish = true,
 }) => {
