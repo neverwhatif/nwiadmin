@@ -25,11 +25,15 @@ export const useFormData = (initialData = {}, defaults = {}) => {
 const getFieldNames = (fields) => {
     if (typeof fields === 'object' && !Array.isArray(fields)) {
         return Object.values(fields)
+            .filter((field) => field)
             .reduce((acc, cur) => [...acc, ...(cur || [])], [])
             .map((field) => field.name)
             .filter((name) => name);
     }
-    return fields.map((field) => field.name).filter((name) => name);
+    return fields
+        .filter((field) => field)
+        .map((field) => field.name)
+        .filter((name) => name);
 };
 
 const getElementOnChangeValue = (target) => {
@@ -111,6 +115,10 @@ export const useForm = ({
 
     const handleRenderSelectedFields = (selectedFields) =>
         (selectedFields || []).map((field, index) => {
+            if (!field) {
+                return;
+            }
+
             if (field === '-') {
                 return <hr key={index} />;
             }
@@ -153,6 +161,8 @@ export const useForm = ({
     };
 
     const diffData = () => {
+        console.log('diff', formData, fieldData);
+
         let diffed = shouldDiffRequest ? diff(formData, fieldData) : formData;
 
         if (Array.isArray(shouldDiffRequest)) {
