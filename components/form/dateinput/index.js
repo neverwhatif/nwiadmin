@@ -54,7 +54,7 @@ const DateInput = ({ disabledFn, hasError, name, value, onChange }) => {
 
     const panelClass = classNames(styles.panel, isPanelOpen ? styles.panelIsOpen : null);
 
-    const actualDateValue = dateValue || formatDate(value);
+    const actualDateValue = dateValue || value;
 
     return (
         <div className={styles.root} ref={node}>
