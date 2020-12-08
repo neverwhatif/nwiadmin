@@ -54,22 +54,24 @@ const DateInput = ({ disabledFn, hasError, name, value, onChange }) => {
 
     const panelClass = classNames(styles.panel, isPanelOpen ? styles.panelIsOpen : null);
 
+    const actualDateValue = dateValue || formatDate(value);
+
     return (
         <div className={styles.root} ref={node}>
             <TextInput
                 name={name}
                 className={styles.input}
                 autoComplete="off"
-                value={dateValue}
+                value={actualDateValue}
                 hasError={hasError}
                 onFocus={() => setPanelOpen(true)}
                 onChange={handleChange}
             />
             <div className={panelClass}>
                 <DateInputPanel
-                    initialValue={dateValue ? dateValue.split(' ')[0] : ''}
+                    initialValue={actualDateValue ? actualDateValue.split(' ')[0] : ''}
                     onSelectDate={handleSelect}
-                    active={dateValue}
+                    active={actualDateValue}
                     disabledFn={disabledFn}
                 />
             </div>
