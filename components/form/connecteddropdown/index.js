@@ -16,7 +16,7 @@ const ConnectedDropdown = ({ allOption, remote, ...otherProps }) => {
         setDataLoading(true);
 
         const parsedRemote = parseRemote(remote);
-        const parsedParams = { per_page: 999, ...(parsedRemote.params || {}) };
+        const parsedParams = { limited_view: 1, per_page: 999, ...(parsedRemote.params || {}) };
 
         try {
             const response = await get(parsedRemote.alias, parsedParams);
