@@ -27,7 +27,8 @@
 }
 
 .input {
-    padding-left: 5rem;
+    // Not ideal to use !important, but it needs to override textinput styles
+    padding-left: 5rem !important;
 }
 
 .control {
