@@ -161,8 +161,6 @@ export const useForm = ({
     };
 
     const diffData = () => {
-        console.log('diff', formData, fieldData);
-
         let diffed = shouldDiffRequest ? diff(formData, fieldData) : formData;
 
         if (Array.isArray(shouldDiffRequest)) {
