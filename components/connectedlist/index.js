@@ -168,7 +168,7 @@ export class ConnectedListComponent extends Component {
     updateRow(row) {
         this.setState({
             data: this.state.data.map((item) => {
-                if (row.$id !== item.id && row.id !== item.id) {
+                if (typeof item.id === 'undefined' || (row.$id !== item.id && row.id !== item.id)) {
                     return item;
                 }
                 return { ...row };
