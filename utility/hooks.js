@@ -135,6 +135,7 @@ export const useForm = ({
                     name={field.name}
                     label={field.label}
                     {...(field.actionProps || {})}
+                    {...(field.fieldProps || {})}
                 >
                     <Component
                         {...(field.props || {})}

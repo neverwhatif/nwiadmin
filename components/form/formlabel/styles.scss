@@ -13,8 +13,9 @@
     }
 
     &IsDesc {
-        @include font-size(xsml);
-        color: $clr-grey-dark;
+        @include font-size(sml);
+        color: rgba($clr-grey-dark, .6);
+        font-style: italic;
         margin-top: -.5rem;
     }
 }
