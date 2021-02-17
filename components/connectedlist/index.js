@@ -177,7 +177,7 @@ export class ConnectedListComponent extends Component {
     }
 
     setActivePanel(row, $activePanel) {
-        this.updateRow({ ...row, $activePanel });
+        this.updateRow({ ...row, id: row.$id, $activePanel });
     }
 
     renderList() {
