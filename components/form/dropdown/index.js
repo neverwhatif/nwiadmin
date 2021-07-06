@@ -95,7 +95,7 @@ const Dropdown = ({
             />
 
             <DropdownList data={transformedData} onItemClick={handleChange} isOpen={isListOpen} />
-            {transformedValue !== null && <DropdownClear onClick={handleClear} />}
+            {transformedValue !== null && transformedValue !== placeholder && <DropdownClear onClick={handleClear} />}
         </div>
     );
 };
