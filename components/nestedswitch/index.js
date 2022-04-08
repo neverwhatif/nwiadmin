@@ -6,6 +6,10 @@ import { buildNestedPath } from 'nwiadmin/services/nav';
 import Error404Scene from 'nwiadmin/scenes/404';
 
 export const renderRoute = (route, basePath, switchData) => {
+    if(!route) {
+        return null;
+    }
+
     const Component = route.component;
     const data = {
         ...switchData,
@@ -24,12 +28,16 @@ export const renderRoute = (route, basePath, switchData) => {
     );
 };
 
-const NestedSwitch = ({ routes, basePath, data }) => (
-    <Switch>
-        {routes.map((route) => renderRoute(route, basePath, data))}
-        <Route component={Error404Scene} />
-    </Switch>
-);
+const NestedSwitch = ({ routes, basePath, data }) => {
+    const routesWithData = typeof routes === 'function' ? routes(data) : routes;
+
+    return (
+        <Switch>
+            {routesWithData.map((route) => renderRoute(route, basePath, data))}
+            <Route component={Error404Scene} />
+        </Switch>
+    );
+}
 
 NestedSwitch.propTypes = {
     routes: PropTypes.arrayOf(

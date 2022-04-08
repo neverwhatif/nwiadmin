@@ -31,6 +31,7 @@ const ConnectedScene = ({
     children,
     message,
     remote,
+    tabs,
     transformer,
     title,
     ...otherProps
@@ -105,6 +106,7 @@ const ConnectedScene = ({
             title={getTitle()}
             subtitle={transformed.subtitle}
             back={typeof back === 'function' ? back(data) : back}
+            tabs={typeof tabs === 'function' ? tabs(data) : tabs}
             {...otherProps}
         >
             {Boolean(messageString) && <Message type="notify">{messageString}</Message>}
