@@ -1,6 +1,6 @@
 {
   "name": "nwiadmin",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Framework for rest based admin systems used by Never What If",
   "author": "Never What If",
   "dependencies": {
