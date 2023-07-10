@@ -93,6 +93,7 @@ export const useForm = ({
     data = {},
     fields = [],
     remote = '',
+    transformErrors = (d) => d || {},
     transformRequest = (d) => d || {},
     transformResponse = (d) => d || {},
     shouldDiffRequest = true,
@@ -126,8 +127,10 @@ export const useForm = ({
             const Component = field.component || TextInput;
             const FieldComponent = field.actionProps ? ActionField : FormField;
 
-            const hasError = Boolean(errors && errors[field.name]);
-            const errorMessage = hasError ? errors[field.name][0] : '';
+            const transformedErrors = transformErrors(errors);
+
+            const hasError = Boolean(transformedErrors && transformedErrors[field.name]);
+            const errorMessage = hasError ? transformedErrors[field.name][0] : '';
 
             return (
                 <FieldComponent
