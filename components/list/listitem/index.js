@@ -47,7 +47,7 @@ const renderAction = (item, row, functions) => {
             key={label}
             onClick={() => item.action({ row, ...functions })}
             isDisabled={isDisabled}
-            buttonStyle="empty"
+            buttonStyle={item.variant === 'error' ? 'emptyError' : 'empty'}
         >
             {label}
         </Button>

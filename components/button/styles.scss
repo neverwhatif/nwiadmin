@@ -50,7 +50,7 @@
         width: 100%;
     }
 
-    &Empty {
+    &Empty, &EmptyError {
         background: none;
         border: 0;
         color: $clr-primary;
@@ -74,6 +74,10 @@
         &[disabled] {
             background-color: transparent;
         }
+    }
+
+    &EmptyError {
+        color: $clr-error;
     }
 }
 
